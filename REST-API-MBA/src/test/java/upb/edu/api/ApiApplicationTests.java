@@ -1,10 +1,10 @@
-package upb.edu.RESTAPIMBA;
+package upb.edu.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RestApiMbaApplicationTests {
+class ApiApplicationTests {
 
 	@Test
 	void contextLoads() {
