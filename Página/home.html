@@ -8,24 +8,57 @@
 </head>
 <body>
 
-  <div class="container">
-    <h1>Welcome to the MBA Program</h1>
-    
-    <div class="options">
-      <a href="subjects.html">
-        <div class="option-box">
-          <h2>View Subjects</h2>
-        </div>
-      </a>
+<div class="homeContainer">
+    <h2 id="pageTitle">Welcome to the MBA Program</h2>
+    <button onclick="redirectToChatbotGPT()">Chatea con el chatbot GPT</button>
+    <div id="buttonsContainer"></div> <!-- Agregamos un contenedor para los botones -->
+</div>
 
-      <a href="chatbot.html">
-        <div class="option-box">
-          <h2>Chat with Chatbot</h2>
-        </div>
-      </a>
-    </div>
+<script>
+    function redirectToCasosDeEstudio() {
+        // Redirigir a la página de casos de estudio
+        window.location.href = 'casos_de_estudio.html'; // Reemplaza con la ruta correcta
+    }
 
-  </div>
+    function redirectToChatbotGPT() {
+        // Redirigir a la página del chatbot GPT
+        window.location.href = 'chatbot_gpt.html'; // Reemplaza con la ruta correcta
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+      var params = new URLSearchParams(window.location.search);
+      var userType = params.get('usertype');
+
+      if (userType) {
+        var pageTitle = document.getElementById('pageTitle');
+        if (userType === 'admin') {
+          pageTitle.innerText = 'Bienvenido administrador';
+          //var buttonsContainer = document.getElementById('buttonsContainer');
+          var administrarButton = document.createElement('button');
+          administrarButton.innerText = 'Administrar';
+          administrarButton.onclick = function() {
+            window.location.href = 'manage.html';
+          };
+          buttonsContainer.appendChild(administrarButton); // Agregar el botón al contenedor
+        } else if (userType === 'docente') {
+          pageTitle.innerText = 'Bienvenido docente';
+          var materiasButton = document.createElement('button');
+          materiasButton.innerText = 'Materias';
+          materiasButton.onclick = function() {
+            window.location.href = 'subjectsTeacher.html';
+          };
+          buttonsContainer.appendChild(materiasButton); // Agregar el botón al contenedor
+        } else if (userType === 'estudiante') {
+          pageTitle.innerText = 'Bienvenido al programa de (insertar programa)';
+          var materiasButton = document.createElement('button');
+          materiasButton.innerText = 'Materias';
+          materiasButton.onclick = function() {
+            window.location.href = 'subjectsStudent.html';
+          };
+          buttonsContainer.appendChild(materiasButton); // Agregar el botón al contenedor
+        }
+      }
+    });
+</script>
 
 </body>
 </html>
