@@ -46,17 +46,17 @@
     }
   
     function getUserType(username, password) {
-      // Lógica para determinar el tipo de usuario (admin, docente, estudiante)
-      if (username == "admin") {
+    switch (username) {
+      case "admin":
         return 'admin';
-      } else if (username == "docente") {
+      case "docente":
         return 'docente';
-      } else if (username == "estudiante") {
+      case "estudiante":
         return 'estudiante';
-      } else {
+      default:
         return 'invalid';
-      }
     }
+  }
   </script>
 
 </body>
