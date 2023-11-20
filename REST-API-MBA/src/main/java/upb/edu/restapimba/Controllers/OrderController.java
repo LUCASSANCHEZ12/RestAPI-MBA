@@ -38,7 +38,7 @@ public class OrderController {
         return orders;
     }
 
-    @PostMapping("/add/{}")
+    @PostMapping("/add/")
     public long addOrder(@RequestBody OrderModel model){
         return service.addOne(model);
     }
