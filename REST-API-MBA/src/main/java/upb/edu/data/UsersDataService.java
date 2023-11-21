@@ -24,13 +24,13 @@ public class UsersDataService implements UsersDataAccessInterface{
 
     @Override
     public List<UserModel> getAll() {
-        List<UserModel> users = jdbcTemplate.query("SELECT * FROM Usuarios", new UsersMapper());
+        List<UserModel> users = jdbcTemplate.query("SELECT * FROM usuarios", new UsersMapper());
         return users;
     }
 
     @Override
     public UserModel getByCode(int code) {
-        String query = "SELECT * FROM Usuarios WHERE codigoUsuarios="+ Integer.toString(code);
+        String query = "SELECT * FROM usuarios WHERE codigoUsuarios="+ Integer.toString(code);
         UserModel user = jdbcTemplate.query(query, new UsersMapper()).get(0);
         return user;
     }
