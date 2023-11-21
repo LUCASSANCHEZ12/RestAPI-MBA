@@ -60,13 +60,19 @@ body{
     padding: 10px 15px;
     font-weight: inherit;
     border-bottom: 1px solid #000000;
+    transition: color 0.3s, border-bottom-color 0.3s;
+}
+
+.nav_items:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
 }
 
 .home_container{
     display: flex;
     height: calc(100vh - 70px);
     align-items: center;
-    color: #f3ba00;
+    color: var(--color-primary);
 }
 
 .home_subtitle{
