@@ -2,7 +2,7 @@
 
 :root{
     --background: linear-gradient(135deg, #667eee7a 0%, #764ba298 100%);
-    --color-primary: #e2c316;
+    --color-primary: #f3ba00;
     --color-secondary: #43228f;
     --boton-padding: 20px 40px;
 }
@@ -55,7 +55,7 @@ body{
 }
 
 .nav_items{
-    color: #fff;
+    color: #000000;
     text-decoration: none;
     margin-right: 20px;
     padding: 10px 15px;
@@ -66,7 +66,7 @@ body{
     display: flex;
     height: calc(100vh - 70px);
     align-items: center;
-    color: #fff;
+    color: #ffffff;
 }
 
 .home_wave{
@@ -93,7 +93,7 @@ body{
 }
 
 .description{
-    background: #eccd18;
+    background: #f3ba00;
 }
 
 .options{
