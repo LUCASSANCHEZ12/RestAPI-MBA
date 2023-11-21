@@ -66,6 +66,10 @@ body{
     display: flex;
     height: calc(100vh - 70px);
     align-items: center;
+    color: #f3ba00;
+}
+
+.home_subtitle{
     color: #ffffff;
 }
 
@@ -93,7 +97,7 @@ body{
 }
 
 .description{
-    background: #f3ba00;
+    background: #ffffff;
 }
 
 .options{
