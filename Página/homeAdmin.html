@@ -46,14 +46,6 @@
 							</div>
 						</a>
 					</article>
-					<article class="options_item" id="materias">
-						<a href="subjectsStudent.html" id="materiasLink">
-							<img src="imagenes/materias.jpg" class="options_img">
-							<div class="options_hover">
-								<h2 class="options_title">Ver materias</h2>
-							</div>
-						</a>
-					</article>
 					</article>
 					<article class="options_item" id="administrar">
 						<a href="manage.html">
@@ -67,38 +59,4 @@
 			</div>
 		</section>
 	</main>
-
-
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var params = new URLSearchParams(window.location.search);
-			var userType = params.get('usertype');
-	
-			//if (userType) {
-			//	var pageTitle = document.getElementById('pageTitle');
-			//	var buttonsContainer = document.getElementById('buttonsContainer');
-	
-				switch(userType){
-					case 'admin':
-					//	pageTitle.innerText = 'Bienvenido administrador';
-	
-						document.getElementById("materias").style.display = "none";
-						break;
-	
-					case 'docente':
-					//	pageTitle.innerText = 'Bienvenido docente';
-	
-						document.getElementById("administrar").style.display = "none";
-						document.getElementById("materiasLink").href = "subjectsTeacher.html";
-						break;
-	
-					case 'estudiante':
-					//	pageTitle.innerText = 'Bienvenido al programa de (insertar programa)';
-	
-						document.getElementById("administrar").style.display = "none";
-						break;          
-				}
-			}
-		);
-	</script>
 </body>
