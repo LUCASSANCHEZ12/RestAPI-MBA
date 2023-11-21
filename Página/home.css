@@ -16,7 +16,6 @@ body{
     margin: 0 auto;
     overflow: hidden;
     padding: 80px 0;
-    max-width: 1200px;
 }
 
 .subtitle{
@@ -60,6 +59,7 @@ body{
     margin-right: 20px;
     padding: 10px 15px;
     font-weight: inherit;
+    border-bottom: 1px solid #000000;
 }
 
 .home_container{
@@ -98,6 +98,10 @@ body{
 
 .description{
     background: #ffffff;
+}
+
+.description_text{
+    font-size: 1.2rem;
 }
 
 .options{
@@ -148,6 +152,47 @@ body{
 .options_item a {
     text-decoration: none; /* Quita la subrayado predeterminado */
     color: black; /* Cambia el color del texto a negro */
+}
+
+/*Responsividad*/
+@media screen and (max-width: 800px){
+    :root{
+        --boton-padding: 18px 40px;
+    }
+
+    .nav{
+        justify-content: space-around;
+    }
+
+    .nav_items{
+        font-weight: 400;
+        margin-right: 0;
+    }
+
+    .home_texts{
+        width: 100%;
+        margin-bottom: 80px;
+    }
+
+    .home_title{
+        font-size: 2.5rem;
+    }
+
+    .home_subtitle{
+        font-size: 1.5rem;
+    }
+
+    .subtitle{
+        font-size: 1.5rem;
+    }
+    
+    .options_subtitle{
+        font-size: 1.5rem;
+    }
+
+    .description_text{
+        font-size: 0.8rem;
+    }
 }
 
 
