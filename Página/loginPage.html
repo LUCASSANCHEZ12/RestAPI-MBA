@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form onsubmit="return validateForm()" method="GET">
+        <div class="input-container">
+          <input type="text" name="username" required>
+          <label>Nombre de usuario</label>
+        </div>
+        <div class="input-container">
+          <input type="password" name="password" required>
+          <label>Contraseña</label>
+        </div>
+        <!-- Campo oculto para almacenar el tipo de usuario -->
+        <input type="hidden" name="usertype" id="usertype" value="">
+        <button type="submit">Submit</button>
+        <a href="recoverPassword.html">Recuperar contraseña</a>
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    function validateForm() {
+      var username = document.getElementsByName('username')[0].value;
+      var password = document.getElementsByName('password')[0].value;
+  
+      // Verificar el tipo de usuario
+      var userType = getUserType(username, password);
+  
+      if (userType != 'invalid') {
+        // Asignar el tipo de usuario al campo oculto
+        document.getElementById('usertype').value = userType;
+        updateFormAction(userType); // Actualizar la acción del formulario
+        return true;
+      } else {
+        alert('Credenciales inválidas');
+        return false;
+      }
+    }
+  
+    function updateFormAction(userType) {
+      var form = document.querySelector('form');
+      var actionURL;
+  
+      // Determinar la URL de acción según el tipo de usuario
+      switch (userType) {
+        case 'admin':
+          actionURL = 'homeAdmin.html';
+          break;
+        case 'docente':
+          actionURL = 'homeTeacher.html';
+          break;
+        case 'estudiante':
+          actionURL = 'homeStudent.html';
+          break;
+      }
+  
+      // Actualizar la acción del formulario con la URL correspondiente
+      form.setAttribute('action', actionURL);
+    }
+  
+    function getUserType(username, password) {
+      switch (username) {
+        case 'admin':
+          return 'admin';
+        case 'docente':
+          return 'docente';
+        case 'estudiante':
+          return 'estudiante';
+        default:
+          return 'invalid';
+      }
+    }
+  </script>
+
+</body>
+</html>
