@@ -4,22 +4,38 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.annotation.RequestScope;
 
-import upb.edu.data.OrdersDataAccessInterface;
-import upb.edu.data.OrdersDataService;
-import upb.edu.restapimba.Services.OrderBusinessService;
-import upb.edu.restapimba.Services.OrdersBusinessServiceInterface;
+import upb.edu.data.CargoDataAccessInterface;
+import upb.edu.data.CargoDataService;
+import upb.edu.data.UsersDataAccessInterface;
+import upb.edu.data.UsersDataService;
+import upb.edu.restapimba.Services.CargoBusinessService;
+import upb.edu.restapimba.Services.CargoBusinessServiceInterface;
+import upb.edu.restapimba.Services.UserBusinessService;
+import upb.edu.restapimba.Services.UsersBusinessServiceInterface;
 
 @Configuration
 public class SpringConfig {
-    @Bean(name="orderBusinessService", initMethod = "init", destroyMethod = "destroy")
+    @Bean(name="userBusinessService", initMethod = "init", destroyMethod = "destroy")
     @RequestScope
-    public OrdersBusinessServiceInterface getOrdersBusiness(){
-        return new OrderBusinessService();
+    public UsersBusinessServiceInterface getUsersBusiness(){
+        return new UserBusinessService();
     }
 
-    @Bean(name="ordersDAO")
+    @Bean(name="cargoBusinessService", initMethod = "init", destroyMethod = "destroy")
     @RequestScope
-    public OrdersDataAccessInterface getDataService(){
-        return new OrdersDataService();
+    public CargoBusinessServiceInterface getCargoBusiness(){
+        return new CargoBusinessService();
+    }
+    
+    @Bean(name="usersDao")
+    @RequestScope
+    public UsersDataAccessInterface getDataService(){
+        return new UsersDataService();
+    }
+
+    @Bean(name="cargosDao")
+    @RequestScope
+    public CargoDataAccessInterface getDataServiceCargo(){
+        return new CargoDataService();
     }
 }

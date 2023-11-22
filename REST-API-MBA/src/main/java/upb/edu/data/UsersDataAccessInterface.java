@@ -17,7 +17,7 @@ public interface UsersDataAccessInterface {
     public List<UserModel> searchUsers(String searchTerm);
 
     // Metodos Login
-    public boolean verifyCredentials(int codde, String passwd);
+    public boolean verifyCredentials(int code, String passwd);
 
     public CargoModel getCargo(UserModel user);
 

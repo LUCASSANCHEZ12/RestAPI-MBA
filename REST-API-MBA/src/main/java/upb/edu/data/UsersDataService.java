@@ -29,10 +29,18 @@ public class UsersDataService implements UsersDataAccessInterface{
     }
 
     @Override
-    public UserModel getByCode(int code) {
-        String query = "SELECT * FROM usuarios WHERE codigoUsuarios="+ Integer.toString(code);
-        UserModel user = jdbcTemplate.query(query, new UsersMapper()).get(0);
-        return user;
+    public UserModel getByCode(int code) 
+    {
+        String query = "SELECT * FROM usuarios WHERE codigoUsuario="+ Integer.toString(code);
+        List <UserModel> users = jdbcTemplate.query(query, new UsersMapper());
+        if (!users.isEmpty())
+        {
+            return users.get(0);
+        }
+        else
+        {
+            return null;
+        }
     }
 
     @Override

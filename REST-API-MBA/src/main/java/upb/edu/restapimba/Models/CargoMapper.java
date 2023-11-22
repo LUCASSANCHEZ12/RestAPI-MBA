@@ -11,7 +11,7 @@ public class CargoMapper implements RowMapper<CargoModel> {
     @Override
     @Nullable
     public CargoModel mapRow(ResultSet rs, int rowNum) throws SQLException {
-        CargoModel cargo = new CargoModel(rs.getInt("cargoID"), rs.getString("nombreCargo"));
+        CargoModel cargo = new CargoModel(rs.getInt("cargoID"), rs.getString("nombreCargo"), rs.getString("descripcion"));
         return cargo;
     }
 }

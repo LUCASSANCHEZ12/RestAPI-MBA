@@ -20,9 +20,9 @@ public class UserBusinessService implements UsersBusinessServiceInterface
     }
 
     @Override
-    public UserModel getByCode(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getByCode'");
+    public UserModel getByCode(int code) 
+    {
+        return usersDao.getByCode(code);
     }
 
     @Override
@@ -56,13 +56,13 @@ public class UserBusinessService implements UsersBusinessServiceInterface
     @Override
     public void destroy() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'destroy'");
+        System.out.println("Destroy method");
     }
 
     @Override
     public void init() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'init'");
+        System.out.println("Init method");
     }
 
     

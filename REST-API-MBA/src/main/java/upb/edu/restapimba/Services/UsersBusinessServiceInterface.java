@@ -9,7 +9,7 @@ public interface UsersBusinessServiceInterface
 
     public void test();
     
-    public UserModel getByCode(long id);
+    public UserModel getByCode(int id);
 
     public List<UserModel> getUsers();
 
