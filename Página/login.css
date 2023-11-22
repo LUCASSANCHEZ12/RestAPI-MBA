@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:ital,wght@0,300;0,400;0,700;0,900;1,900&display=swap');
+
 :root{
-    --background: linear-gradient(135deg, #667eee7a 0%, #4b27ca88 100%);
+    --background: linear-gradient(135deg, #667eee7a 0%, #3033df88 100%);
     --color-primary: #f3ba00;
-    --color-secondary: #43228f;
+    --color-secondary: #05165b;
     --boton-padding: 20px 40px;
 }
 
@@ -25,8 +27,13 @@ body{
     width: 40%;
 }
 
-.image {
-    width: 20%;
+.image1 {
+    width: 5%;
+    background-color: var(--color-primary);
+}
+
+.image2 {
+    width: 15%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: var(--color-secondary);
@@ -45,6 +52,7 @@ body{
 }
 
 .container h1{
+    font-family: 'Pacifico', cursive;
     text-align: center;
     padding: 0 0 25px 0;
     color: #000000;
@@ -60,7 +68,7 @@ body{
 }
 
 input {
-    width: 100%;
+    width: 22rem;
     padding: 10px;
     border: none;
     border-bottom: 1px solid #333333;
@@ -114,5 +122,10 @@ button[type="submit"]{
     font-size: 18px;
     color: #ffffff;
     cursor: pointer;
-    padding: 10px 0;
+    padding: 13px 0;
+    transition: box-shadow 0.1s ease;
 }
+
+button[type="submit"]:active {
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.8);
+  }

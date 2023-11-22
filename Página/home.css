@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;0,900;1,900&display=swap');
 
 :root{
-    --background: linear-gradient(135deg, #667eee7a 0%, #764ba298 100%);
+    --background: linear-gradient(135deg, #667eee7a 0%, #3033df88 100%);
     --color-primary: #f3ba00;
-    --color-secondary: #43228f;
+    --color-secondary: #05165b;
     --boton-padding: 20px 40px;
 }
 
@@ -137,7 +137,7 @@ body{
 
 .options_hover{
     position: absolute;
-    background: #ceb43188;
+    background: #f3ba008c;;
     top: 0;
     left: 0;
     width: 100%;
