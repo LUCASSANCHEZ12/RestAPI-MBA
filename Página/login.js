@@ -1,9 +1,9 @@
 function validateForm() {
-    var username = document.getElementsByName('code')[0].value;
+    var code = document.getElementsByName('code')[0].value;
     var password = document.getElementsByName('password')[0].value;
 
     // Verificar el tipo de usuario
-    var userType = getUserType(username, password);
+    var userType = getUserType(code, password);
 
     if (userType != 'invalid') {
       // Asignar el tipo de usuario al campo oculto
@@ -37,8 +37,8 @@ function validateForm() {
     form.setAttribute('action', actionURL);
   }
 
-  function getUserType(username, password) {
-    switch (username) {
+  function getUserType(code, password) {
+    switch (code) {
       case 'admin':
         return 'admin';
       case 'docente':

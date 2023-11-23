@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;0,900;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:ital,wght@0,300;0,400;0,700;0,900;1,900&display=swap');
 
 :root {
-    --background: linear-gradient(135deg, #667eee7a 0%, #3033df88 100%);
+    --background: linear-gradient(135deg, #ffc400 0%, #afacac 50%, #05165b 100%);
     --color-primary: #f3ba00;
     --color-secondary: #05165b;
     --boton-padding: 20px 40px;
@@ -11,7 +11,7 @@ body {
     font-family: 'Raleway', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background: var(--background);
 }
 
 .profile {
@@ -26,6 +26,8 @@ body {
 h2 {
     color: #0071c5; /* Change this color to the blue shade you want */
     margin-bottom: 20px;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.7rem;
 }
 
 .field {
@@ -52,9 +54,10 @@ h2 {
     border: 1px solid #00508c;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 25px;
     text-align: center;
     transition: background-color 0.3s, color 0.3s;
+    width: 70px;
 }
 
 .back-btn:hover {
