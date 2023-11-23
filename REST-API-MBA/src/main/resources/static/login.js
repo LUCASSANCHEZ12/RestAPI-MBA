@@ -36,20 +36,21 @@ fetch(queryString, {
 .then(data => {
 
   const {
-      codigoUsuario, 
-      cargoId,
+      codigoUsuario,
       password,
-      apellidoPaterno,
+      cargoId,
       segundoNombre,
       primerNombre,
+      apellidoPaterno,
       apellidoMaterno,
-      telefono,
-      email 
+      email,
+      telefono
     } = data.valor1;
 
   const {
     cargoID,
-    nombreCargo
+    nombreCargo,
+    descripcion
   } = data.valor2;
 
   console.log(primerNombre); 
