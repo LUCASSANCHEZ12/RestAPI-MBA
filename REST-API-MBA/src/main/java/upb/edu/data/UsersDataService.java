@@ -51,8 +51,19 @@ public class UsersDataService implements UsersDataAccessInterface{
 
     @Override
     public List<UserModel> searchUsers(String searchTerm) {
-        // TODO Auto-generated method stub
-        return null;
+
+        List<UserModel> users = jdbcTemplate.query("SELECT * FROM usuarios", new UsersMapper());
+
+        for (int i = 0; i < users.size(); i++) {
+            UserModel userModel = users.get(i);
+
+            if(!(userModel.getSegundoNombre().equals(searchTerm) | userModel.getPrimerNombre().equals(searchTerm) | userModel.getApellidoPaterno().equals(searchTerm) | userModel.getApellidoMaterno().equals(searchTerm))){
+                System.out.print(users.get(i));
+                users.remove(i);
+            }
+        }
+
+        return users;
     }
 
     @Override

@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -45,13 +44,11 @@ public class UserController
         return users;
     }
 
-    @GetMapping("/login")
-    public Tuple<UserModel, CargoModel> userLogin(@RequestBody UserModel model)
+    @GetMapping("/login/{code}")
+    public Tuple<UserModel, CargoModel> userLogin(@PathVariable(name="code") int code)
     {
-        System.out.println(model.toString());
-        UserModel user = serviceUser.getByCode(model.getCodigoUsuario());
-        //return (user != null && user.getPassword().equals(model.getPassword()));
-        if (user != null && user.getPassword().equals(model.getPassword()))
+        UserModel user = serviceUser.getByCode(code);
+        if (user != null)
         {
             CargoModel cargo = serviceCargo.getById(user.getCargoId());
             return new Tuple<UserModel,CargoModel>(user, cargo);
