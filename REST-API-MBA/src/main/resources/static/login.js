@@ -1,35 +1,36 @@
 function validateForm() {
-    var username = document.getElementsByName('code')[0].value;
+    var code = document.getElementsByName('code')[0].value;
     var password = document.getElementsByName('password')[0].value;
 
-  console.log(username); 
+  console.log(code); 
   console.log(password);
 
 const url = 'http://24.144.89.34:8080/MBA/Chatbot/login';
-const username1 = username;
+const code1 = code;
 const password1 = password;
 
 // Crear un objeto con los datos a enviar
 const data = {
-  codigoUsuario: username1,
+  codigoUsuario: code1,
   password: password1
 };
 
 // Convertir el objeto a una cadena de consulta (query string)
-const queryString = Object.keys(data)
-  .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-  .join('&');
+//const queryString = Object.keys(data)
+//  .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+//  .join('&');
 
 // Agregar la cadena de consulta a la URL
-const urlWithQueryString = `${url}?${queryString}`;
+//const urlWithQueryString = `${url}?${queryString}`;
 
 // Realizar la solicitud GET
-fetch(urlWithQueryString, {
+fetch(url, {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json'
     // Puedes agregar más encabezados según sea necesario
-  }
+  }, 
+  body: JSON.stringify(data)
 })
 .then(response => response.json()) 
 .then(data => {
@@ -94,8 +95,8 @@ fetch(urlWithQueryString, {
     form.setAttribute('action', actionURL);
   }
 
-  function getUserType(username, password) {
-    switch (username) {
+  function getUserType(code, password) {
+    switch (code) {
       case 'admin':
         return 'admin';
       case 'docente':
