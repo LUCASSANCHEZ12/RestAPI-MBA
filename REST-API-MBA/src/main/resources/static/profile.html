@@ -4,61 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profile</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    .profileContainer {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    h2 {
-      color: #333;
-    }
-
-    #profileInfo {
-      margin-top: 20px;
-    }
-
-    p {
-      margin: 10px 0;
-      color: #555;
-    }
-
-    a {
-      color: #007bff;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  
+  <link rel="stylesheet" type="text/css" href="profile.css">
 </head>
+
 <body>
 
-<div class="profileContainer">
-    <h2>User Profile</h2>
-    <div id="profileInfo">
-        <p><strong>First Name:</strong> John</p>
-        <p><strong>Last Name:</strong> Doe</p>
-        <p><strong>Email:</strong> john.doe@example.com</p>
-    </div>
-    <a href="changepassword.html">Change Password</a>
+<div class="profile">
+
+  <h2>User Profile</h2>
+
+  <div class="field">
+    <span class="label">ID:</span>
+    <span class="data">U123</span>
+  </div>
+
+  <div class="field">
+    <span class="label">Last Name:</span>
+    <span class="data">Doe</span> 
+  </div>
+
+  <div class="field">
+    <span class="label">Middle Name:</span>
+    <span class="data">John</span>
+  </div>
+
+  <div class="field">
+    <span class="label">First Name:</span>
+    <span class="data">Michael</span>
+  </div>
+
+  <div class="field">
+    <span class="label">Mother's Last Name:</span>
+    <span class="data">Smith</span> 
+  </div>
+
+  <div class="field">
+    <span class="label">Phone:</span>
+    <span class="data">555-1234</span>
+  </div>  
+
+  <div class="field">
+    <span class="label">Email:</span> 
+    <span class="data">john.doe@email.com</span>
+  </div>
+  
+  <a href="homeStudent.html" class="back-btn">Back</a>
+
 </div>
 
 </body>

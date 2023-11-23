@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;0,900;1,900&display=swap');
 
 :root{
-    --background: linear-gradient(135deg, #667eee7a 0%, #764ba298 100%);
+    --background: linear-gradient(135deg, #667eee7a 0%, #3033df88 100%);
     --color-primary: #f3ba00;
-    --color-secondary: #43228f;
+    --color-secondary: #05165b;
     --boton-padding: 20px 40px;
 }
 
@@ -16,7 +16,6 @@ body{
     margin: 0 auto;
     overflow: hidden;
     padding: 80px 0;
-    max-width: 1200px;
 }
 
 .subtitle{
@@ -60,13 +59,20 @@ body{
     margin-right: 20px;
     padding: 10px 15px;
     font-weight: inherit;
+    border-bottom: 1px solid #000000;
+    transition: color 0.3s, border-bottom-color 0.3s;
+}
+
+.nav_items:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
 }
 
 .home_container{
     display: flex;
     height: calc(100vh - 70px);
     align-items: center;
-    color: #f3ba00;
+    color: var(--color-primary);
 }
 
 .home_subtitle{
@@ -100,6 +106,10 @@ body{
     background: #ffffff;
 }
 
+.description_text{
+    font-size: 1.2rem;
+}
+
 .options{
     background: #dbd5d5;
 }
@@ -127,7 +137,7 @@ body{
 
 .options_hover{
     position: absolute;
-    background: #ceb43188;
+    background: #f3ba008c;;
     top: 0;
     left: 0;
     width: 100%;
@@ -148,6 +158,48 @@ body{
 .options_item a {
     text-decoration: none; /* Quita la subrayado predeterminado */
     color: black; /* Cambia el color del texto a negro */
+}
+
+/*Responsividad*/
+@media screen and (max-width: 800px){
+    :root{
+        --boton-padding: 18px 40px;
+    }
+
+    .nav{
+        justify-content: space-around;
+        font-size: 0.8rem;
+    }
+
+    .nav_items{
+        font-weight: 400;
+        margin-right: 0;
+    }
+
+    .home_texts{
+        width: 100%;
+        margin-bottom: 80px;
+    }
+
+    .home_title{
+        font-size: 2.5rem;
+    }
+
+    .home_subtitle{
+        font-size: 1.5rem;
+    }
+
+    .subtitle{
+        font-size: 1.5rem;
+    }
+    
+    .options_subtitle{
+        font-size: 1.5rem;
+    }
+
+    .description_text{
+        font-size: 0.8rem;
+    }
 }
 
 
