@@ -16,15 +16,15 @@ const data = {
 };
 
 // Convertir el objeto a una cadena de consulta (query string)
-//const queryString = Object.keys(data)
-//  .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-//  .join('&');
+const queryString = Object.keys(data)
+  .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+  .join('&');
 
 // Agregar la cadena de consulta a la URL
-//const urlWithQueryString = `${url}?${queryString}`;
+const urlWithQueryString = `${url}?${queryString}`;
 
 // Realizar la solicitud GET
-fetch(url, {
+fetch(queryString, {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json'
