@@ -12,11 +12,15 @@ body {
     margin: 0;
     padding: 0;
     background: var(--background);
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    height: 100vh; /* Establecer el cuerpo al 100% del viewport height */
 }
 
 .profile {
-    max-width: 600px;
-    margin: 50px auto;
+    width: 90%; /* Ancho del perfil, puedes ajustarlo según necesites */
+    max-width: 600px; /* Ancho máximo del perfil */
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -57,7 +61,7 @@ h2 {
     border-radius: 25px;
     text-align: center;
     transition: background-color 0.3s, color 0.3s;
-    width: 70px;
+    width: 20%;
 }
 
 .back-btn:hover {
