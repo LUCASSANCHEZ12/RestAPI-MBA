@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="login.component.css">
+</head>
+<body>
+	<div class="login_container">
+        <div class="container">
+            <form onsubmit="return validateForm()" method="GET">
+                <h1>Login</h1>
+                <div class="input-container">
+                    <input type="text" name="code" required>
+                    <label>Código</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" name="password" required>
+                    <label>Contraseña</label>
+                </div>
+                <!-- Campo oculto para almacenar el tipo de usuario -->
+                <input type="hidden" name="usertype" id="usertype" value="">
+                <a class="recuperar" href="recoverPassword.html">Recuperar contraseña</a>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </div>
+        <div class="image1">
+        </div>
+        <div class="image2">
+        </div>
+    </div>
+    
+</body>

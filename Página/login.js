@@ -1,10 +1,8 @@
 function validateForm() {
-    var code = document.getElementsByName('code')[0].value;
+    var username = document.getElementsByName('code')[0].value;
     var password = document.getElementsByName('password')[0].value;
-
     // Verificar el tipo de usuario
-    var userType = getUserType(code, password);
-
+    var userType = getUserType(username, password);
     if (userType != 'invalid') {
       // Asignar el tipo de usuario al campo oculto
       document.getElementById('usertype').value = userType;
@@ -15,11 +13,9 @@ function validateForm() {
       return false;
     }
   }
-
   function updateFormAction(userType) {
     var form = document.querySelector('form');
     var actionURL;
-
     // Determinar la URL de acción según el tipo de usuario
     switch (userType) {
       case 'admin':
@@ -32,13 +28,11 @@ function validateForm() {
         actionURL = 'homeStudent.html';
         break;
     }
-
     // Actualizar la acción del formulario con la URL correspondiente
     form.setAttribute('action', actionURL);
   }
-
-  function getUserType(code, password) {
-    switch (code) {
+  function getUserType(username, password) {
+    switch (username) {
       case 'admin':
         return 'admin';
       case 'docente':
