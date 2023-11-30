@@ -1,14 +1,30 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { TaskService } from './services/task.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'mba';
+  title = 'angular-http-client';
+
+  constructor(
+    private taskService: TaskService
+  ) {}
+
+  getAllTasks() {
+    this.taskService.getAllTasks()
+    .subscribe(tasks => {
+      console.log(tasks);
+    });
+  }
+
+  getTask() {
+    this.taskService.getTask('')
+    .subscribe(task => {
+      console.log(task);
+    });
+  }
+
 }
