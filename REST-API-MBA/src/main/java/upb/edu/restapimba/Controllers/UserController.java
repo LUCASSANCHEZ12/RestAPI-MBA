@@ -47,6 +47,7 @@ public class UserController
     @GetMapping("/login/{code}")
     public Tuple<UserModel, CargoModel> userLogin(@PathVariable(name="code") int code)
     {
+        System.out.println(code);
         UserModel user = serviceUser.getByCode(code);
         if (user != null)
         {
