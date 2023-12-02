@@ -1,13 +1,13 @@
 package upb.edu.restapimba.Models;
 
-public class UserMateriaModel {
+public class MateriaModel {
     
     int codigoUsuario=0;
     String codigoMateria="";
     String nombre="";
     String descripcion="";
 
-    public UserMateriaModel(int codigoUsuario, String codigoMateria, String nombre, String descripcion) {
+    public MateriaModel(int codigoUsuario, String codigoMateria, String nombre, String descripcion) {
         this.codigoUsuario = codigoUsuario;
         this.codigoMateria = codigoMateria;
         this.nombre = nombre;
@@ -43,8 +43,6 @@ public class UserMateriaModel {
     }
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    
+    } 
 
 }
