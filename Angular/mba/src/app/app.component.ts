@@ -11,5 +11,8 @@ import { LoginComponent } from './pages/login/login.component';
     imports: [CommonModule, RouterOutlet, LoginComponent]
 })
 export class AppComponent {
-  title = 'mba';
+  title = 'angular-http-client';
+
+  constructor(
+  ) {}
 }
