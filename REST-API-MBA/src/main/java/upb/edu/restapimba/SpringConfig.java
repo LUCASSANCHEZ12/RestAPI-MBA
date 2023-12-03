@@ -56,6 +56,5 @@ public class SpringConfig {
     @RequestScope
     public MateriaDataAccessInterface getDataServiceCargoMateria(){
         return new MateriaDataService();
-    }
-    
+    }    
 }
