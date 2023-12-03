@@ -3,6 +3,7 @@ package upb.edu.restapimba.Services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 
 import upb.edu.data.UsersDataAccessInterface;
 import upb.edu.restapimba.Models.UserModel;
@@ -42,9 +43,8 @@ public class UserBusinessService implements UsersBusinessServiceInterface
     }
 
     @Override
-    public boolean deleteOneUser(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteOneUser'");
+    public UserModel deleteOneUser(long id) {
+        return usersDao.deleteUser(id);
     }
 
     @Override
@@ -63,6 +63,12 @@ public class UserBusinessService implements UsersBusinessServiceInterface
     public void init() {
         // TODO Auto-generated method stub
         System.out.println("Init method");
+    }
+
+    @Override
+    public UserModel createUser(UserModel userModel) {
+        // TODO Auto-generated method stub
+        return usersDao.createUser(userModel);
     }
 
     

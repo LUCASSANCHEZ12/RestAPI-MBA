@@ -10,9 +10,10 @@ public class UserModel {
     Long Telefono=0L;
     String Password="";
     int CargoId=0;
+    String CodigoPrograma="";
     
     public UserModel(int codigoUsuario, String primerNombre, String segundoNombre, String apellidoPaterno,
-            String apellidoMaterno, String email, Long telefono, String password, int cargoId) {
+            String apellidoMaterno, String email, Long telefono, String password, int cargoId, String codigoPrograma) {
         CodigoUsuario = codigoUsuario;
         PrimerNombre = primerNombre;
         SegundoNombre = segundoNombre;
@@ -22,6 +23,7 @@ public class UserModel {
         Telefono = telefono;
         Password = password;
         CargoId = cargoId;
+        CodigoPrograma = codigoPrograma;
     }
 
     
@@ -31,6 +33,7 @@ public class UserModel {
         return "UserModel [CodigoUsuario=" + CodigoUsuario + ", PrimerNombre=" + PrimerNombre + ", SegundoNombre="
                 + SegundoNombre + ", ApellidoPaterno=" + ApellidoPaterno + ", ApellidoMaterno=" + ApellidoMaterno
                 + ", Email=" + Email + ", Telefono=" + Telefono + ", Password=" + Password + ", CargoId=" + CargoId
+                + ", CodigoPrograma=" + CodigoPrograma
                 + "]";
     }
 
@@ -107,6 +110,8 @@ public class UserModel {
         CargoId = cargoId;
     }
 
-
+    public String getCodigoPrograma(){
+        return CodigoPrograma;
+    }
     
 }

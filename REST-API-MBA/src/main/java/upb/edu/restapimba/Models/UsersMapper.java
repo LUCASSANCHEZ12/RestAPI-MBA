@@ -11,7 +11,7 @@ public class UsersMapper implements RowMapper<UserModel> {
     @Override
     @Nullable
     public UserModel mapRow(ResultSet rs, int rowNum) throws SQLException {
-        UserModel user = new UserModel(rs.getInt("codigoUsuario"), rs.getString("primerNombre"), rs.getString("segundoNombre"), rs.getString("apellidoPaterno"), rs.getString("apellidoMaterno"), rs.getString("email"), rs.getLong("telefono"), rs.getString("password"), rs.getInt("cargoID"));
+        UserModel user = new UserModel(rs.getInt("codigoUsuario"), rs.getString("primerNombre"), rs.getString("segundoNombre"), rs.getString("apellidoPaterno"), rs.getString("apellidoMaterno"), rs.getString("email"), rs.getLong("telefono"), rs.getString("password"), rs.getInt("cargoID"), rs.getString("codigoPrograma"));
         return user;
     }
     

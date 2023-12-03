@@ -2,6 +2,8 @@ package upb.edu.restapimba.Services;
 
 import java.util.List;
 
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
+
 import upb.edu.restapimba.Models.UserModel;
 
 public interface UsersBusinessServiceInterface
@@ -16,9 +18,11 @@ public interface UsersBusinessServiceInterface
 
     public List<UserModel> searchUsers(String searchTerm);
 
+    public UserModel createUser(UserModel userModel);
+
     public long addOneUser(UserModel newOrder);
 
-    public boolean deleteOneUser(long id);
+    public UserModel deleteOneUser(long id);
 
     public UserModel updateOneUser(long idToUpdate, UserModel updateOrder);
 
