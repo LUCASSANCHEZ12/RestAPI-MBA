@@ -5,7 +5,6 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -77,7 +76,18 @@ public class UsersDataService implements UsersDataAccessInterface{
     public UserModel createUser(UserModel newUser){
         
         UserModel user = newUser;
-        String values = String.format("(%d,'%s','%s','%s','%s','%s',%d,'%s',%d)",user.getCodigoUsuario(),user.getPrimerNombre(),user.getSegundoNombre(),user.getApellidoPaterno(),user.getApellidoMaterno(),user.getEmail(),user.getTelefono(),user.getPassword(),user.getCargoId());
+        String values = String.format(
+            "(%d,'%s','%s','%s','%s','%s',%d,'%s',%d)",
+            user.getCodigoUsuario(),
+            user.getPrimerNombre(),
+            user.getSegundoNombre(),
+            user.getApellidoPaterno(),
+            user.getApellidoMaterno(),
+            user.getEmail(),
+            user.getTelefono(),
+            user.getPassword(),
+            user.getCargoId()
+        );
         String query = String.format("INSERT INTO usuarios (codigoUsuario,primerNombre,segundoNombre,apellidoPaterno,apellidoMaterno,email,telefono,password,cargoID) VALUES %s;",values);
         jdbcTemplate.execute(query);
         return user;

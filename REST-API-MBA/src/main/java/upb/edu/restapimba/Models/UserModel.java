@@ -37,6 +37,7 @@ public class UserModel {
                 + "]";
     }
 
+    
 
     public int getCodigoUsuario() {
         return CodigoUsuario;
@@ -112,6 +113,10 @@ public class UserModel {
 
     public String getCodigoPrograma(){
         return CodigoPrograma;
+    }
+
+    public void setCodigoPrograma(String codigoPrograma) {
+        CodigoPrograma = codigoPrograma;
     }
     
 }

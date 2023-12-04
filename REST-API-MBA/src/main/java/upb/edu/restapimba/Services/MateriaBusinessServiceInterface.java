@@ -3,8 +3,6 @@ package upb.edu.restapimba.Services;
 import java.util.List;
 
 import upb.edu.restapimba.Models.MateriaModel;
-import upb.edu.restapimba.Models.Tuple;
-import upb.edu.restapimba.Models.UserModel;
 
 public interface MateriaBusinessServiceInterface {
     
@@ -15,18 +13,17 @@ public interface MateriaBusinessServiceInterface {
     public void init();
 
     // POST
-    public MateriaModel crearMateria();
+    public MateriaModel crearMateria(MateriaModel materia);
 
     // POST
-    public Tuple<MateriaModel, UserModel> asignarMateria();
+    public int asignarMateriaPrograma(String CodigoPrograma, String CodigoMateria);
 
     // GET
-    public List<MateriaModel> verMateriasAsignadas();
+    public List<MateriaModel> verMateriasAsignadas(int CodigoUsuario);
 
     // GET
     public List<MateriaModel> verMaterias();
 
     // DELETE
-    public MateriaModel quitarMateria();
-
+    public int quitarMateria(String CodigoPrograma, String CodigoMateria);
 }
