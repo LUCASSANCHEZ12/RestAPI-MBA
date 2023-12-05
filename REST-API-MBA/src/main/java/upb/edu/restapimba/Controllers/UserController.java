@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,40 +37,63 @@ public class UserController
     @GetMapping("/getall")
     public List<UserModel> showAllUsers() 
     { 
-        List<UserModel> users = serviceUser.getUsers();
-        return users;
+        try {
+            List<UserModel> users = serviceUser.getUsers();
+            return users;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
-    @GetMapping("/search/{searchTerm}")
-    public List<UserModel> searchUsers(@PathVariable(name="searchTerm") String searchTerm)
-    {
-        List<UserModel> users = serviceUser.searchUsers(searchTerm);
-        return users;
+    @GetMapping("/login/{code}/{passwd}")
+    public boolean verifyCredentials(@PathVariable(name="code") long code, @PathVariable(name="passwd") String passwd){
+        return serviceUser.verifyCredentials(code, passwd);
     }
 
-    @GetMapping("/login/{code}")
-    public Tuple<UserModel, CargoModel> userLogin(@PathVariable(name="code") int code)
-    {
-        System.out.println(code);
-        UserModel user = serviceUser.getByCode(code);
-        if (user != null)
-        {
+    @GetMapping("/getUser/{code}")
+    public Tuple<UserModel, CargoModel> userLogin(@PathVariable(name="code") long code)
+    {      
+        try {
+            UserModel user = serviceUser.getByCode(code);
             CargoModel cargo = serviceCargo.getById(user.getCargoId());
             return new Tuple<UserModel,CargoModel>(user, cargo);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
         }
-        return null;
     }
 
     @PostMapping("/create")
-    public UserModel searchUser(@RequestBody UserModel userModel)
+    public UserModel createUser(@RequestBody UserModel userModel)
     {
-        
-        return serviceUser.createUser(userModel);
+        try {
+            return serviceUser.createUser(userModel);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
     
     @DeleteMapping("/delete/{code}")
-    public UserModel deleteModel(@PathVariable(name="code") int code)
+    public UserModel deleteModel(@PathVariable(name="code") long code)
     {
-        return serviceUser.deleteOneUser(code);
+        try {
+            return serviceUser.deleteOneUser(code);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    @PutMapping("/update")
+    public UserModel updateUser(@RequestBody UserModel userModel)
+    {
+        try {
+            return serviceUser.updateUser(userModel);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 }

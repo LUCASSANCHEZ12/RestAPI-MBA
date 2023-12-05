@@ -10,19 +10,33 @@ import upb.edu.restapimba.Models.CargoModel;
 @Repository
 public interface UsersDataAccessInterface {
     
+    public void test();
+
+    public void destroy();
+    
+    public void init();
+    
+    //GET
     public UserModel getByCode(long code);
 
-    public List<UserModel> getAll();
+    // GET
+    public boolean verifyCredentials(long code, String passwd);
 
+    //GET
+    public CargoModel getCargo(long user);
+
+    //GET
+    public List<UserModel> getUsers();
+    
+    //GET
     public List<UserModel> searchUsers(String searchTerm);
 
-    // Metodos Login
-    public boolean verifyCredentials(int code, String passwd);
+    //POST
+    public UserModel createUser(UserModel userModel);
 
-    public CargoModel getCargo(UserModel user);
+    //PUT
+    public UserModel updateUser(UserModel userModel);
 
-    //Metodos para vista de Admin Users
-    public UserModel createUser(UserModel newUser);
-
-    public UserModel deleteUser(long code);
+    //DELETE
+    public UserModel deleteOneUser(long id);
 }
