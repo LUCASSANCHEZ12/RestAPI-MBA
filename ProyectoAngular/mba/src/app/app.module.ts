@@ -7,7 +7,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeAdmiComponent } from './pages/home-admi/home-admi.component';
 import { HomeStudentComponent } from './pages/home-student/home-student.component';
 import { HomeTeacherComponent } from './pages/home-teacher/home-teacher.component';
-import { CrudUserComponent } from './pages/crud-user/crud-user.component';
+import { AdminProgramasComponent } from './pages/admin-programas/admin-programas.component';
+import { CrearProgramaComponent } from './pages/crear-programa/crear-programa.component';
+import { EditarProgramaComponent } from './pages/editar-programa/editar-programa.component';
+import { AgregarMateriaComponent } from './pages/agregar-materia/agregar-materia.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { CrudUserComponent } from './pages/crud-user/crud-user.component';
     HomeAdmiComponent,
     HomeStudentComponent,
     HomeTeacherComponent,
-    CrudUserComponent,
+    AdminProgramasComponent,
+    CrearProgramaComponent,
+    EditarProgramaComponent,
+    AgregarMateriaComponent,
   ],
   imports: [
     BrowserModule,
