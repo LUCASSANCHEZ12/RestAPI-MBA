@@ -1,5 +1,6 @@
 package upb.edu.restapimba.Controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,10 +92,14 @@ public class ProgramaController {
         }
     }
 
-    @PostMapping("/materia/asign/{materia}/{programa}")
-    public Tuple<MateriaModel, ProgramaModel> asignMateriaPrograma(@PathVariable(name="materia") String materia, @PathVariable(name="programa") String programa){
+    @PostMapping("/materia/asign/{programa}")
+    public List<MateriaModel> asignMateriaPrograma(@PathVariable(name="programa") String programa, @RequestBody List<MateriaModel> materias){
         try {
-            return serviceMateria.asignarMateriaPrograma(programa, materia);
+            List<MateriaModel> materiasAsignadas = new ArrayList<MateriaModel>();
+            for (MateriaModel materiaModel : materias) {
+                materiasAsignadas.add(serviceMateria.asignarMateriaPrograma(programa, materiaModel.getCodigoMateria()).getValor1());
+            }
+            return materiasAsignadas;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
@@ -166,5 +171,5 @@ public class ProgramaController {
             return null;
         }
     }
-
+    
 }
