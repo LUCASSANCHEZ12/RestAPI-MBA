@@ -21,7 +21,7 @@ public interface MateriaDataAccessInterface {
     public Tuple<MateriaModel, ProgramaModel> asignarMateriaPrograma(String CodigoPrograma, String CodigoMateria);
 
     // GET
-    public List<MateriaModel> verMateriasAsignadas(int CodigoUsuario);
+    public List<MateriaModel> verMateriasAsignadas(long CodigoUsuario);
 
     // GET
     public List<MateriaModel> verMaterias();

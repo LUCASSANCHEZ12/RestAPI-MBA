@@ -66,16 +66,16 @@ public class MateriaDataService implements MateriaDataAccessInterface{
     }
 
     @Override
-    public List<MateriaModel> verMateriasAsignadas(int CodigoUsuario) {
+    public List<MateriaModel> verMateriasAsignadas(long CodigoUsuario) {
         String query = """
-            SELECT m.codigoMateria, m.nombreMateria, m.descripcion
+            SELECT m.*
             FROM usuarios u
             JOIN programa p ON u.codigoPrograma = p.codigoPrograma
             JOIN programaMateria pm ON p.codigoPrograma = pm.codigoPrograma
             JOIN materia m ON pm.codigoMateria = m.codigoMateria
             WHERE u.codigoUsuario = 
         """;
-        List<MateriaModel> materias = jdbcTemplate.query(query+Integer.toString(CodigoUsuario)+";", new MateriaMapper());
+        List<MateriaModel> materias = jdbcTemplate.query(query+Long.toString(CodigoUsuario)+";", new MateriaMapper());
         return materias;
     }
 

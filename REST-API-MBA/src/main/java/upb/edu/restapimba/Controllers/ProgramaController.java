@@ -20,6 +20,8 @@ import upb.edu.restapimba.Models.UserModel;
 import upb.edu.restapimba.Services.MateriaBusinessServiceInterface;
 import upb.edu.restapimba.Services.ProgramaBusinessServiceInterface;
 import upb.edu.restapimba.Services.UsersBusinessServiceInterface;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/MBA/program")
@@ -81,6 +83,16 @@ public class ProgramaController {
             return null;
         }
     }
+    @GetMapping("/materia/getMateriasAsignadas/{code}")
+    public List<MateriaModel> getMethodName(@PathVariable(name="code") long code) {
+        try {
+        return serviceMateria.verMateriasAsignadas(code);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+    
 
     @DeleteMapping("/materia/delete/program/{materia}/{programa}")
     public Tuple<MateriaModel, ProgramaModel> deleteMateriaPrograma(@PathVariable(name="materia") String materia, @PathVariable(name="programa") String programa){
@@ -171,5 +183,16 @@ public class ProgramaController {
             return null;
         }
     }
+
+    @GetMapping("/getMateriasPrograma/{programa}")
+    public List<MateriaModel> getMethodName(@PathVariable(name="programa") String program) {
+            try {
+                return serviceProgram.verMaterias(program);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return null;
+            }
+    }
+    
     
 }

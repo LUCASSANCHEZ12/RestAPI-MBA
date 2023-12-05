@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import upb.edu.restapimba.Models.MateriaMapper;
+import upb.edu.restapimba.Models.MateriaModel;
 import upb.edu.restapimba.Models.ProgramaMapper;
 import upb.edu.restapimba.Models.ProgramaModel;
 import upb.edu.restapimba.Models.UserModel;
@@ -100,5 +102,12 @@ public class ProgramaDataService implements ProgramaDataAccessInterface{
     public ProgramaModel getByID(String programa) {
         String query1 =  String.format("SELECT * FROM programa WHERE codigoPrograma='%s';", programa);
         return jdbcTemplate.query(query1, new ProgramaMapper()).get(0);
+    }
+
+    @Override
+    public List<MateriaModel> verMaterias(String programa) {
+        // TODO Auto-generated method stub
+        String query = String.format("SELECT m.* FROM programa p JOIN programaMateria pm ON p.codigoPrograma = pm.codigoPrograma JOIN materia m ON pm.codigoMateria = m.codigoMateria WHERE p.codigoPrograma = '%s'",programa);
+        return jdbcTemplate.query(query, new MateriaMapper());
     }
 }

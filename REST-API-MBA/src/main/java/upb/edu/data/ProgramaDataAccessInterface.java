@@ -2,6 +2,7 @@ package upb.edu.data;
 
 import java.util.List;
 
+import upb.edu.restapimba.Models.MateriaModel;
 import upb.edu.restapimba.Models.ProgramaModel;
 import upb.edu.restapimba.Models.UserModel;
 
@@ -29,4 +30,7 @@ public interface ProgramaDataAccessInterface {
 
     // GET
     public ProgramaModel getByID(String programa);
+
+    //GET
+    public List<MateriaModel> verMaterias(String programa);
 }

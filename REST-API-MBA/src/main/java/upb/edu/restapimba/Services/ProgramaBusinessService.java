@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import upb.edu.data.ProgramaDataAccessInterface;
+import upb.edu.restapimba.Models.MateriaModel;
 import upb.edu.restapimba.Models.ProgramaModel;
 import upb.edu.restapimba.Models.UserModel;
 
@@ -56,6 +57,12 @@ public class ProgramaBusinessService implements ProgramaBusinessServiceInterface
     @Override
     public ProgramaModel getByID(String programa) {
         return programaDAO.getByID(programa);
+    }
+
+    @Override
+    public List<MateriaModel> verMaterias(String programa) {
+        // TODO Auto-generated method stub
+        return programaDAO.verMaterias(programa);
     }
     
 }
