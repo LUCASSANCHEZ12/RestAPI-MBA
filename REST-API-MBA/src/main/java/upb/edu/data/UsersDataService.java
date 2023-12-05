@@ -108,7 +108,7 @@ public class UsersDataService implements UsersDataAccessInterface{
     @Override
     public UserModel updateUser(UserModel userModel) {
         String query = String.format(
-            "UPDATE usuarios SET primerNombre='%s',segundoNombre='%s',apeliidoPaterno='%s',apellidoMaterno='%s',email='%s',telefono=%d,password='%s' WHERE codigoUsuario=%d;", 
+            "UPDATE usuarios SET primerNombre='%s',segundoNombre='%s',apellidoPaterno='%s',apellidoMaterno='%s',email='%s',telefono=%d,password='%s' WHERE codigoUsuario=%d;", 
             userModel.getPrimerNombre(),
             userModel.getSegundoNombre(),
             userModel.getApellidoPaterno(),
