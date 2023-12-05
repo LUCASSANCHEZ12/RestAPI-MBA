@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { User } from '../../interfaces/user';
+import { UserTuple } from '../../interfaces/userTuple';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ export class LoginComponent {
   codeInput!: ElementRef<HTMLInputElement>; 
   @ViewChild('passwordInput')
   passInput!: ElementRef<HTMLInputElement>; 
-  public usuario: User | null;
+  public usuario: UserTuple | null;
   
   constructor(private userService: UserService, private router: Router){
     this.codigo = '';
@@ -41,7 +41,7 @@ export class LoginComponent {
   getUser(id: string){
     console.log('entré');
     this.userService.getUser(id)
-      .subscribe((user: User | null) => {
+      .subscribe((user: UserTuple | null) => {
         if (user === null) {
           alert('El código y contraseña ingresados no corresponden a ningún usuario');
         }
@@ -63,7 +63,7 @@ export class LoginComponent {
     return regex.test(texto);
   }
 
-  redirigir(usuario: User){
+  redirigir(usuario: UserTuple){
     switch(usuario.valor2.cargoID){
       case 1:
         this.router.navigate(['/homeAdmi'], { queryParams: { id: usuario.valor1.codigoUsuario } });

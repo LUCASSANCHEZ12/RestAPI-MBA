@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { UserTuple } from '../interfaces/userTuple';
 import { User } from '../interfaces/user';
 
 @Injectable({
@@ -16,7 +16,20 @@ export class UserService {
     const path = this.api + "/getUser/" + id;
     console.log(path);
     try {
-      const response = this.http.get<User>(path);
+      const response = this.http.get<UserTuple>(path);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      throw error;
+    }
+  }
+
+  updateUser(user: User) {
+    const path = this.api + "/update";
+    console.log(path);
+    try {
+      const response = this.http.put<User>(path,user);
       console.log(response);
       return response;
     } catch (error) {

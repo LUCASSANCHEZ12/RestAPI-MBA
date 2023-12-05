@@ -10,37 +10,37 @@
         
         <div class="field">
             <span class="label">Primer Nombre:</span>
-            <input class="data" type="text" [value]="usuario?.valor1?.primerNombre" enabled>
+            <input class="data" type="text" [value]="usuario?.valor1?.primerNombre" enabled #pNombreInput>
         </div>
         
         <div class="field">
             <span class="label">Segundo Nombre:</span>
-            <input class="data" type="text" [value]="usuario?.valor1?.segundoNombre" enabled>
+            <input class="data" type="text" [value]="usuario?.valor1?.segundoNombre" enabled #sNombreInput>
         </div>
         
         <div class="field">
             <span class="label">Apellido Paterno:</span>
-            <input class="data" type="text" [value]="usuario?.valor1?.apellidoPaterno" enabled>
+            <input class="data" type="text" [value]="usuario?.valor1?.apellidoPaterno" enabled #aPaternoInput>
         </div>
         
         <div class="field">
             <span class="label">Apellido Materno:</span>
-            <input class="data" type="text" [value]="usuario?.valor1?.apellidoMaterno" enabled>
+            <input class="data" type="text" [value]="usuario?.valor1?.apellidoMaterno" enabled #aMaternoInput>
         </div>
         
         <div class="field">
             <span class="label">Teléfono:</span>
-            <input class="data" type="text" [value]="usuario?.valor1?.telefono" enabled>
+            <input class="data" type="text" [value]="usuario?.valor1?.telefono" enabled #telefonoInput>
         </div>  
         
         <div class="field">
             <span class="label">Email:</span> 
-            <input class="data" type="text" [value]="usuario?.valor1?.email" enabled>
+            <input class="data" type="text" [value]="usuario?.valor1?.email" enabled #emailInput>
         </div>
 
         <div class="field">
             <span class="label">Contraseña:</span> 
-            <input class="data" type="text" [value]="usuario?.valor1?.password" enabled>
+            <input class="data" type="text" [value]="usuario?.valor1?.password" enabled #contrasenaInput>
         </div>
         
         <div class="field">
@@ -49,7 +49,7 @@
         </div>
 
       <a (click)="navigateBack()" class="back-btn">Volver</a>
-      <a class="update-btn">Actualizar</a>
+      <a (click)="update()" class="update-btn">Actualizar</a>
     
     </div>    
 </div>
