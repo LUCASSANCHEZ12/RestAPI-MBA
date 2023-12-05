@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeAdmiComponent } from './pages/home-admi/home-admi.component';
 import { HomeStudentComponent } from './pages/home-student/home-student.component';
 import { HomeTeacherComponent } from './pages/home-teacher/home-teacher.component';
+import { CrudUserComponent } from './pages/crud-user/crud-user.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HomeTeacherComponent } from './pages/home-teacher/home-teacher.componen
     HomeAdmiComponent,
     HomeStudentComponent,
     HomeTeacherComponent,
+    CrudUserComponent,
   ],
   imports: [
     BrowserModule,
