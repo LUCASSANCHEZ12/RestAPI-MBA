@@ -19,7 +19,7 @@ import upb.edu.restapimba.Services.CargoBusinessServiceInterface;
 import upb.edu.restapimba.Services.UsersBusinessServiceInterface;
 
 @RestController
-@RequestMapping("/MBA/user")
+@RequestMapping("/MBA/Chatbot/user")
 public class UserController 
 {
     @Autowired

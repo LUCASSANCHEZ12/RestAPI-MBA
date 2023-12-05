@@ -25,14 +25,5 @@ public interface MateriaBusinessServiceInterface {
     public List<MateriaModel> verMaterias();
 
     // DELETE
-    public int quitarMateriaPrograma(String CodigoPrograma, String CodigoMateria);
-
-    //DELETE
-    public MateriaModel eliminarMateria(String codigo);
-
-    //GET
-    public MateriaModel getById(String code);
-
-    //PUT
-    public MateriaModel updateMateria(MateriaModel materia);
+    public int quitarMateria(String CodigoPrograma, String CodigoMateria);
 }

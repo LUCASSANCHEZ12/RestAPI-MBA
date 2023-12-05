@@ -15,7 +15,7 @@ public interface ProgramaDataAccessInterface {
     // POST
     public ProgramaModel crearPrograma(ProgramaModel programaModel);
 
-    // PUT
+    // POST
     public UserModel asignarPrograma(long CodigoUsuario, String programa);
 
     // GET

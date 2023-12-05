@@ -7,21 +7,21 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import upb.edu.restapimba.Models.MateriaModel;
+import upb.edu.restapimba.Models.CargoModel;
 import upb.edu.restapimba.Models.ProgramaModel;
 import upb.edu.restapimba.Models.Tuple;
 import upb.edu.restapimba.Models.UserModel;
+import upb.edu.restapimba.Services.CargoBusinessServiceInterface;
 import upb.edu.restapimba.Services.MateriaBusinessServiceInterface;
 import upb.edu.restapimba.Services.ProgramaBusinessServiceInterface;
 import upb.edu.restapimba.Services.UsersBusinessServiceInterface;
 
 @RestController
-@RequestMapping("/MBA/program")
+@RequestMapping("/MBA/Chatbot/program")
 public class ProgramaController {
     
     @Autowired
@@ -40,131 +40,40 @@ public class ProgramaController {
         this.serviceProgram = serviceProgram;
     }
 
-    @PostMapping("/materia/create")
-    public MateriaModel createMateria(@RequestBody MateriaModel materia){
-        try {
-            return serviceMateria.crearMateria(materia);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
-
-    @GetMapping("/materia/get/{code}")
-    public MateriaModel getMateriaById(@PathVariable(name="code") String code){
-        try {
-            return serviceMateria.getById(code);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
-
-    @GetMapping("/materia/getall")
-    public List<MateriaModel> getAllMaterias()
-    {
-        try {
-            return serviceMateria.verMaterias();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
-
-    @PutMapping("/materia/update")
-    public MateriaModel updateMateria(@RequestBody MateriaModel materia){
-        try {
-            return serviceMateria.updateMateria(materia);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
-
-    @DeleteMapping("/materia/delete/program/{materia}/{programa}")
-    public Tuple<MateriaModel, ProgramaModel> deleteMateriaPrograma(@PathVariable(name="materia") String materia, @PathVariable(name="programa") String programa){
-        try {
-            return serviceMateria.quitarMateriaPrograma(programa, materia);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
-
-    @DeleteMapping("/materia/asign/{materia}/{programa}")
-    public Tuple<MateriaModel, ProgramaModel> asignMateriaPrograma(@PathVariable(name="materia") String materia, @PathVariable(name="programa") String programa){
-        try {
-            return serviceMateria.asignarMateriaPrograma(programa, materia);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
-
     @GetMapping("/getall")
-    public List<ProgramaModel> getAllProgramas()
+    public List<ProgramaModel> getAll()
     {
-        try {
-            return serviceProgram.verProgramas();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
+        return serviceProgram.verProgramas();
     }
 
     @GetMapping("/user/getProgram/{code}")
     public ProgramaModel getProgrambyUser(@PathVariable(name="code") long code)
     {
-        try {
-            return serviceProgram.verProgramasAsignados(code);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
+        return serviceProgram.verProgramasAsignados(code);
     }
 
     @GetMapping("/getProgram/{program}")
     public ProgramaModel getProgram(@PathVariable(name="program") String program)
     {
-        try {
-            return serviceProgram.getByID(program);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
+        return serviceProgram.getByID(program);
     }
 
     @PostMapping("/create")
     public ProgramaModel createProgram(@RequestBody ProgramaModel programa)
     {
-        try {
-            return serviceProgram.crearPrograma(programa);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
+        return serviceProgram.crearPrograma(programa);
     }
 
-    @PutMapping("/user/asign/{code}/{program}")
+    @PostMapping("/user/asign/{code}/{program}")
     public UserModel asignarProgram(@PathVariable(name="code") long code,@PathVariable(name="program") String program)
     {
-        try {
-            return serviceProgram.asignarPrograma(code, program);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
+        return serviceProgram.asignarPrograma(code, program);
     }
 
     @DeleteMapping("/delete/{program}")
     public ProgramaModel deleteProgram(@PathVariable(name="program") String program)
     {
-        try {
-            return serviceProgram.quitarPrograma(program);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
+        return serviceProgram.quitarPrograma(program);
     }
 
 }
