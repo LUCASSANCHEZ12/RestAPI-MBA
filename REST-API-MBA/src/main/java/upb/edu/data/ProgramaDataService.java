@@ -62,9 +62,9 @@ public class ProgramaDataService implements ProgramaDataAccessInterface{
     }
 
     @Override
-    public ProgramaModel verProgramasAsignados(int user) {
+    public ProgramaModel verProgramasAsignados(long user) {
         String query = String.format(
-            "SELECT p.codigoPrograma, p.nombre AS nombrePrograma, p.descripcion AS descripcionPrograma FROM usuarios u JOIN programa p ON u.codigoPrograma = p.codigoPrograma WHERE u.codigoUsuario=%d;",
+            "SELECT p.codigoPrograma, p.nombre, p.descripcion FROM usuarios u JOIN programa p ON u.codigoPrograma = p.codigoPrograma WHERE u.codigoUsuario=%d;",
             user
         );
         ProgramaModel programa = jdbcTemplate.query(query, new ProgramaMapper()).get(0);
@@ -73,7 +73,7 @@ public class ProgramaDataService implements ProgramaDataAccessInterface{
 
     @Override
     public List<ProgramaModel> verProgramas() {
-        String query = "SELECt * FROM programas";
+        String query = "SELECt * FROM programa";
         return jdbcTemplate.query(query, new ProgramaMapper());
     }
 
@@ -101,5 +101,4 @@ public class ProgramaDataService implements ProgramaDataAccessInterface{
         String query1 =  String.format("SELECT * FROM programa WHERE codigoPrograma='%s';", programa);
         return jdbcTemplate.query(query1, new ProgramaMapper()).get(0);
     }
-
 }

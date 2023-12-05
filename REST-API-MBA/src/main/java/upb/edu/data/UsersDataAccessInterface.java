@@ -2,7 +2,6 @@ package upb.edu.data;
 
 import java.util.List;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.stereotype.Repository;
 
 import upb.edu.restapimba.Models.UserModel;
