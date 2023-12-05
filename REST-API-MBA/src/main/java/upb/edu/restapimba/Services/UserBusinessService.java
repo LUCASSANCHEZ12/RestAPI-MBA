@@ -32,55 +32,49 @@ public class UserBusinessService implements UsersBusinessServiceInterface
     @Override
     public UserModel getByCode(long code) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getByCode'");
+        return usersDao.getByCode(code);
     }
 
     @Override
     public boolean verifyCredentials(long code, String passwd) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'verifyCredentials'");
+        return usersDao.verifyCredentials(code, passwd);
     }
 
     @Override
     public CargoModel getCargo(long user) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCargo'");
-    }
-
-    @Override
-    public UserModel getByCode(int code) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getByCode'");
+        return usersDao.getCargo(user);
     }
 
     @Override
     public List<UserModel> getUsers() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getUsers'");
+        return usersDao.getUsers();
     }
 
     @Override
     public List<UserModel> searchUsers(String searchTerm) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'searchUsers'");
+        return usersDao.searchUsers(searchTerm);
     }
 
     @Override
     public UserModel createUser(UserModel userModel) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createUser'");
+        return usersDao.createUser(userModel);
     }
 
     @Override
     public UserModel updateUser(UserModel userModel) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateUser'");
+        return usersDao.updateUser(userModel);
     }
 
     @Override
     public UserModel deleteOneUser(long id) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteOneUser'");
+        return usersDao.deleteOneUser(id);
     }
 
 

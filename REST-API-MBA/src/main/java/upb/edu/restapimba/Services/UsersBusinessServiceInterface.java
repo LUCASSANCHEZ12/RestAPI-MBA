@@ -23,8 +23,6 @@ public interface UsersBusinessServiceInterface
     //GET
     public CargoModel getCargo(long user);
 
-    //GET
-    public UserModel getByCode(int code);
 
     //GET
     public List<UserModel> getUsers();
