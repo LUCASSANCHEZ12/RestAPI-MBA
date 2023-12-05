@@ -91,7 +91,7 @@ public class ProgramaController {
         }
     }
 
-    @DeleteMapping("/materia/asign/{materia}/{programa}")
+    @PostMapping("/materia/asign/{materia}/{programa}")
     public Tuple<MateriaModel, ProgramaModel> asignMateriaPrograma(@PathVariable(name="materia") String materia, @PathVariable(name="programa") String programa){
         try {
             return serviceMateria.asignarMateriaPrograma(programa, materia);

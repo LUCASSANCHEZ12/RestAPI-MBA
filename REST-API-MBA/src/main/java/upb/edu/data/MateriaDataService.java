@@ -52,7 +52,7 @@ public class MateriaDataService implements MateriaDataAccessInterface{
             materia.getFechaInicio(), 
             materia.getFechaFinal()
         );
-        String query = String.format("INSERT INTO materias VALUES %s;",values);
+        String query = String.format("INSERT INTO materia VALUES %s;",values);
         jdbcTemplate.execute(query);
         return materia;
     }
@@ -81,7 +81,7 @@ public class MateriaDataService implements MateriaDataAccessInterface{
 
     @Override
     public List<MateriaModel> verMaterias() {
-        String query = "SELECT * FROM materias;";
+        String query = "SELECT * FROM materia;";
         List<MateriaModel> materias = jdbcTemplate.query(query, new MateriaMapper());
         return materias;
     }
