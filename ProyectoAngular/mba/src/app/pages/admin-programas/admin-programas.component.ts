@@ -13,16 +13,20 @@ import { AdminProgramasService } from '../../services/admin-programas.service';
 
 export class AdminProgramasComponent implements AfterViewInit{
 
-  constructor(private adminServirce: AdminProgramasService, ){}
+  constructor(private adminServirce: AdminProgramasService, ){
+    this.dataSource = new MatTableDataSource<any>();
+  }
   
-  displayedColumns: string[] = ['codigo', 'nombre', 'descripcion',];
+  displayedColumns: string[] = ['codigoPrograma', 'nombre', 'descripcion',];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.getProgramsList();
   }
 
   getProgramsList(){
@@ -37,7 +41,7 @@ export class AdminProgramasComponent implements AfterViewInit{
       }
     })
   }
-  
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

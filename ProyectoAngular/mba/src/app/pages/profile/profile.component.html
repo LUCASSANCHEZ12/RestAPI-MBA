@@ -1,0 +1,55 @@
+<div class="body">
+    <div class="profile">
+    
+      <h2>Perfil de Usuario</h2>
+    
+        <div class="field">
+            <span class="label">Código:</span>
+            <span class="data">{{ usuario?.valor1?.codigoUsuario }}</span>
+        </div>
+        
+        <div class="field">
+            <span class="label">Primer Nombre:</span>
+            <span class="data">{{ usuario?.valor1?.primerNombre }}</span> 
+        </div>
+        
+        <div class="field">
+            <span class="label">Segundo Nombre:</span>
+            <span class="data">{{ usuario?.valor1?.segundoNombre }}</span>
+        </div>
+        
+        <div class="field">
+            <span class="label">Apellido Paterno:</span>
+            <span class="data">{{ usuario?.valor1?.apellidoPaterno }}</span>
+        </div>
+        
+        <div class="field">
+            <span class="label">Apellido Materno:</span>
+            <span class="data">{{ usuario?.valor1?.apellidoMaterno }}</span> 
+        </div>
+        
+        <div class="field">
+            <span class="label">Teléfono:</span>
+            <span class="data">{{ usuario?.valor1?.telefono }}</span>
+        </div>  
+        
+        <div class="field">
+            <span class="label">Email:</span> 
+            <span class="data">{{ usuario?.valor1?.email }}</span>
+        </div>
+
+        <div class="field">
+            <span class="label">Contraseña:</span> 
+            <span class="data">{{ usuario?.valor1?.password }}</span>
+        </div>
+        
+        <div class="field">
+            <span class="label">Cargo:</span> 
+            <span class="data">{{ usuario?.valor2?.nombreCargo }}</span>
+        </div>
+
+      <a (click)="navigateBack()" class="back-btn">Back</a>
+    
+    </div>    
+</div>
+    

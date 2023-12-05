@@ -2,8 +2,8 @@
 	<div class="home">
 		<div class="container">
 			<nav class="nav">
-				<a href="index.html" class="nav_items">Logout</a>
-				<a href="profile.html" class="nav_items">Perfil</a>
+				<a href="" class="nav_items">Logout</a>
+				<a [routerLink]="['/profile']" [queryParams]="{ id: userId }" class="nav_items">Perfil</a>
 			</nav>
 
 			<section class="home_container">

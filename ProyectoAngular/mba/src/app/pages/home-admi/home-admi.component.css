@@ -115,7 +115,7 @@
 .options_grid{
     display: grid;
     height: 250px;
-    grid-template-areas: "img1 img2";
+    grid-template-areas: "img1 img2 img3";
     gap: 10px;
 }
 

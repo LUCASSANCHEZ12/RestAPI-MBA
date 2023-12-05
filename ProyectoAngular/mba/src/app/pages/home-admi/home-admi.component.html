@@ -2,8 +2,8 @@
 	<div class="home">
 		<div class="container">
 			<nav class="nav">
-				<a href="index.html" class="nav_items">Logout</a>
-				<a href="profile.html" class="nav_items">Perfil</a>
+				<a href="" class="nav_items">Logout</a>
+				<a [routerLink]="['/profile']" [queryParams]="{ id: userId }" class="nav_items">Perfil</a>
 			</nav>
 
 			<section class="home_container">
@@ -38,10 +38,18 @@
 						</a>
 					</article>
 					<article class="options_item" id="administrar">
-						<a href="manage.html">
+						<a href="crudUser">
 							<img src="../../imagenes/administrar.jpg" class="options_img">
 							<div class="options_hover">
-								<h2 class="options_title">Administrar</h2>
+								<h2 class="options_title">Administrar usuarios</h2>
+							</div>
+						</a>
+					</article>
+					<article class="options_item">
+						<a href="adminProgramas">
+							<img src="../../imagenes/inicio.jpg" class="options_img">
+							<div class="options_hover">
+								<h2 class="options_title">Administrar programas y materias</h2>
 							</div>
 						</a>
 					</article>
