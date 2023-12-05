@@ -48,9 +48,23 @@ public class MateriaBusinessService implements MateriaBusinessServiceInterface{
     }
 
     @Override
-    public int quitarMateria(String CodigoPrograma, String CodigoMateria) {
-        return materiaDAO.quitarMateria(CodigoPrograma, CodigoMateria);
+    public int quitarMateriaPrograma(String CodigoPrograma, String CodigoMateria) {
+        return materiaDAO.quitarMateriaPrograma(CodigoPrograma, CodigoMateria);
     }
 
-   
+    @Override
+    public MateriaModel getById(String code){
+        return materiaDAO.getById(code);
+    }
+
+    @Override
+    public MateriaModel updateMateria(MateriaModel materia) {
+        return materiaDAO.updateMateria(materia);
+    }
+
+    @Override
+    public MateriaModel eliminarMateria(String codigo) {
+        return materiaDAO.eliminarMateria(codigo);
+    }
+    
 }

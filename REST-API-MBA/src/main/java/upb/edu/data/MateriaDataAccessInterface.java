@@ -25,5 +25,13 @@ public interface MateriaDataAccessInterface {
     public List<MateriaModel> verMaterias();
 
     // DELETE
-    public int quitarMateria(String CodigoPrograma, String CodigoMateria);
+    public int quitarMateriaPrograma(String CodigoPrograma, String CodigoMateria);
+
+    //
+
+    //GET
+    public MateriaModel getById(String code);
+
+    //PUT
+    public MateriaModel updateMateria(MateriaModel materia);
 }
