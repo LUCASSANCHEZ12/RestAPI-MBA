@@ -10,37 +10,37 @@
         
         <div class="field">
             <span class="label">Primer Nombre:</span>
-            <span class="data">{{ usuario?.valor1?.primerNombre }}</span> 
+            <input class="data" type="text" [value]="usuario?.valor1?.primerNombre" enabled>
         </div>
         
         <div class="field">
             <span class="label">Segundo Nombre:</span>
-            <span class="data">{{ usuario?.valor1?.segundoNombre }}</span>
+            <input class="data" type="text" [value]="usuario?.valor1?.segundoNombre" enabled>
         </div>
         
         <div class="field">
             <span class="label">Apellido Paterno:</span>
-            <span class="data">{{ usuario?.valor1?.apellidoPaterno }}</span>
+            <input class="data" type="text" [value]="usuario?.valor1?.apellidoPaterno" enabled>
         </div>
         
         <div class="field">
             <span class="label">Apellido Materno:</span>
-            <span class="data">{{ usuario?.valor1?.apellidoMaterno }}</span> 
+            <input class="data" type="text" [value]="usuario?.valor1?.apellidoMaterno" enabled>
         </div>
         
         <div class="field">
             <span class="label">Teléfono:</span>
-            <span class="data">{{ usuario?.valor1?.telefono }}</span>
+            <input class="data" type="text" [value]="usuario?.valor1?.telefono" enabled>
         </div>  
         
         <div class="field">
             <span class="label">Email:</span> 
-            <span class="data">{{ usuario?.valor1?.email }}</span>
+            <input class="data" type="text" [value]="usuario?.valor1?.email" enabled>
         </div>
 
         <div class="field">
             <span class="label">Contraseña:</span> 
-            <span class="data">{{ usuario?.valor1?.password }}</span>
+            <input class="data" type="text" [value]="usuario?.valor1?.password" enabled>
         </div>
         
         <div class="field">
@@ -48,7 +48,8 @@
             <span class="data">{{ usuario?.valor2?.nombreCargo }}</span>
         </div>
 
-      <a (click)="navigateBack()" class="back-btn">Back</a>
+      <a (click)="navigateBack()" class="back-btn">Volver</a>
+      <a class="update-btn">Actualizar</a>
     
     </div>    
 </div>

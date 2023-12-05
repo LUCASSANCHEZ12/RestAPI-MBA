@@ -57,6 +57,21 @@ h2 {
     font-size: 1.7rem;
 }
 
+input {
+    width: 60%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #333333;
+    outline: none;
+    color: var(--color-secondary);
+    transition: color 0.1s, border-bottom-color 0.1;
+}
+
+input:focus {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
 .field {
     margin-bottom: 15px;
 }
@@ -88,6 +103,25 @@ h2 {
 }
 
 .back-btn:hover {
+    background-color: #00508c;
+    color: #fff;
+}
+
+.update-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    border: 1px solid #00508c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    width: 120px;
+}
+
+.update-btn:hover {
     background-color: #00508c;
     color: #fff;
 }
