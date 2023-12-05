@@ -8,12 +8,12 @@ import { User } from '../interfaces/user';
 })
 export class UserService {
 
-  private api = 'http://24.144.89.34:8080/MBA/Chatbot';
+  private api = 'http://24.144.89.34:8080/MBA/user';
 
   constructor(private http: HttpClient) { }
 
   getUser(id: string) {
-    const path = this.api + "/login/" + id;
+    const path = this.api + "/getUser/" + id;
     console.log(path);
     try {
       const response = this.http.get<User>(path);

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-admi',
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class HomeAdmiComponent {
   userId: string = "";
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(params => {
         this.userId = params['id'];
     });

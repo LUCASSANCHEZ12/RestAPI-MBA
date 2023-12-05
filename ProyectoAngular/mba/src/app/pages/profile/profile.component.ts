@@ -25,19 +25,26 @@ export class ProfileComponent {
       .subscribe((user: User) => {
         this.usuario = user
         console.log(this.usuario)
+        this.cargoId = this.usuario.valor1.cargoId
       });
   }
 
   navigateBack() {
     switch (this.cargoId) {
       case 1:
-        this.router.navigate(['/homeAdmi']);
+        if (this.usuario && this.usuario.valor1 && this.usuario.valor1.codigoUsuario) {
+          this.router.navigate(['/homeAdmi'], { queryParams: { id: this.usuario.valor1.codigoUsuario } });
+        } 
         break;
       case 2:
-        this.router.navigate(['/homeTeacher']);
+        if (this.usuario && this.usuario.valor1 && this.usuario.valor1.codigoUsuario) {
+          this.router.navigate(['/homeTeacher'], { queryParams: { id: this.usuario.valor1.codigoUsuario } });
+        } 
         break;
       case 3:
-        this.router.navigate(['/homeStudent']);
+        if (this.usuario && this.usuario.valor1 && this.usuario.valor1.codigoUsuario) {
+          this.router.navigate(['/homeStudent'], { queryParams: { id: this.usuario.valor1.codigoUsuario } });
+        } 
         break;
     }
   }

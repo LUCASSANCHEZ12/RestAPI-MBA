@@ -12,6 +12,8 @@ import { CrearProgramaComponent } from './pages/crear-programa/crear-programa.co
 import { EditarProgramaComponent } from './pages/editar-programa/editar-programa.component';
 import { AgregarMateriaComponent } from './pages/agregar-materia/agregar-materia.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CrudUserComponent } from './pages/crud-user/crud-user.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,13 @@ import { ProfileComponent } from './pages/profile/profile.component';
     EditarProgramaComponent,
     AgregarMateriaComponent,
     ProfileComponent,
+    CrudUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     provideClientHydration()
