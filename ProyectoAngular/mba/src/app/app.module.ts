@@ -11,6 +11,7 @@ import { AdminProgramasComponent } from './pages/admin-programas/admin-programas
 import { CrearProgramaComponent } from './pages/crear-programa/crear-programa.component';
 import { EditarProgramaComponent } from './pages/editar-programa/editar-programa.component';
 import { AgregarMateriaComponent } from './pages/agregar-materia/agregar-materia.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AgregarMateriaComponent } from './pages/agregar-materia/agregar-materia
     CrearProgramaComponent,
     EditarProgramaComponent,
     AgregarMateriaComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

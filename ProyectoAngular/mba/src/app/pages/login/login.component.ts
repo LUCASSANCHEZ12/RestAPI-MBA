@@ -66,16 +66,16 @@ export class LoginComponent {
   redirigir(usuario: User){
     switch(usuario.valor2.cargoID){
       case 1:
-        this.router.navigate(['/homeAdmi']);
+        this.router.navigate(['/homeAdmi'], { queryParams: { id: usuario.valor1.codigoUsuario } });
         console.log("ADMIN");
         break;
       case 2:
         console.log("DOCENTE");
-        this.router.navigate(['/homeTeacher']);
+        this.router.navigate(['/homeTeacher'], { queryParams: { id: usuario.valor1.codigoUsuario } });
         break;
       case 3:
         console.log("ESTUDIANTE");
-        this.router.navigate(['/homeStudent']);
+        this.router.navigate(['/homeStudent'], { queryParams: { id: usuario.valor1.codigoUsuario } });
         break;
     }
   }
