@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import upb.edu.data.MateriaDataAccessInterface;
 import upb.edu.restapimba.Models.MateriaModel;
+import upb.edu.restapimba.Models.ProgramaModel;
+import upb.edu.restapimba.Models.Tuple;
 
 public class MateriaBusinessService implements MateriaBusinessServiceInterface{
 
@@ -33,7 +35,7 @@ public class MateriaBusinessService implements MateriaBusinessServiceInterface{
     }
 
     @Override
-    public int asignarMateriaPrograma(String CodigoPrograma, String CodigoMateria) {
+    public Tuple<MateriaModel, ProgramaModel> asignarMateriaPrograma(String CodigoPrograma, String CodigoMateria) {
         return materiaDAO.asignarMateriaPrograma(CodigoPrograma, CodigoMateria);
     }
 
@@ -48,9 +50,23 @@ public class MateriaBusinessService implements MateriaBusinessServiceInterface{
     }
 
     @Override
-    public int quitarMateria(String CodigoPrograma, String CodigoMateria) {
-        return materiaDAO.quitarMateria(CodigoPrograma, CodigoMateria);
+    public Tuple<MateriaModel, ProgramaModel> quitarMateriaPrograma(String CodigoPrograma, String CodigoMateria) {
+        return materiaDAO.quitarMateriaPrograma(CodigoPrograma, CodigoMateria);
     }
 
-   
+    @Override
+    public MateriaModel getById(String code){
+        return materiaDAO.getById(code);
+    }
+
+    @Override
+    public MateriaModel updateMateria(MateriaModel materia) {
+        return materiaDAO.updateMateria(materia);
+    }
+
+    @Override
+    public MateriaModel eliminarMateria(String codigo) {
+        return materiaDAO.eliminarMateria(codigo);
+    }
+    
 }

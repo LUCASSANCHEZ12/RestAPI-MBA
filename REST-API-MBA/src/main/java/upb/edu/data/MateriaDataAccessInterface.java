@@ -3,6 +3,8 @@ package upb.edu.data;
 import java.util.List;
 
 import upb.edu.restapimba.Models.MateriaModel;
+import upb.edu.restapimba.Models.ProgramaModel;
+import upb.edu.restapimba.Models.Tuple;
 
 public interface MateriaDataAccessInterface {
     
@@ -16,7 +18,7 @@ public interface MateriaDataAccessInterface {
     public MateriaModel crearMateria(MateriaModel materia);
 
     // POST
-    public int asignarMateriaPrograma(String CodigoPrograma, String CodigoMateria);
+    public Tuple<MateriaModel, ProgramaModel> asignarMateriaPrograma(String CodigoPrograma, String CodigoMateria);
 
     // GET
     public List<MateriaModel> verMateriasAsignadas(int CodigoUsuario);
@@ -25,5 +27,14 @@ public interface MateriaDataAccessInterface {
     public List<MateriaModel> verMaterias();
 
     // DELETE
-    public int quitarMateria(String CodigoPrograma, String CodigoMateria);
+    public Tuple<MateriaModel, ProgramaModel> quitarMateriaPrograma(String CodigoPrograma, String CodigoMateria);
+
+    //DELETE
+    public MateriaModel eliminarMateria(String codigo);
+
+    //GET
+    public MateriaModel getById(String code);
+
+    //PUT
+    public MateriaModel updateMateria(MateriaModel materia);
 }
