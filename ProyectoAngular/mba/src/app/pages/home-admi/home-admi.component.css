@@ -75,6 +75,9 @@
 
 .home_subtitle{
     color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin: 15px 0;
 }
 
 .home_wave{
@@ -92,12 +95,6 @@
 
 .home_title{
     font-size: 3.7rem;
-}
-
-.home_subtitle{
-    font-size: 2.5rem;
-    font-weight: 300;
-    margin: 15px 0;
 }
 
 .description{
@@ -156,6 +153,27 @@
 .options_item a {
     text-decoration: none; /* Quita la subrayado predeterminado */
     color: black; /* Cambia el color del texto a negro */
+}
+
+.options_img_chatbot {
+    background-image: url('../../imagenes/chatbot.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.options_img_materia  {
+    background-image: url('../../imagenes/materias.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+  
+.options_img_administrar_usuario  {
+    background-image: url('../../imagenes/administrar.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /*Responsividad*/

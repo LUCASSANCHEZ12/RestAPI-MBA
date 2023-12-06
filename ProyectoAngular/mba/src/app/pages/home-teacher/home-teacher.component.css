@@ -158,6 +158,20 @@
     color: black; /* Cambia el color del texto a negro */
 }
 
+.options_img_chatbot {
+    background-image: url('../../imagenes/chatbot.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.options_img_materia  {
+    background-image: url('../../imagenes/materias.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 /*Responsividad*/
 @media screen and (max-width: 800px){
     :root{

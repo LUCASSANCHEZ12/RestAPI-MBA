@@ -54,7 +54,7 @@ h2 {
     color: #0071c5; /* Change this color to the blue shade you want */
     margin-bottom: 20px;
     font-family: 'Pacifico', cursive;
-    font-size: 1.7rem;
+    font-size: 5.5vh;
 }
 
 input {
@@ -73,6 +73,7 @@ input:focus {
 }
 
 .field {
+    font-size: 17px;
     margin-bottom: 15px;
 }
 
