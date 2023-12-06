@@ -1,5 +1,5 @@
 export interface AdminProgramas {
-    CodigoPrograma : string;
+    codigoPrograma : string;
     nombre : string;
     descripcion : string;
 }

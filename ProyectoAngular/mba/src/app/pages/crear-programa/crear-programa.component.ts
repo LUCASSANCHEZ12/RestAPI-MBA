@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AdminProgramasService } from '../../services/admin-programas.service';
 import { Materia } from '../../interfaces/materia';
 import { AdminProgramas } from '../../interfaces/program';
+import { Callback } from '../../interfaces/callback';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,7 +24,7 @@ export class CrearProgramaComponent {
   public recibirmaterias: Materia[] = [];
   public materiasSeleccionadas: Materia[] = [];
   public programa: AdminProgramas = {
-    CodigoPrograma: '',
+    codigoPrograma: '12',
     nombre: '',
     descripcion: '',
   };
@@ -46,10 +47,10 @@ export class CrearProgramaComponent {
     this.nombre = this.nameInput.nativeElement.value;
     this.descripcion = this.descInput.nativeElement.value;
     console.log("Materias seleccionadas:",this.materiasSeleccionadas);
-    this.crearPrograma();
     if (this.codigo !== '' && this.nombre !== '' && this.descripcion !== '') {
-        this.crearPrograma();
-        this.asingMateria();
+      this.crearPrograma(() => {
+        this.asingMateria();  
+      });  
     } else {
       alert('Llena todos los campos por favor');
     }
@@ -57,7 +58,7 @@ export class CrearProgramaComponent {
 
   crearProgramaData(){
     const programaData = {
-        codigo:this.codigo,
+        codigoPrograma:this.codigo,
         nombre: this.nombre,
         descripcion: this.descripcion,
     };
@@ -71,7 +72,7 @@ export class CrearProgramaComponent {
     this.programService.getMaterias()
       .subscribe((materia: Materia []| null) => {
         if (materia === null) {
-          alert('El código y contraseña ingresados no corresponden a ningún usuario');
+          alert('No se recibieron las materias');
         }
         else {
           this.materiasDisponibles = materia;
@@ -80,7 +81,8 @@ export class CrearProgramaComponent {
       });
       return this.materiasDisponibles
   }
-  crearPrograma(){
+  
+  crearPrograma(callback: Callback){
     console.log('entré');
     this.programService.createProgram(this.crearProgramaData())
       .subscribe((program: AdminProgramas | null) => {
@@ -89,15 +91,18 @@ export class CrearProgramaComponent {
         }
         else {
           this.programa = program;
-          console.log(this.programa);
+          this.programa.codigoPrograma = program.codigoPrograma;
+          console.log(program.codigoPrograma);
+          console.log(this.programa.codigoPrograma);
         }
+        callback(); 
       });
       return this.programa
   }
 
   asingMateria(){
     console.log('entré');
-    this.programService.addMaterias(this.programa.CodigoPrograma , this.materiasSeleccionadas)
+    this.programService.addMaterias(this.programa.codigoPrograma , this.materiasSeleccionadas)
       .subscribe((materia: Materia[] | null) => {
         if (materia === null) {
           alert('No se pudo agregar las materias');
