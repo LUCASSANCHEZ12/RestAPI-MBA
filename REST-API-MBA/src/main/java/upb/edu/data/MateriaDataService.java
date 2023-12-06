@@ -53,7 +53,7 @@ public class MateriaDataService implements MateriaDataAccessInterface{
             materia.getFechaInicio(), 
             materia.getFechaFinal()
             );
-            String query = String.format("INSERT INTO materia (codigoMateria,nombre,descripcion,semestre,fechaInicio,fechaFinal) VALUES %s;",values);
+            String query = String.format("INSERT INTO materia (codigoMateria,nombreMateria,descripcion,semestre,fechaInicio,fechaFinal) VALUES %s;",values);
             jdbcTemplate.execute(query);
             return materia;
         }else{
