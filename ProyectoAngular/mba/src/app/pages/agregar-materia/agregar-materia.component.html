@@ -1,1 +1,35 @@
-<p>agregar-materia works!</p>
+<div class="body">
+	<div class="program_container">
+        <div class="container">
+            <form >
+                <h1>Datos Materia</h1>
+                <div class="input-container">
+                    <input type="text" name="código" required #codeInput>
+                    <label>CodigoMateria</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="name" required #nameInput>
+                    <label>Nombre</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="desc" required #descInput>
+                    <label>Descripcion</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="semester" required #semesterInput>
+                    <label>Semestre</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="fechaI" required #fInicioInput>
+                    <label>FechaInicio</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="fechaF" required #fFinalInput>
+                    <label>FechaFinal</label>
+                </div>
+            </form>
+            <button (click)="click()">Crear Materia</button>
+        </div>
+    </div>
+</div>
+

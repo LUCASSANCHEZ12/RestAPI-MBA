@@ -55,9 +55,9 @@ export class AdminProgramasComponent implements AfterViewInit{
     this.router.navigate(['/homeAdmi'], {  });
   }
   crearProgramas(){
-    this.router.navigate(['/crearPrograma'], {  });
+    this.router.navigate(['/createProgram'], {  });
   }
   crearMaterias(){
-    this.router.navigate(['/crearMateria'], {  });
+    this.router.navigate(['/createMateria'], {  });
   }
 }

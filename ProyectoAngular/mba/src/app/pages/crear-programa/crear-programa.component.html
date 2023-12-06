@@ -1,1 +1,35 @@
-<p>crear-programa works!</p>
+<div class="body">
+	<div class="program_container">
+        <div class="container">
+            <form >
+                <h1>Datos Programa</h1>
+                <div class="input-container">
+                    <input type="text" name="código" required #codeInput>
+                    <label>Código</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="name" required #nameInput>
+                    <label>Nombre</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="desc" required #descInput>
+                    <label>descripción</label>
+                </div>
+            </form>
+            <div>
+                <h2>Seleccionar Materias</h2>
+                <ul>
+                    <div *ngFor="let materia of materiasDisponibles, let i = index">
+                        <input type="checkbox" [(ngModel)]="materiasSeleccionadas[i]" /> {{ materia.nombre }}
+                    </div>
+                </ul>
+              
+                <h2>Materias Seleccionadas</h2>
+                <ul>
+                  <li *ngFor="let materia of selectedMaterias">{{ materia.nombre }}</li>
+                </ul>
+              </div>
+            <button (click)="click()">Crear Programa</button>
+        </div>
+    </div>
+</div>
