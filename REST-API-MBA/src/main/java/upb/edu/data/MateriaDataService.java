@@ -42,7 +42,22 @@ public class MateriaDataService implements MateriaDataAccessInterface{
 
     @Override
     public MateriaModel crearMateria(MateriaModel materia) {
-        String values = String.format(
+        if(materia.getcodigoDocente() == 0)
+        {
+            String values = String.format(
+            "('%s','%s','%s','%s','%s','%s')",
+            materia.getCodigoMateria(), 
+            materia.getNombre(), 
+            materia.getDescripcion(), 
+            materia.getSemestre(), 
+            materia.getFechaInicio(), 
+            materia.getFechaFinal()
+            );
+            String query = String.format("INSERT INTO materia (codigoMateria,nombre,descripcion,semestre,fechaInicio,fechaFinal) VALUES %s;",values);
+            jdbcTemplate.execute(query);
+            return materia;
+        }else{
+            String values = String.format(
             "('%s','%s','%s',%d,'%s','%s','%s')",
             materia.getCodigoMateria(), 
             materia.getNombre(), 
@@ -55,6 +70,7 @@ public class MateriaDataService implements MateriaDataAccessInterface{
         String query = String.format("INSERT INTO materia VALUES %s;",values);
         jdbcTemplate.execute(query);
         return materia;
+        }
     }
 
     @Override
