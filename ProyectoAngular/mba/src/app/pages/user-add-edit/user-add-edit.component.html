@@ -1,0 +1,52 @@
+<div mat-dialog-title>
+    <h1>Formulario de Usuarios</h1>
+</div>
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Primer Nombre</mat-label>
+                <input matInput type="text" placeholder="Ej. Roberto" name="firstName" formControlName="primerNombre">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Segundo Nombre</mat-label>
+                <input matInput type="text" placeholder="Ej. Chavo" name="middleName" formControlName="segundoNombre">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Apellido Paterno</mat-label>
+                <input matInput type="text" placeholder="Ej. Gomez" name="lastName" formControlName="apellidoPaterno">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Apellido Materno</mat-label>
+                <input matInput type="text" placeholder="Ej. Bolanos" name="secondLastName" formControlName="apellidoMaterno">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" placeholder="Ej. test@gmail.com" name="email" formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Telefono</mat-label>
+                <input matInput type="number" placeholder="Ej. 75648506" name="phone" formControlName="telefono">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Cargo</mat-label>
+                <mat-select [(value)]="selectedCargo" formControlName="cargoId">
+                <mat-option *ngFor="let item of cargo" [value]="item.value">
+                    {{ item.label }}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save' }}</button>
+
+    </div>
+</form>

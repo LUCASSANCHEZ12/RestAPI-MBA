@@ -1,0 +1,23 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+.table-container {
+  width: 95%; /* Opcional: ancho completo del contenedor */
+}
+
+.main-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+  margin: 0 auto;
+  max-width: 1348px;
+  mat-form-field {
+    width: 95%;
+  }
+}
+
+table {
+  width: 100%;
+}

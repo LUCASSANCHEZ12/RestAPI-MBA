@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -18,7 +18,14 @@ import { AgregarMateriaComponent } from './pages/agregar-materia/agregar-materia
 import { ProfileComponent } from './pages/profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CrudUserComponent } from './pages/crud-user/crud-user.component';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { UserAddEditComponent } from './pages/user-add-edit/user-add-edit.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -32,7 +39,8 @@ import { CrudUserComponent } from './pages/crud-user/crud-user.component';
     EditarProgramaComponent,
     AgregarMateriaComponent,
     ProfileComponent,
-    CrudUserComponent
+    CrudUserComponent,
+    UserAddEditComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +51,14 @@ import { CrudUserComponent } from './pages/crud-user/crud-user.component';
     MatPaginatorModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()
