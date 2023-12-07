@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserTuple } from '../interfaces/userTuple';
 import { User } from '../interfaces/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,11 @@ export class UserService {
   private api = 'http://24.144.89.34:8080/MBA/user';
 
   constructor(private http: HttpClient) { }
+
+  addUser(data: any): Observable <any> {
+    const path = this.api + "/create";
+    return this.http.post(path, data);
+  }
 
   getUser(id: string) {
     const path = this.api + "/getUser/" + id;

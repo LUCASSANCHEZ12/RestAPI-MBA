@@ -58,6 +58,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()
