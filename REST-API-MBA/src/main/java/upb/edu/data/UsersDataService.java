@@ -5,6 +5,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -71,7 +72,7 @@ public class UsersDataService implements UsersDataAccessInterface{
     public List<UserModel> getUsers() {
         String query = """
                 SELECT * FROM usuarios
-                ORDER BY codigoUsuario DESC;
+                ORDER BY codigoUsuario ASC;
                 """;
         List<UserModel> users = jdbcTemplate.query(query, new UsersMapper());
         return users;
@@ -86,7 +87,9 @@ public class UsersDataService implements UsersDataAccessInterface{
     @Override
     public UserModel createUser(UserModel userModel) {
         UserModel user = userModel;
-        UserModel lastUser = getUsers().get(-1);
+        List<UserModel> createdUsers = getUsers();
+        UserModel lastUser = createdUsers.get(createdUsers.size()-1);
+
         user.setCodigoUsuario(lastUser.getCodigoUsuario()+1);
         String values = String.format(
             "(%d,'%s','%s','%s','%s','%s',%d,'%s',%d)",
@@ -116,7 +119,8 @@ public class UsersDataService implements UsersDataAccessInterface{
             userModel.getEmail(),
             userModel.getTelefono(),
             userModel.getPassword(),
-            userModel.getCodigoUsuario()
+            userModel.getCodigoUsuario(),
+            userModel.getCargoId()
             );
         jdbcTemplate.execute(query);
         UserModel user = getByCode(userModel.getCodigoUsuario());
