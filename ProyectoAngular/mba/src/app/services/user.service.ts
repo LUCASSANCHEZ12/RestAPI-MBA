@@ -31,11 +31,37 @@ export class UserService {
     }
   }
 
-  updateUser(user: User) {
+  updateUser(user: User): Observable<User> {
     const path = this.api + "/update";
     console.log(path);
     try {
       const response = this.http.put<User>(path,user);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      throw error;
+    }
+  }
+  
+  getAllUsers(): Observable<User[]>{
+    const path = this.api + "/getall";
+    console.log(path);
+    try{
+      const response = this.http.get<User[]>(path);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      throw error;
+    }
+  }
+
+  deleteUser(id: string): Observable<User>{
+    const path = this.api + "/delete/" + id;
+    console.log(path);
+    try{
+      const response = this.http.delete<User>(path);
       console.log(response);
       return response;
     } catch (error) {
