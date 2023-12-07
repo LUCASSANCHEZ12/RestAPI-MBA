@@ -38,7 +38,7 @@
 						</a>
 					</article>
 					<article class="options_item" id="administrar">
-						<a href="crudUser">
+						<a [routerLink]="['/crudUser']" [queryParams]="{ id: userId }">
 							<div class="options_img options_img_administrar_usuario"></div>
 							<div class="options_hover">
 								<h2 class="options_title">Administrar usuarios</h2>
@@ -46,7 +46,7 @@
 						</a>
 					</article>
 					<article class="options_item">
-						<a href="adminProgramas">
+						<a [routerLink]="['/adminProgramas']" [queryParams]="{ id: userId }">
 							<div class="options_img options_img_materia"></div>
 							<div class="options_hover">
 								<h2 class="options_title">Administrar programas y materias</h2>

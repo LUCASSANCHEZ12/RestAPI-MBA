@@ -3,7 +3,7 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { AdminProgramasService } from '../../services/admin-programas.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ControlContainer } from '@angular/forms';
 
 @Component({
@@ -14,8 +14,13 @@ import { ControlContainer } from '@angular/forms';
 
 export class AdminProgramasComponent implements AfterViewInit{
 
-  constructor(private adminServirce: AdminProgramasService, private router: Router){
+  userId: string = "";
+
+  constructor(private adminServirce: AdminProgramasService, private router: Router, private route: ActivatedRoute){
     this.dataSource = new MatTableDataSource<any>();
+    this.route.queryParams.subscribe(params => {
+      this.userId = params['id'];
+  });
   }
   
   displayedColumns: string[] = ['codigoPrograma', 'nombre', 'descripcion','action'];
@@ -52,12 +57,12 @@ export class AdminProgramasComponent implements AfterViewInit{
     console.log(codigoPrograma);
   }
   back(){
-    this.router.navigate(['/homeAdmi'], {  });
+    this.router.navigate(['/homeAdmi'], { queryParams: { id: this.userId } });
   }
   crearProgramas(){
-    this.router.navigate(['/createProgram'], {  });
+    this.router.navigate(['/createProgram'], { queryParams: { id: this.userId } });
   }
   crearMaterias(){
-    this.router.navigate(['/createMateria'], {  });
+    this.router.navigate(['/createMateria'], { queryParams: { id: this.userId } });
   }
 }

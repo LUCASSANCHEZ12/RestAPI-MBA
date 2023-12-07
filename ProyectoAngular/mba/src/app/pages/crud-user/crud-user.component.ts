@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from '../../interfaces/user';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-crud-user',
@@ -14,6 +15,7 @@ import { User } from '../../interfaces/user';
 })
 export class CrudUserComponent implements OnInit {
 
+  userId: string = "";
   displayedColumns: string[] = [
     'CodigoUsuario', 
     'PrimerNombre', 
@@ -31,10 +33,18 @@ export class CrudUserComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _dialog: MatDialog, private userService: UserService){}
+  constructor(private route: ActivatedRoute, private router: Router, private _dialog: MatDialog, private userService: UserService){
+    this.route.queryParams.subscribe(params => {
+      this.userId = params['id'];
+  });
+  }
 
   ngOnInit(): void{
     this.getUsers();
+  }
+
+  goBack(): void {
+    this.router.navigate(['/homeAdmi'], { queryParams: { id: this.userId } });
   }
 
   openAddEditUserForm() {
