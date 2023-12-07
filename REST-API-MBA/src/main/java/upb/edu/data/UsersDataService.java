@@ -111,7 +111,7 @@ public class UsersDataService implements UsersDataAccessInterface{
     @Override
     public UserModel updateUser(UserModel userModel) {
         String query = String.format(
-            "UPDATE usuarios SET primerNombre='%s',segundoNombre='%s',apellidoPaterno='%s',apellidoMaterno='%s',email='%s',telefono=%d,password='%s' WHERE codigoUsuario=%d;", 
+            "UPDATE usuarios SET primerNombre='%s',segundoNombre='%s',apellidoPaterno='%s',apellidoMaterno='%s',email='%s',telefono=%d,password='%s',cargoID=%d WHERE codigoUsuario=%d;", 
             userModel.getPrimerNombre(),
             userModel.getSegundoNombre(),
             userModel.getApellidoPaterno(),
@@ -119,8 +119,8 @@ public class UsersDataService implements UsersDataAccessInterface{
             userModel.getEmail(),
             userModel.getTelefono(),
             userModel.getPassword(),
-            userModel.getCodigoUsuario(),
-            userModel.getCargoId()
+            userModel.getCargoId(),
+            userModel.getCodigoUsuario()
             );
         jdbcTemplate.execute(query);
         UserModel user = getByCode(userModel.getCodigoUsuario());
