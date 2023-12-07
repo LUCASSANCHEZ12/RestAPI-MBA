@@ -7,6 +7,8 @@ import { HomeTeacherComponent } from './pages/home-teacher/home-teacher.componen
 import { CrudUserComponent } from './pages/crud-user/crud-user.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AdminProgramasComponent } from './pages/admin-programas/admin-programas.component';
+import { AgregarMateriaComponent } from './pages/agregar-materia/agregar-materia.component';
+import { CrearProgramaComponent } from './pages/crear-programa/crear-programa.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: 'homeTeacher', component: HomeTeacherComponent },
   { path: 'crudUser', component: CrudUserComponent},
   { path: 'profile', component: ProfileComponent},
-  {path: 'adminProgramas', component : AdminProgramasComponent}
+  {path: 'adminProgramas', component : AdminProgramasComponent},
+  {path: 'createProgram', component : CrearProgramaComponent},
+  {path: 'createMateria', component : AgregarMateriaComponent},
 ];
 
 @NgModule({
