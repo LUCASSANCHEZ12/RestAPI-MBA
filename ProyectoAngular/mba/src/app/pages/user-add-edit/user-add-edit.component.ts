@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import { UserService } from '../../services/user.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { privateDecrypt } from 'crypto';
 
 @Component({
   selector: 'app-user-add-edit',
   templateUrl: './user-add-edit.component.html',
   styleUrl: './user-add-edit.component.css'
 })
-export class UserAddEditComponent {
+export class UserAddEditComponent implements OnInit{
   userForm: FormGroup;
 
   cargo = [
@@ -19,7 +20,8 @@ export class UserAddEditComponent {
 
   selectedCargo: number | null = null; 
 
-  constructor(private _fb: FormBuilder, private _userService: UserService, private _dialogRef: MatDialogRef<UserAddEditComponent>){
+  constructor(private _fb: FormBuilder, private _userService: UserService, private _dialogRef: MatDialogRef<UserAddEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any){
     this.userForm = this._fb.group({
       id: 1,
       cargoId: 0,
@@ -35,17 +37,33 @@ export class UserAddEditComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.userForm.patchValue(this.data)
+  }
+
   onFormSubmit() {
     if(this.userForm.valid) {
-      this._userService.addUser(this.userForm.value).subscribe({
-        next: (val: any) => {
-          alert('Usuario añadido correctamente.');
-          this._dialogRef.close(true);
-        },
-        error: (err: any) => {
-          console.error(err);
-        },
-      })
+      if(this.data){
+        this._userService.updateUser(this.userForm.value).subscribe({
+          next: (val: any) => {
+            alert('Usuario actualizado correctamente.');
+            this._dialogRef.close(true);
+          },
+          error: (err: any) => {
+            console.error(err);
+          },
+        })
+      }else{
+        this._userService.addUser(this.userForm.value).subscribe({
+          next: (val: any) => {
+            alert('Usuario añadido correctamente.');
+            this._dialogRef.close(true);
+          },
+          error: (err: any) => {
+            console.error(err);
+          },
+        })
+      } 
     }
   }
 

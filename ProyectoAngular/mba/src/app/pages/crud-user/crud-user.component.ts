@@ -72,4 +72,18 @@ export class CrudUserComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  openEditUserForm(data: any) {
+    const dialogRef = this._dialog.open(UserAddEditComponent, {
+    data,
+    });
+    
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getUsers();
+        }
+      },
+    });
+  }
 }

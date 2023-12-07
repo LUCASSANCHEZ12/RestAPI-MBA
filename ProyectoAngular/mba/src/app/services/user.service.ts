@@ -18,6 +18,7 @@ export class UserService {
     return this.http.post(path, data);
   }
 
+
   getUser(id: string) {
     const path = this.api + "/getUser/" + id;
     console.log(path);
