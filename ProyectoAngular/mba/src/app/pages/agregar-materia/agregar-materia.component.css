@@ -1,0 +1,134 @@
+
+.body {
+    padding-top: 50px;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.program_container {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 70%;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #f39c12; 
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    text-align: left;
+}
+
+.input-container {
+    margin-bottom: 30px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+h2 {
+    color: #001f3f; 
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 12px;
+}
+
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    background-color: #001f3f; 
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; 
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.input-container input:focus {
+    border-color: #f39c12; 
+}
+
+.body-new {
+    padding-top: 50px;
+    margin: 0 auto;
+    max-width: 1348px;
+}
+
+.program_container-new {
+    display: flex;
+    justify-content: center;
+}
+
+.container-new {
+    width: 70%;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+form-new {
+    text-align: center;
+}
+
+.input-container-new {
+    margin-bottom: 15px;
+}
+
+.input-container-new input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button-new {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #001f3f;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button-new:hover {
+    background-color: #0056b3;
+}
