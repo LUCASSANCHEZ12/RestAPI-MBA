@@ -13,6 +13,7 @@ export class UserAddEditComponent {
   ];
   */
   cargo = [
+    { value: 1, label: 'Administrador' },
     { value: 2, label: 'Docente' },
     { value: 3, label: 'Estudiante' },
   ];
