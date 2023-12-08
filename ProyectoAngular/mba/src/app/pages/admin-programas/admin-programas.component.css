@@ -38,8 +38,10 @@ h1 {
   color: #f39c12; 
   font-size: 28px;
   font-weight: bold;
+  margin-top: 50px; 
   margin-bottom: 20px;
 }
+
 
 .button-container {
   display: flex;
@@ -67,16 +69,19 @@ h1 {
   position: fixed;
   bottom: 20px;
   left: 20px;
+  margin-bottom: 20px; 
+  margin-left: 20px; 
   padding: 15px 30px;
   border: none;
   border-radius: 8px;
-  background-color: #2ecc71; 
+  background-color: #001f3f;
   color: #fff; 
   cursor: pointer;
   font-size: 18px;
   transition: background-color 0.3s ease;
 }
 
+
 .back-button:hover {
-  background-color: #34d478; 
+  background-color: #0056b3; 
 }

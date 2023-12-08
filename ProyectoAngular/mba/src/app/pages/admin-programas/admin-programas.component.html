@@ -30,8 +30,11 @@
             <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Editar </th>
                 <td mat-cell *matCellDef="let row"> 
-                    <button (click)="click(row)"> Editar </button>    
+                    <button mat-icon-button color="primary" (click)="click(row)">
+                        <mat-icon>edit</mat-icon>
+                    </button>   
                 </td>
+                
             </ng-container>
             
             <tr class="mat-row" *matNoDataRow>
@@ -45,4 +48,4 @@
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
 </div>
-<button class="back-button" (click)="back()">Back</button>
+<button class="back-button" (click)="back()">Volver</button>
