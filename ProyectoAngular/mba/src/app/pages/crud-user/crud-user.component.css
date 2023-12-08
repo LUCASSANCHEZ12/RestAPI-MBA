@@ -17,7 +17,7 @@
 
 span {
   color: white; /* Esto establecerá el color del texto en blanco */
-  font-size: 35px;
+  font-size: 30px;
   margin-left: 15px;
 }
 
@@ -53,7 +53,7 @@ table {
 .back-btn {
   display: inline-block;
   margin-top: 5px;
-  padding: 15px 25px;
+  padding: 10px 25px;
   background-color: var(--color-primary);
   border: 1px solid #00508c;
   color: #fff;
@@ -76,7 +76,7 @@ table {
 .addUser-btn {
   display: inline-block;
   margin-top: 5px;
-  padding: 15px 25px;
+  padding: 10px 25px;
   background-color: var(--color-primary);
   border: 1px solid #00508c;
   color: #fff;
