@@ -2,6 +2,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Materia } from '../../interfaces/materia';
 import { AdminProgramasService } from '../../services/admin-programas.service';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-agregar-materia',
   templateUrl: './agregar-materia.component.html',
@@ -14,6 +16,7 @@ export class AgregarMateriaComponent {
   public semester: string; 
   public fechaI: string;
   public fechaF: string;
+  
   public materiaVacia: Materia = {
     codigoDocente: 0,
     codigoMateria: '',
@@ -23,6 +26,8 @@ export class AgregarMateriaComponent {
     fechaInicio: '',
     fechaFinal: ''
   };
+
+  
   @ViewChild('codeInput')
   codeInput!: ElementRef<HTMLInputElement>; 
   @ViewChild('nameInput')
@@ -89,5 +94,10 @@ export class AgregarMateriaComponent {
       });
       return this.materiaVacia
   }
+
+  back(){
+    this.router.navigate(['/adminProgramas']);
+  }
+
 }
 
