@@ -23,7 +23,6 @@ export class UserAddEditComponent implements OnInit{
   constructor(private _fb: FormBuilder, private _userService: UserService, private _dialogRef: MatDialogRef<UserAddEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any){
     this.userForm = this._fb.group({
-      id: 1,
       cargoId: 0,
       password: '',
       segundoNombre: '',

@@ -48,7 +48,14 @@ export class CrudUserComponent implements OnInit {
   }
 
   openAddEditUserForm() {
-    this._dialog.open(UserAddEditComponent);
+    const dialogRef = this._dialog.open(UserAddEditComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getUsers();
+        }
+      },
+    });
   }
 
   getUsers(){

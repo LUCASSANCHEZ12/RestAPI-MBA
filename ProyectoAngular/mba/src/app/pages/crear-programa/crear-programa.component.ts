@@ -14,6 +14,7 @@ export class CrearProgramaComponent {
   public codigo: string; 
   public nombre: string;
   public descripcion: string;
+  public selectedIndexes: number[] = [];
   @ViewChild('codeInput')
   codeInput!: ElementRef<HTMLInputElement>; 
   @ViewChild('nameInput')
@@ -38,8 +39,8 @@ export class CrearProgramaComponent {
   }
 
   get selectedMaterias(): any[]{
-    this.materiasSeleccionadas = this.materiasDisponibles.filter((e,i) => this.materiasSeleccionadas[i]);
-    return this.materiasDisponibles.filter((e,i) => this.materiasSeleccionadas[i]);
+    this.materiasSeleccionadas = this.selectedIndexes.map(i => this.materiasDisponibles[i]);
+    return this.selectedIndexes.map(i => this.materiasDisponibles[i]); 
   }
 
   click() {
@@ -56,6 +57,20 @@ export class CrearProgramaComponent {
     }
   }
 
+  back(){
+    this.router.navigate(['/adminProgramas'], { queryParams: { } });
+  }
+
+  toggleSelection(i: number) {
+    if (this.selectedIndexes.includes(i)) {
+      // remove index if already selected
+      this.selectedIndexes = this.selectedIndexes.filter(x => x !== i); 
+    } else {
+      // add index 
+      this.selectedIndexes.push(i);
+    }
+  }
+
   crearProgramaData(){
     const programaData = {
         codigoPrograma:this.codigo,
@@ -69,7 +84,9 @@ export class CrearProgramaComponent {
 
   obtenerMateriasDisponibles(){
     console.log('entré');
-    this.programService.getMaterias()
+    if(this.materiasSeleccionadas [0] == null)
+    {
+      this.programService.getMaterias()
       .subscribe((materia: Materia []| null) => {
         if (materia === null) {
           alert('No se recibieron las materias');
@@ -79,7 +96,8 @@ export class CrearProgramaComponent {
           console.log(materia);
         }
       });
-      return this.materiasDisponibles
+    }
+    return this.materiasDisponibles
   }
   
   crearPrograma(callback: Callback){
@@ -110,6 +128,7 @@ export class CrearProgramaComponent {
         else {
           this.recibirmaterias = materia;
           console.log(this.recibirmaterias);
+          alert('Materias añadidas correctamente');
         }
       });
       return this.recibirmaterias

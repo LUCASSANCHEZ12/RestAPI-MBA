@@ -13,9 +13,17 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  addUser(data: any): Observable <any> {
+  addUser(data: User): Observable <User> {
     const path = this.api + "/create";
-    return this.http.post(path, data);
+    console.log(path);
+    try {
+      const response = this.http.post<User>(path,data);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      throw error;
+    }
   }
 
 
