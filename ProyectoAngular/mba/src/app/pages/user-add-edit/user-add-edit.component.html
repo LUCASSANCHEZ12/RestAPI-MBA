@@ -6,8 +6,36 @@
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Primer Nombre</mat-label>
-                <input matInput type="text" placeholder="Ej. Roberto" name="firstName" formControlName="primerNombre">
-            </mat-form-field>
+                <input matInput type="text" placeholder="Ej. Roberto" name="firstName" formControlName="primerNombre" [ngClass]="{'is-invalid': submitted && userForm.get('primerNombre')?.errors}">
+                <div *ngIf="userForm.get('primerNombre')?.invalid && userForm.get('primerNombre')?.errors && 
+                    (userForm.get('primerNombre')?.dirty || userForm.get('primerNombre')?.touched)">
+                    <small class="text-danger"
+                        *ngIf="userForm.get('primerNombre')?.hasError('required')">
+                        Este campo es requerido.
+                    </small>
+                </div>
+            </mat-form-field>            
+            <!--<mat-form-field appearance="outline">
+                <mat-label>Primer Nombre</mat-label>
+                <input matInput type="text" placeholder="Ej. Roberto" name="firstName" formControlName="primerNombre" [ngClass]="{'is-invalid':submitted && userForm.controls['primerNombre'].errors}">
+                <div *ngIf="userForm.get('primerNombre').invalid && userForm.get('primerNombre').errors && 
+                    (userForm.get('primerNombre').dirty || userForm.get('primerNombre').touched)">
+                    <small class="text-danger"
+                        *ngIf="userForm.get('primerNombre').hasError('required')">
+                        This field is required.
+                    </small>
+                </div>
+                <div *ngIf="userForm.controls['primerNombre'].invalid && (userForm.controls['primerNombre'].dirty || userForm.controls['primerNombre'].touched)" class="alert">
+                    <div *ngIf="userForm.controls['primerNombre'].errors.['required']">
+                    Ingrese el primer nombre
+                  </div>
+                </div>
+                <div *ngIf="submitted && userForm.controls['primerNombre'].errors">
+                    <div *ngIf="submitted && userForm.controls['primerNombre'].errors.['required']">
+                        Ingrese el primer nombre
+                    </div>
+                </div>
+            </mat-form-field>-->
             <mat-form-field appearance="outline">
                 <mat-label>Segundo Nombre</mat-label>
                 <input matInput type="text" placeholder="Ej. Chavo" name="middleName" formControlName="segundoNombre">
@@ -16,31 +44,33 @@
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Apellido Paterno</mat-label>
-                <input matInput type="text" placeholder="Ej. Gomez" name="lastName" formControlName="apellidoPaterno">
+                <input matInput type="text" placeholder="Ej. Gomez" name="lastName" formControlName="apellidoPaterno" [ngClass]="{'is-invalid':submitted && userForm.controls['apellidoPaterno'].errors}">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Apellido Materno</mat-label>
-                <input matInput type="text" placeholder="Ej. Bolanos" name="secondLastName" formControlName="apellidoMaterno">
+                <input matInput type="text" placeholder="Ej. Bolanos" name="secondLastName" formControlName="apellidoMaterno" [ngClass]="{'is-invalid':submitted && userForm.controls['apellidoMaterno'].errors}">
             </mat-form-field>
         </div>
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput type="email" placeholder="Ej. test@gmail.com" name="email" formControlName="email">
+                <input matInput type="email" placeholder="Ej. test@gmail.com" name="email" formControlName="email" [ngClass]="{'is-invalid':submitted && userForm.controls['email'].errors}">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Telefono</mat-label>
-                <input matInput type="number" placeholder="Ej. 75648506" name="phone" formControlName="telefono">
+                <input matInput type="number" placeholder="Ej. 75648506" name="phone" formControlName="telefono" [ngClass]="{'is-invalid':submitted && userForm.controls['telefono'].errors}">
             </mat-form-field>
         </div>
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Cargo</mat-label>
-                <mat-select [(value)]="selectedCargo" formControlName="cargoId">
+                <mat-select [(value)]="selectedCargo" formControlName="cargoId" >
                 <mat-option *ngFor="let item of cargo" [value]="item.value">
                     {{ item.label }}
                 </mat-option>
                 </mat-select>
+                <!--<small class="text-danger" [class.d-none]="cargoId.valid || cargoId.untouched"></small>
+                required #cargoId="ngModel" [class.is-invalid]="cargoId.invalid && cargoId.touched"-->
             </mat-form-field>
         </div>
     </div>
