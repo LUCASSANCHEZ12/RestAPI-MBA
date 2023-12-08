@@ -19,9 +19,16 @@
             <div>
                 <h2>Seleccionar Materias</h2>
                 <ul>
-                    <div *ngFor="let materia of materiasDisponibles, let i = index">
-                        <input type="checkbox" [(ngModel)]="materiasSeleccionadas[i]" /> {{ materia.nombre }}
-                    </div>
+                    <div *ngFor="let materia of materiasDisponibles; let i = index">
+
+                        <input 
+                          type="checkbox"
+                          [checked]="selectedIndexes.includes(i)"
+                          (change)="toggleSelection(i)">
+                        
+                        {{ materia.nombre }}
+                      
+                      </div>
                 </ul>
               
                 <h2>Materias Seleccionadas</h2>
@@ -33,3 +40,4 @@
         </div>
     </div>
 </div>
+<button class="back-button" (click)="back()">Back</button>

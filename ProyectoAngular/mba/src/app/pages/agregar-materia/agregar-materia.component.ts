@@ -73,6 +73,9 @@ export class AgregarMateriaComponent {
     return programaData
   
   }
+  back(){
+    this.router.navigate(['/adminProgramas'], { queryParams: { } });
+  }
   getPost(){
     console.log('entré');
     this.programService.createMateria(this.crearMateria())
