@@ -1,0 +1,23 @@
+.custom-snackbar{
+    align-items: center;
+    font-size: 14px;
+    box-shadow: none;
+    border: 0;
+    padding: 20px;
+    color: white;
+    margin: 0;
+}
+
+.icon {
+    color: white;
+    font-size: 14px; /* Corregido: utiliza 'font-size' en lugar de 'size' */
+    padding: 20px;
+    align-items: center; /* Ajusta el margen izquierdo según sea necesario */
+  }
+
+
+.custom-snackbar,
+.custom-snackbar * {
+    margin: 0;
+    padding: 0;
+}
