@@ -6,41 +6,97 @@
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Primer Nombre</mat-label>
-                <input matInput type="text" placeholder="Ej. Roberto" name="firstName" formControlName="primerNombre">
-            </mat-form-field>
+                <input matInput type="text" placeholder="Ej. Roberto" name="firstName" formControlName="primerNombre" [ngClass]="{'is-invalid': submitted && userForm.controls['primerNombre'].errors}">
+                <mat-error *ngIf="userForm.get('primerNombre')?.invalid && userForm.get('primerNombre')?.errors && 
+                (userForm.get('primerNombre')?.dirty || userForm.get('primerNombre')?.touched)" class="error-message">
+                    <small *ngIf="userForm.get('primerNombre')?.hasError('required')">
+                        Este campo es requerido.
+                    </small>
+                    <small *ngIf="userForm.get('primerNombre')?.hasError('pattern')">
+                        Solo se permiten letras en el nombre.
+                    </small>
+                </mat-error>
+            </mat-form-field>            
             <mat-form-field appearance="outline">
                 <mat-label>Segundo Nombre</mat-label>
                 <input matInput type="text" placeholder="Ej. Chavo" name="middleName" formControlName="segundoNombre">
+                <mat-error *ngIf="userForm.get('segundoNombre')?.invalid && userForm.get('segundoNombre')?.errors && 
+                (userForm.get('segundoNombre')?.dirty || userForm.get('segundoNombre')?.touched)" class="error-message">
+                    <small *ngIf="userForm.get('segundoNombre')?.hasError('pattern')">
+                        Solo se permiten letras en el nombre.
+                    </small>
+                </mat-error>
             </mat-form-field>
         </div>
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Apellido Paterno</mat-label>
-                <input matInput type="text" placeholder="Ej. Gomez" name="lastName" formControlName="apellidoPaterno">
+                <input matInput type="text" placeholder="Ej. Gomez" name="lastName" formControlName="apellidoPaterno" [ngClass]="{'is-invalid':submitted && userForm.controls['apellidoPaterno'].errors}">
+                <mat-error *ngIf="userForm.get('apellidoPaterno')?.invalid && userForm.get('apellidoPaterno')?.errors && 
+                (userForm.get('apellidoPaterno')?.dirty || userForm.get('apellidoPaterno')?.touched)" class="error-message">
+                    <small *ngIf="userForm.get('apellidoPaterno')?.hasError('required')">
+                        Este campo es requerido.
+                    </small>
+                    <small *ngIf="userForm.get('apellidoPaterno')?.hasError('pattern')">
+                        Solo se permiten letras en el apellido.
+                    </small>
+                </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Apellido Materno</mat-label>
-                <input matInput type="text" placeholder="Ej. Bolanos" name="secondLastName" formControlName="apellidoMaterno">
+                <input matInput type="text" placeholder="Ej. Bolanos" name="secondLastName" formControlName="apellidoMaterno" [ngClass]="{'is-invalid':submitted && userForm.controls['apellidoMaterno'].errors}">
+                <mat-error *ngIf="userForm.get('apellidoMaterno')?.invalid && userForm.get('apellidoMaterno')?.errors && 
+                (userForm.get('apellidoMaterno')?.dirty || userForm.get('apellidoMaterno')?.touched)" class="error-message">
+                    <small *ngIf="userForm.get('apellidoMaterno')?.hasError('required')">
+                        Este campo es requerido.
+                    </small>
+                    <small *ngIf="userForm.get('apellidoMaterno')?.hasError('pattern')">
+                        Solo se permiten letras en el apellido.
+                    </small>
+                </mat-error>
             </mat-form-field>
         </div>
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput type="email" placeholder="Ej. test@gmail.com" name="email" formControlName="email">
+                <input matInput type="email" placeholder="Ej. test@gmail.com" name="email" formControlName="email" [ngClass]="{'is-invalid':submitted && userForm.controls['email'].errors}">
+                <mat-error *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.errors && 
+                (userForm.get('email')?.dirty || userForm.get('email')?.touched)" class="error-message">
+                    <small *ngIf="userForm.get('email')?.hasError('required')">
+                        Este campo es requerido.
+                    </small>
+                    <small *ngIf="userForm.get('email')?.hasError('email')">
+                        El formato de correo no es válido.
+                    </small>
+                </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>Telefono</mat-label>
-                <input matInput type="number" placeholder="Ej. 75648506" name="phone" formControlName="telefono">
+                <mat-label>Teléfono</mat-label>
+                <input matInput type="number" placeholder="Ej. 75648506" name="phone" formControlName="telefono" [ngClass]="{'is-invalid':submitted && userForm.controls['telefono'].errors}">
+                <mat-error *ngIf="userForm.get('telefono')?.invalid && userForm.get('telefono')?.errors && 
+                (userForm.get('telefono')?.dirty || userForm.get('telefono')?.touched)" class="error-message">
+                    <small *ngIf="userForm.get('telefono')?.hasError('required')">
+                        Este campo es requerido.
+                    </small>
+                    <small *ngIf="userForm.get('telefono')?.hasError('pattern')">
+                        El teléfono debe tener 8 dígitos.
+                    </small>
+                </mat-error>
             </mat-form-field>
         </div>
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Cargo</mat-label>
-                <mat-select [(value)]="selectedCargo" formControlName="cargoId">
+                <mat-select [(value)]="selectedCargo" formControlName="cargoId" >
                 <mat-option *ngFor="let item of cargo" [value]="item.value">
                     {{ item.label }}
                 </mat-option>
                 </mat-select>
+                <mat-error *ngIf="userForm.get('cargoId')?.invalid  || userForm.get('cargoId')?.touched" class="error-message">
+                    <small *ngIf="userForm.get('cargoId')?.hasError('required')">
+                        Este campo es requerido.
+                    </small>
+                </mat-error>
             </mat-form-field>
         </div>
     </div>

@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { privateDecrypt } from 'crypto';
@@ -11,6 +11,7 @@ import { privateDecrypt } from 'crypto';
 })
 export class UserAddEditComponent implements OnInit{
   userForm: FormGroup;
+  submitted = false;
 
   cargo = [
     { value: 1, label: 'Administrador'},
@@ -23,16 +24,16 @@ export class UserAddEditComponent implements OnInit{
   constructor(private _fb: FormBuilder, private _userService: UserService, private _dialogRef: MatDialogRef<UserAddEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any){
     this.userForm = this._fb.group({
-      cargoId: 0,
+      cargoId: [null, Validators.required],
       password: '',
-      segundoNombre: '',
-      codigoUsuario: 0,
-      primerNombre: '',
-      apellidoPaterno: '',
+      segundoNombre: ['', Validators.pattern('^[a-zA-Z]+$')],
+      codigoUsuario: null,
+      primerNombre: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      apellidoPaterno: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
       codigoPrograma: '',
-      apellidoMaterno: '',
-      email: '',
-      telefono: 0,
+      apellidoMaterno: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      email: ['', [Validators.required, Validators.email]],
+      telefono: [null, [Validators.required, Validators.pattern('^[0-9]{8}$')]],
     });
   }
 
@@ -41,6 +42,12 @@ export class UserAddEditComponent implements OnInit{
   }
 
   onFormSubmit() {
+    this.submitted = true;
+
+    Object.values(this.userForm.controls).forEach(control => {
+      control.markAsTouched();
+    });
+
     if(this.userForm.valid) {
       if(this.data){
         this._userService.updateUser(this.userForm.value).subscribe({
