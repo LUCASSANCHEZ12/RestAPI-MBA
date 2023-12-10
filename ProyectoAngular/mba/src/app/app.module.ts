@@ -26,15 +26,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-<<<<<<< HEAD
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
-
-=======
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CustomSnackbarComponent } from './pages/custom-snackbar/custom-snackbar.component';
->>>>>>> Angular-NS-Hotfix4
+
 
 @NgModule({
   declarations: [
@@ -69,12 +65,8 @@ import { CustomSnackbarComponent } from './pages/custom-snackbar/custom-snackbar
     MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
     MatDatepickerModule,
     MatNativeDateModule
-=======
-    MatSnackBarModule,
->>>>>>> Angular-NS-Hotfix4
   ],
   providers: [
     provideClientHydration(),
