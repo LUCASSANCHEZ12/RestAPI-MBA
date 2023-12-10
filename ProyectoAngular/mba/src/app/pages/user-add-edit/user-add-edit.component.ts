@@ -51,7 +51,7 @@ export class UserAddEditComponent implements OnInit{
       if(this.data){
         this._userService.updateUser(this.userForm.value).subscribe({
           next: (val: any) => {
-            this._coreService.openSnackBar('Información actualizada correctamente.','Ok')
+            this._coreService.openCustomSnackBar('Información actualizada correctamente.')
             this._dialogRef.close(true);
           },
           error: (err: any) => {
@@ -61,7 +61,7 @@ export class UserAddEditComponent implements OnInit{
       }else{
         this._userService.addUser(this.userForm.value).subscribe({
           next: (val: any) => {
-            this._coreService.openSnackBar('Usuario añadido correctamente.','Ok')
+            this._coreService.openCustomSnackBar('Información actualizada correctamente.')
             this._dialogRef.close(true);
           },
           error: (err: any) => {

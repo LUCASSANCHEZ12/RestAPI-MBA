@@ -27,6 +27,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CustomSnackbarComponent } from './pages/custom-snackbar/custom-snackbar.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ProfileComponent,
     CrudUserComponent,
     UserAddEditComponent,
+    CustomSnackbarComponent,
   ],
   imports: [
     BrowserModule,

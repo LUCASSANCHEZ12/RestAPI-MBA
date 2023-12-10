@@ -82,7 +82,7 @@ export class CrudUserComponent implements OnInit {
   deleteUser(id: string) {
     this.userService.deleteUser(id).subscribe({
       next: (res) => {
-        this._coreService.openSnackBar('Usuario eliminado', 'Aceptar');
+        this._coreService.openCustomSnackBar("HOLAs");
         this.getUsers();
       }
     })

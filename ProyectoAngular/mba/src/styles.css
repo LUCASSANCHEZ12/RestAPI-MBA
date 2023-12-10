@@ -347,6 +347,16 @@
     display: none;
   }
   
+  snackbar{
+    align-items: center;
+    font-size: larger;
+    box-shadow: none;
+    background:white;
+    border: 0;
+    padding: 20px;
+    color: black;
+  }
+  
   /**
    * Add the correct display in IE 10.
    */
