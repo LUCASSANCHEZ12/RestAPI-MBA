@@ -24,16 +24,16 @@ export class UserAddEditComponent implements OnInit{
   constructor(private _fb: FormBuilder, private _userService: UserService, private _dialogRef: MatDialogRef<UserAddEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any){
     this.userForm = this._fb.group({
-      cargoId: [0, Validators.required],
-      password: ['', Validators.required],
-      segundoNombre: '',
-      codigoUsuario: 0,
-      primerNombre: ['', Validators.required],
-      apellidoPaterno: ['', Validators.required],
+      cargoId: [null, Validators.required],
+      password: '',
+      segundoNombre: ['', Validators.pattern('^[a-zA-Z]+$')],
+      codigoUsuario: null,
+      primerNombre: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      apellidoPaterno: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
       codigoPrograma: '',
-      apellidoMaterno: ['', Validators.required],
+      apellidoMaterno: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
       email: ['', [Validators.required, Validators.email]],
-      telefono: [0, [Validators.required]],
+      telefono: [null, [Validators.required, Validators.pattern('^[0-9]{8}$')]],
     });
   }
 
@@ -43,6 +43,10 @@ export class UserAddEditComponent implements OnInit{
 
   onFormSubmit() {
     this.submitted = true;
+
+    Object.values(this.userForm.controls).forEach(control => {
+      control.markAsTouched();
+    });
 
     if(this.userForm.valid) {
       if(this.data){
