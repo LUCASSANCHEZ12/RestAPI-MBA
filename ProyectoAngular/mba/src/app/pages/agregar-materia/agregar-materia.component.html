@@ -21,19 +21,19 @@
                 </div>
                 <mat-form-field>
                     <mat-label>Elige una Fecha de Inicio</mat-label>
-                    <input matInput [matDatepicker]="startDatePicker">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <input matInput [matDatepicker]="startDatePicker" [(ngModel)]="fechaI" name="fechaI" ngModel>
+                    <mat-hint>DD/MM/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="startDatePicker"></mat-datepicker-toggle>
                     <mat-datepicker #startDatePicker></mat-datepicker>
-                </mat-form-field>
+                  </mat-form-field>
                 
-                <mat-form-field>
+                  <mat-form-field>
                     <mat-label>Elige una Fecha Final</mat-label>
-                    <input matInput [matDatepicker]="endDatePicker">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <input matInput [matDatepicker]="endDatePicker" [(ngModel)]="fechaF" name="fechaF" ngModel>
+                    <mat-hint>DD/MM/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="endDatePicker"></mat-datepicker-toggle>
                     <mat-datepicker #endDatePicker></mat-datepicker>
-                </mat-form-field>
+                  </mat-form-field>         
                 
             </form>
             <button (click)="click()">Crear Materia</button>

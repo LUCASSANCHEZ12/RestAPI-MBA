@@ -26,7 +26,7 @@ body {
 }
 
 h1 {
-    color: #f39c12; 
+    color: #f3ba00; 
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -82,7 +82,7 @@ button:hover {
 }
 
 h2 {
-    color: #f39c12; 
+    color: #f3ba00; 
 }
 
 
@@ -91,7 +91,7 @@ input[type="checkbox"] {
 }
 
 .input-container input:focus {
-    border-color: #f39c12; 
+    border-color: #f3ba00; 
 }
 
 .back-button {

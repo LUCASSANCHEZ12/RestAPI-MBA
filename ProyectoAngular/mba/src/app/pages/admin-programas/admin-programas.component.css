@@ -1,71 +1,48 @@
-
-.main-body {
-  padding-top: 50px;
-  margin: 0 auto;
-  max-width: 1000px;
+.newProgram {
+  --color-primary: #f3ba00;
+  --color-secondary: #05165b;
 }
 
-mat-form-field {
-  width: 100%;
+.lineYellow {
+  background-color: var(--color-secondary);
+  border-bottom: 8px solid var(--color-primary);
 }
 
-.action {
+.title {
+  background: var(--color-secondary);
+  padding: 15px;
   display: flex;
-  gap: 10px;
+  align-items: center;
+  justify-content: center; 
+  margin-bottom: 20px; 
 }
 
-table {
-  width: 100%;
+.title span {
+  color: white;
+  font-size: 30px;
+  margin-left: 15px;
 }
-
-.mat-mdc-form-field {
-  font-size: 16px;
-  width: 100%;
-}
-
-td, th {
-  width: 25%;
-}
-
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-}
-
-
-h1 {
-  text-align: center;
-  color: #f39c12; 
-  font-size: 28px;
-  font-weight: bold;
-  margin-top: 50px; 
-  margin-bottom: 20px;
-}
-
 
 .button-container {
   display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
+  justify-content: center; 
 }
 
-.button-container button {
-  padding: 15px 30px;
-  border: none;
-  border-radius: 8px;
-  background-color: #001f3f; 
-  color: #fff; 
-  cursor: pointer;
+.addProgram-btn 
+{
+  padding: 10px 25px;
+  background-color: var(--color-primary);
+  border: 1px solid #00508c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
   font-size: 18px;
-  transition: background-color 0.3s ease;
+  margin: 0 10px; 
 }
 
-.button-container button:hover {
-  background-color: #0056b3; 
-}
-
-
-.back-button {
+.back-btn{
   position: fixed;
   bottom: 20px;
   left: 20px;
@@ -74,14 +51,37 @@ h1 {
   padding: 15px 30px;
   border: none;
   border-radius: 8px;
-  background-color: #001f3f;
+  background-color: var(--color-primary);
   color: #fff; 
   cursor: pointer;
   font-size: 18px;
   transition: background-color 0.3s ease;
 }
 
+.addProgram-btn:hover,
+.back-btn:hover {
+  background-color: #00508c;
+  color: #fff;
+}
 
-.back-button:hover {
-  background-color: #0056b3; 
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.main-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+  margin: 0 auto;
+  max-width: 1348px;
+  mat-form-field {
+    width: 95%;
+  }
+}
+
+.table-container {
+  width: 95%;
 }

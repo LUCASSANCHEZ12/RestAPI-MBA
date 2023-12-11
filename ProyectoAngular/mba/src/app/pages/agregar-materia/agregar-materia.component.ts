@@ -7,16 +7,16 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-agregar-materia',
   templateUrl: './agregar-materia.component.html',
-  styleUrl: './agregar-materia.component.css'
+  styleUrls: ['./agregar-materia.component.css']
 })
 export class AgregarMateriaComponent {
-  public codigo: string; 
+  public codigo: string;
   public nombre: string;
   public descripcion: string;
-  public semester: string; 
-  public fechaI: string;
-  public fechaF: string;
-  
+  public semester: string;
+  public fechaI: string;  
+  public fechaF: string;  
+
   public materiaVacia: Materia = {
     codigoDocente: 0,
     codigoMateria: '',
@@ -27,28 +27,19 @@ export class AgregarMateriaComponent {
     fechaFinal: ''
   };
 
-  
-  @ViewChild('codeInput')
-  codeInput!: ElementRef<HTMLInputElement>; 
-  @ViewChild('nameInput')
-  nameInput!: ElementRef<HTMLInputElement>;
-  @ViewChild('descInput')
-  descInput!: ElementRef<HTMLInputElement>;  
-  @ViewChild('semesterInput')
-  semesterInput!: ElementRef<HTMLInputElement>;
-  @ViewChild('fInicioInput')
-  fInicioInput!: ElementRef<HTMLInputElement>;
-  @ViewChild('fFinalInput')
-  fFinalInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('codeInput') codeInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('nameInput') nameInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('descInput') descInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('semesterInput') semesterInput!: ElementRef<HTMLInputElement>;
 
-  constructor(private programService: AdminProgramasService, private router: Router){
+  constructor(private programService: AdminProgramasService, private router: Router, private datePipe: DatePipe) {
     this.codigo = '';
     this.nombre = '';
     this.descripcion = '';
     this.fechaI = '';
     this.fechaF = '';
     this.semester = '';
-    this.materiaVacia ;
+    this.materiaVacia;
   }
 
   click() {
@@ -56,47 +47,47 @@ export class AgregarMateriaComponent {
     this.nombre = this.nameInput.nativeElement.value;
     this.descripcion = this.descInput.nativeElement.value;
     this.semester = this.semesterInput.nativeElement.value;
-    this.fechaI = this.fInicioInput.nativeElement.value;
-    this.fechaF = this.fFinalInput.nativeElement.value;
+    // this.fechaI = this.fInicioInput.nativeElement.value;
+    // this.fechaF = this.fFinalInput.nativeElement.value;
     if (this.codigo !== '' && this.nombre !== '' && this.descripcion !== '') {
-        this.getPost();
+      this.getPost();
     } else {
       alert('Llena todos los campos por favor');
     }
   }
-  crearMateria(){
+
+  crearMateria() {
     const programaData = {
-        codigoDocente: '',
-        codigoMateria: this.codigo,
-        nombre: this.nombre,
-        descripcion: this.descripcion,
-        semestre: this.semester,
-        fechaInicio: this.fechaI,
-        fechaFinal: this.fechaF
+      codigoDocente: '',
+      codigoMateria: this.codigo,
+      nombre: this.nombre,
+      descripcion: this.descripcion,
+      semestre: this.semester,
+      fechaInicio: this.fechaI,
+      fechaFinal: this.fechaF
     };
 
-    return programaData
-  
+    return programaData;
   }
-  back(){
-    this.router.navigate(['/adminProgramas'], { queryParams: { } });
+
+  back() {
+    this.router.navigate(['/adminProgramas'], { queryParams: {} });
   }
-  getPost(){
+
+  getPost() {
     console.log('entré');
     this.programService.createMateria(this.crearMateria())
       .subscribe((materia: Materia | null) => {
         if (materia === null) {
           alert('No se pudo agregar la materia');
-        }
-        else {
+        } else {
           this.materiaVacia = materia;
           console.log(materia);
           console.log('Revisar cargo');
           alert('Creado Correctamente');
         }
       });
-      return this.materiaVacia
+    return this.materiaVacia;
   }
 
 }
-

@@ -20,7 +20,7 @@
 }
 
 h1 {
-    color: #f39c12; 
+    color: #f3ba00; 
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -79,7 +79,7 @@ input[type="checkbox"] {
 }
 
 .input-container input:focus {
-    border-color: #f39c12; 
+    border-color: #f3ba00; 
 }
 
 .body-new {
