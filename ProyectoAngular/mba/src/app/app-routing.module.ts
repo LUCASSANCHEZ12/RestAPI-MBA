@@ -9,6 +9,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AdminProgramasComponent } from './pages/admin-programas/admin-programas.component';
 import { AgregarMateriaComponent } from './pages/agregar-materia/agregar-materia.component';
 import { CrearProgramaComponent } from './pages/crear-programa/crear-programa.component';
+import { CrearCasosEstudioComponent } from './pages/crear-editar-casos-estudio/crear-casos-estudio.component';
+import { VerCasosEstudioComponent } from './pages/ver-casos-estudio/ver-casos-estudio.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -20,6 +22,8 @@ const routes: Routes = [
   {path: 'adminProgramas', component : AdminProgramasComponent},
   {path: 'createProgram', component : CrearProgramaComponent},
   {path: 'createMateria', component : AgregarMateriaComponent},
+  {path: 'crearCasosEstudio', component : CrearCasosEstudioComponent},
+  {path: 'verCasosEstudio', component: VerCasosEstudioComponent},
 ];
 
 @NgModule({

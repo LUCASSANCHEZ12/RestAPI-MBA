@@ -65,4 +65,7 @@ export class AdminProgramasComponent implements AfterViewInit{
   crearMaterias(){
     this.router.navigate(['/createMateria'], { queryParams: { id: this.userId } });
   }
+  crearCasosEstudio(){
+    this.router.navigate(['/verCasosEstudio'], { queryParams: {id: this.userId} });
+  }
 }

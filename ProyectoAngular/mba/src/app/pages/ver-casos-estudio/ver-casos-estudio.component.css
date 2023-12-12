@@ -1,0 +1,95 @@
+.newUser{
+    --color-primary: #f3ba00;
+    --color-secondary: #05165b;
+  }
+  
+  .lineYellow {
+    background-color: var(--color-secondary);
+    border-bottom: 8px solid var(--color-primary); /* Ancho de 4 píxeles y borde sólido */
+  }
+  
+  
+  .title{
+    background: var(--color-secondary);
+    height: 110px;
+    
+  }
+  
+  span {
+    color: white; /* Esto establecerá el color del texto en blanco */
+    font-size: 30px;
+    margin-left: 15px;
+  }
+  
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+    
+  .table-container {
+    width: 95%; /* Opcional: ancho completo del contenedor */
+  }
+  
+  .main-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25px;
+    margin: 0 auto;
+    max-width: 1348px;
+    mat-form-field {
+      width: 95%;
+    }
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .mat-toolbar button {
+    margin-right: 10px; /* Ajusta el valor según la separación deseada */
+  }
+  
+  .back-btn {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 10px 25px;
+    background-color: var(--color-primary);
+    border: 1px solid #00508c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100px;
+    position: relative;
+    top: -30px; /* Mover hacia abajo */
+    left: -42vw; /* Mover hacia la izquierda */
+    font-size: 18px;
+  }
+  
+  .back-btn:hover {
+    background-color: #00508c;
+    color: #fff;
+  }
+  
+  .addUser-btn {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 10px 25px;
+    background-color: var(--color-primary);
+    border: 1px solid #00508c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    width: 200px;
+    font-size: 18px;
+  }
+  
+  .addUser-btn:hover {
+    background-color: #00508c;
+    color: #fff;
+  }
+  
