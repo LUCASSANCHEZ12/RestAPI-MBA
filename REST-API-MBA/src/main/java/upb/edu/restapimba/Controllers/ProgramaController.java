@@ -20,7 +20,6 @@ import upb.edu.restapimba.Models.UserModel;
 import upb.edu.restapimba.Services.MateriaBusinessServiceInterface;
 import upb.edu.restapimba.Services.ProgramaBusinessServiceInterface;
 import upb.edu.restapimba.Services.UsersBusinessServiceInterface;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -83,16 +82,7 @@ public class ProgramaController {
             return null;
         }
     }
-    @GetMapping("/materia/getMateriasAsignadas/{code}")
-    public List<MateriaModel> getMethodName(@PathVariable(name="code") long code) {
-        try {
-        return serviceMateria.verMateriasAsignadas(code);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
-    
+  
 
     @DeleteMapping("/materia/delete/program/{materia}/{programa}")
     public Tuple<MateriaModel, ProgramaModel> deleteMateriaPrograma(@PathVariable(name="materia") String materia, @PathVariable(name="programa") String programa){
@@ -173,6 +163,23 @@ public class ProgramaController {
         }
     }
 
+    @GetMapping("/user/{cargo}/materias/{code}")
+    public List<MateriaModel> getMethodName(@PathVariable(name="cargo") int cargo, @PathVariable(name="code") long code) {
+        try {
+            switch (cargo) {
+                case 2:
+                    return serviceMateria.verMateriasDocente(code);
+                case 3:
+                    return serviceMateria.verMateriasEstudiante(code);
+                default:
+                    return null;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
     @DeleteMapping("/delete/{program}")
     public ProgramaModel deleteProgram(@PathVariable(name="program") String program)
     {
@@ -193,6 +200,5 @@ public class ProgramaController {
                 return null;
             }
     }
-    
     
 }

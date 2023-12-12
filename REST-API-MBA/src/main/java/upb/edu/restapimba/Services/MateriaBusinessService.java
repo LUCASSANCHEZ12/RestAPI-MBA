@@ -40,8 +40,13 @@ public class MateriaBusinessService implements MateriaBusinessServiceInterface{
     }
 
     @Override
-    public List<MateriaModel> verMateriasAsignadas(long CodigoUsuario) {
-        return materiaDAO.verMateriasAsignadas(CodigoUsuario);
+    public List<MateriaModel> verMateriasEstudiante(long CodigoUsuario) {
+        return materiaDAO.verMateriasEstudiante(CodigoUsuario);
+    }
+
+    @Override
+    public List<MateriaModel> verMateriasDocente(long CodigoUsuario) {
+        return materiaDAO.verMateriasDocente(CodigoUsuario);
     }
 
     @Override

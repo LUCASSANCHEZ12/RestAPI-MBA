@@ -9,10 +9,10 @@
 #1. Install the dependencies
 
 #```bash
-pip3 install fastapi
-pip3 install openai
-pip3 install pydantic
-pip3 install uvicorn
+pip install fastapi
+pip install openai
+pip install pydantic
+pip install uvicorn
 #```
 
 #2. Start the FastAPI server

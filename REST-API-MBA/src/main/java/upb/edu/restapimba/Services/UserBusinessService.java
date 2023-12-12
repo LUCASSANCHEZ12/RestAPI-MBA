@@ -8,7 +8,6 @@ import upb.edu.data.UsersDataAccessInterface;
 import upb.edu.restapimba.Models.CargoModel;
 import upb.edu.restapimba.Models.UserModel;
 
-
 public class UserBusinessService implements UsersBusinessServiceInterface
 {
     @Autowired
@@ -69,10 +68,4 @@ public class UserBusinessService implements UsersBusinessServiceInterface
         return usersDao.deleteOneUser(id);
     }
 
-
-
-
-    
-    
-    
 }

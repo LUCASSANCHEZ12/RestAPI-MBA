@@ -6,6 +6,8 @@ import org.springframework.web.context.annotation.RequestScope;
 
 import upb.edu.data.CargoDataAccessInterface;
 import upb.edu.data.CargoDataService;
+import upb.edu.data.CDEDataAccessInterface;
+import upb.edu.data.CDEDataService;
 import upb.edu.data.MateriaDataAccessInterface;
 import upb.edu.data.MateriaDataService;
 import upb.edu.data.ProgramaDataAccessInterface;
@@ -14,6 +16,8 @@ import upb.edu.data.UsersDataAccessInterface;
 import upb.edu.data.UsersDataService;
 import upb.edu.restapimba.Services.CargoBusinessService;
 import upb.edu.restapimba.Services.CargoBusinessServiceInterface;
+import upb.edu.restapimba.Services.CDEBusinessService;
+import upb.edu.restapimba.Services.CDEBusinessServiceInterface;
 import upb.edu.restapimba.Services.MateriaBusinessService;
 import upb.edu.restapimba.Services.MateriaBusinessServiceInterface;
 import upb.edu.restapimba.Services.ProgramaBusinessService;
@@ -71,5 +75,17 @@ public class SpringConfig {
     @RequestScope
     public ProgramaDataAccessInterface getDataServicePrograma(){
         return new ProgramaDataService();
+    }
+
+    @Bean(name="cdeBusinessService", initMethod = "init", destroyMethod = "destroy")
+    @RequestScope
+    public CDEBusinessServiceInterface getCasoDeEstudioBusiness(){
+        return new CDEBusinessService();
+    }
+
+    @Bean(name="cdeDao")
+    @RequestScope
+    public CDEDataAccessInterface getCDataServiceCasoDeEstudio(){
+        return new CDEDataService();
     }
 }

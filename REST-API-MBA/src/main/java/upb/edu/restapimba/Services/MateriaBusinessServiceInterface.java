@@ -21,7 +21,10 @@ public interface MateriaBusinessServiceInterface {
     public Tuple<MateriaModel, ProgramaModel> asignarMateriaPrograma(String CodigoPrograma, String CodigoMateria);
 
     // GET
-    public List<MateriaModel> verMateriasAsignadas(long CodigoUsuario);
+    public List<MateriaModel> verMateriasEstudiante(long CodigoUsuario);
+
+    // GET
+    public List<MateriaModel> verMateriasDocente(long CodigoUsuario);
 
     // GET
     public List<MateriaModel> verMaterias();
