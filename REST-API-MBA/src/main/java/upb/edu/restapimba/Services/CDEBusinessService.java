@@ -63,5 +63,9 @@ public class CDEBusinessService implements CDEBusinessServiceInterface{
     public List<UserModel> getUsuariosSolucion(long codigoSolucion) {
         return cdeDAO.getUsuariosSolucion(codigoSolucion);
     }
+
+    public SolucionCDEModel getSolucion(long solucion){
+        return cdeDAO.getSolucion(solucion);
+    }
     
 }

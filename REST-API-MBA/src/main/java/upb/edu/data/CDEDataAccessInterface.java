@@ -15,6 +15,12 @@ public interface CDEDataAccessInterface {
     public void init();
 
     //GET
+    public SolucionCDEModel getUltimaSolucion();
+
+    //GET
+    public SolucionCDEModel getSolucion(long solucion);
+
+    //GET
     public List<CDEModel> getCasosEstudioMateria(String CodigoMateria);
 
     //GET
