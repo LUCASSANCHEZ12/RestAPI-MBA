@@ -11,6 +11,8 @@ import { AgregarMateriaComponent } from './pages/agregar-materia/agregar-materia
 import { CrearProgramaComponent } from './pages/crear-programa/crear-programa.component';
 import { CrearCasosEstudioComponent } from './pages/crear-editar-casos-estudio/crear-casos-estudio.component';
 import { VerCasosEstudioComponent } from './pages/ver-casos-estudio/ver-casos-estudio.component';
+import { AdminMateriasComponent } from './pages/admin-materias/admin-materias.component';
+import { CrearEditarMateriasComponent } from './pages/crear-editar-materias/crear-editar-materias.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path: 'createMateria', component : AgregarMateriaComponent},
   {path: 'crearCasosEstudio', component : CrearCasosEstudioComponent},
   {path: 'verCasosEstudio', component: VerCasosEstudioComponent},
+  {path: 'adminMaterias', component: AdminMateriasComponent},
+  {path: 'crearMaterias', component: CrearEditarMateriasComponent},
 ];
 
 @NgModule({

@@ -32,6 +32,9 @@ import { DatePipe } from '@angular/common';
 import { CustomSnackbarComponent } from './pages/custom-snackbar/custom-snackbar.component';
 import { CrearCasosEstudioComponent } from './pages/crear-editar-casos-estudio/crear-casos-estudio.component';
 import { VerCasosEstudioComponent } from './pages/ver-casos-estudio/ver-casos-estudio.component';
+import { AdminMateriasComponent } from './pages/admin-materias/admin-materias.component';
+import { CrearEditarMateriasComponent } from './pages/crear-editar-materias/crear-editar-materias.component';
+import { CrearEditarProgramasComponent } from './pages/crear-editar-programas/crear-editar-programas.component';
 
 
 @NgModule({
@@ -50,7 +53,10 @@ import { VerCasosEstudioComponent } from './pages/ver-casos-estudio/ver-casos-es
     UserAddEditComponent,
     CustomSnackbarComponent,
     CrearCasosEstudioComponent,
-    VerCasosEstudioComponent
+    VerCasosEstudioComponent,
+    AdminMateriasComponent,
+    CrearEditarMateriasComponent,
+    CrearEditarProgramasComponent
   ],
   imports: [
     BrowserModule,
