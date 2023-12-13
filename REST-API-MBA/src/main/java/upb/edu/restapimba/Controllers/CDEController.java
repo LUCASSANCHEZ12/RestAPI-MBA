@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import upb.edu.restapimba.Models.CDEModel;
 import upb.edu.restapimba.Models.SolucionCDEModel;
+import upb.edu.restapimba.Models.Tuple;
 import upb.edu.restapimba.Models.UserModel;
 import upb.edu.restapimba.Services.CDEBusinessServiceInterface;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -85,9 +86,9 @@ public class CDEController {
     }
 
     @PostMapping("/create/solucion")
-    public boolean postSolucion(@RequestBody SolucionCDEModel entity, @RequestBody List<UserModel> users) {
+    public boolean postSolucion(@RequestBody Tuple<SolucionCDEModel ,List<UserModel>> tuple) {
         try {
-            return cdeService.createSolucionCasoEstudio(entity, users);
+            return cdeService.createSolucionCasoEstudio(tuple.getValor1(), tuple.getValor2());
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
