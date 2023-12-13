@@ -1,56 +1,114 @@
 <div class="body">
-    <div class="profile">
-    
-      <h2>Perfil de Usuario</h2>
-    
-        <div class="field">
-            <span class="label">Código:</span>
-            <span class="data">{{ usuario?.valor1?.codigoUsuario }}</span>
-        </div>
-        
-        <div class="field">
-            <span class="label">Primer Nombre:</span>
-            <input class="data" type="text" [value]="usuario?.valor1?.primerNombre" enabled #pNombreInput>
-        </div>
-        
-        <div class="field">
-            <span class="label">Segundo Nombre:</span>
-            <input class="data" type="text" [value]="usuario?.valor1?.segundoNombre" enabled #sNombreInput>
-        </div>
-        
-        <div class="field">
-            <span class="label">Apellido Paterno:</span>
-            <input class="data" type="text" [value]="usuario?.valor1?.apellidoPaterno" enabled #aPaternoInput>
-        </div>
-        
-        <div class="field">
-            <span class="label">Apellido Materno:</span>
-            <input class="data" type="text" [value]="usuario?.valor1?.apellidoMaterno" enabled #aMaternoInput>
-        </div>
-        
-        <div class="field">
-            <span class="label">Teléfono:</span>
-            <input class="data" type="text" [value]="usuario?.valor1?.telefono" enabled #telefonoInput>
-        </div>  
-        
-        <div class="field">
-            <span class="label">Email:</span> 
-            <input class="data" type="text" [value]="usuario?.valor1?.email" enabled #emailInput>
-        </div>
+    <form [formGroup]="profileForm">
+        <div class="profile">
+            <h2>Perfil de Usuario</h2>
+            
+                <div class="field">
+                    <span class="label">Código:</span>
+                    <span class="data">{{ usuario?.valor1?.codigoUsuario }}</span>
+                </div>
+                
+                <div class="field">
+                    <span class="label">Primer Nombre:</span>
+                    <input formControlName="primerNombre" class="data" type="text" [value]="usuario?.valor1?.primerNombre" enabled #pNombreInput [ngClass]="{'is-invalid': submitted && profileForm.controls['primerNombre'].errors}">
+                    <mat-error *ngIf="profileForm.get('primerNombre')?.invalid && profileForm.get('primerNombre')?.errors && 
+                    (profileForm.get('primerNombre')?.dirty)" class="error-message">
+                        <small *ngIf="profileForm.get('primerNombre')?.hasError('required')">
+                            Este campo es requerido.
+                        </small>
+                        <small *ngIf="profileForm.get('primerNombre')?.hasError('pattern')">
+                            Solo se permiten letras en el nombre.
+                        </small>
+                    </mat-error>
+                </div>
+                
+                <div class="field">
+                    <span class="label">Segundo Nombre:</span>
+                    <input formControlName="segundoNombre" class="data" type="text" [value]="usuario?.valor1?.segundoNombre" enabled #sNombreInput>
+                    <mat-error *ngIf="profileForm.get('segundoNombre')?.invalid && profileForm.get('segundoNombre')?.errors && 
+                    (profileForm.get('segundoNombre')?.dirty)" class="error-message">
+                    <small *ngIf="profileForm.get('segundoNombre')?.hasError('pattern')">
+                        Solo se permiten letras en el nombre.
+                    </small>
+                </mat-error>
+                </div>
+                
+                <div class="field">
+                    <span class="label">Apellido Paterno:</span>
+                    <input formControlName="apellidoPaterno" class="data" type="text" [value]="usuario?.valor1?.apellidoPaterno" enabled #aPaternoInput [ngClass]="{'is-invalid':submitted && profileForm.controls['apellidoPaterno'].errors}">
+                    <mat-error *ngIf="profileForm.get('apellidoPaterno')?.invalid && profileForm.get('apellidoPaterno')?.errors && 
+                    (profileForm.get('apellidoPaterno')?.dirty)" class="error-message">
+                    <small *ngIf="profileForm.get('apellidoPaterno')?.hasError('required')">
+                        Este campo es requerido.
+                    </small>
+                    <small *ngIf="profileForm.get('apellidoPaterno')?.hasError('pattern')">
+                        Solo se permiten letras en el apellido.
+                    </small>
+                </mat-error>
+                </div>
+                
+                <div class="field">
+                    <span class="label">Apellido Materno:</span>
+                    <input formControlName="apellidoMaterno" class="data" type="text" [value]="usuario?.valor1?.apellidoMaterno" enabled #aMaternoInput [ngClass]="{'is-invalid':submitted && profileForm.controls['apellidoMaterno'].errors}">
+                    <mat-error *ngIf="profileForm.get('apellidoMaterno')?.invalid && profileForm.get('apellidoMaterno')?.errors && 
+                    (profileForm.get('apellidoMaterno')?.dirty)" class="error-message">
+                    <small *ngIf="profileForm.get('apellidoMaterno')?.hasError('required')">
+                        Este campo es requerido.
+                    </small>
+                    <small *ngIf="profileForm.get('apellidoMaterno')?.hasError('pattern')">
+                        Solo se permiten letras en el apellido.
+                    </small>
+                </mat-error>
+                </div>
+                
+                <div class="field">
+                    <span class="label">Teléfono:</span>
+                    <input formControlName="telefono" class="data" type="text" [value]="usuario?.valor1?.telefono" enabled #telefonoInput [ngClass]="{'is-invalid':submitted && profileForm.controls['telefono'].errors}">
+                    <mat-error *ngIf="profileForm.get('telefono')?.invalid && profileForm.get('telefono')?.errors && 
+                    (profileForm.get('telefono')?.dirty)" class="error-message">
+                    <small *ngIf="profileForm.get('telefono')?.hasError('required')">
+                        Este campo es requerido.
+                    </small>
+                    <small *ngIf="profileForm.get('telefono')?.hasError('pattern')">
+                        El teléfono debe tener 8 dígitos.
+                    </small>
+                </mat-error>
+                </div>  
+                
+                <div class="field">
+                    <span class="label">Email:</span> 
+                    <input formControlName="email" class="data" type="text" [value]="usuario?.valor1?.email" enabled #emailInput [ngClass]="{'is-invalid':submitted && profileForm.controls['email'].errors}">
+                    <mat-error *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.errors && 
+                    (profileForm.get('email')?.dirty)" class="error-message">
+                    <small *ngIf="profileForm.get('email')?.hasError('required')">
+                        Este campo es requerido.
+                    </small>
+                    <small *ngIf="profileForm.get('email')?.hasError('email')">
+                        El formato de correo no es válido.
+                    </small>
+                </mat-error>
+                </div>
 
-        <div class="field">
-            <span class="label">Contraseña:</span> 
-            <input class="data" type="text" [value]="usuario?.valor1?.password" enabled #contrasenaInput>
-        </div>
-        
-        <div class="field">
-            <span class="label">Cargo:</span> 
-            <span class="data">{{ usuario?.valor2?.nombreCargo }}</span>
-        </div>
+                <div class="field">
+                    <span class="label">Contraseña:</span> 
+                    <input formControlName="contrasena" class="data" type="text" [value]="usuario?.valor1?.password" enabled #contrasenaInput [ngClass]="{'is-invalid': submitted && profileForm.controls['contrasena'].errors}">
+                    <mat-error *ngIf="profileForm.get('contrasena')?.invalid && profileForm.get('contrasena')?.errors && 
+                    (profileForm.get('contrasena')?.dirty)" class="error-message">
+                        <small *ngIf="profileForm.get('contrasena')?.hasError('required')">
+                            Este campo es requerido.
+                        </small>
+                    </mat-error>
+                </div>
+                
+                <div class="field">
+                    <span class="label">Cargo:</span> 
+                    <span class="data">{{ usuario?.valor2?.nombreCargo }}</span>
+                </div>
 
-      <a (click)="navigateBack()" class="back-btn">Volver</a>
-      <a (click)="update()" class="update-btn">Actualizar</a>
-    
-    </div>    
+            <a (click)="navigateBack()" class="back-btn">Volver</a>
+            <a (click)="update()" class="update-btn">Actualizar</a>
+        
+        </div>    
+    </form>
 </div>
     

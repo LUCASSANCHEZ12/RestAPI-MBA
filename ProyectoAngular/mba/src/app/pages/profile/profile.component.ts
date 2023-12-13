@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserTuple } from '../../interfaces/userTuple';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/user';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -10,6 +11,8 @@ import { User } from '../../interfaces/user';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
+  profileForm!: FormGroup;
+  submitted = false;
   userId: string = "";
   cargoId: number = 0;
   public usuario: UserTuple | null = null;
@@ -37,7 +40,7 @@ export class ProfileComponent {
   public email: string;
   public contrasena: string;
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private fb: FormBuilder) {
     this.route.queryParams.subscribe(params => {
         this.userId = params['id'];
     });
@@ -57,6 +60,20 @@ export class ProfileComponent {
       .subscribe((user: UserTuple) => {
         this.usuario = user
         console.log(this.usuario)
+      });
+
+      this.profileForm = this.fb.group({
+        cargoId: [null, Validators.required],
+        password: '',
+        segundoNombre: ['', Validators.pattern('^[a-zA-Z]+$')],
+        codigoUsuario: null,
+        primerNombre: ['', [Validators.required, Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚ]+$')]],
+        apellidoPaterno: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+        codigoPrograma: '',
+        apellidoMaterno: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+        email: ['', [Validators.required, Validators.email]],
+        telefono: [null, [Validators.required, Validators.pattern('^[0-9]{8}$')]],
+        contrasena: ['', Validators.required],
       });
   }
 
@@ -81,28 +98,37 @@ export class ProfileComponent {
   }
 
   update(){
-    console.log("ACTUALIZAR")
-    this.user = this.usuario ? this.usuario.valor1 : null;
-    this.primerNombre = this.pNombreInput.nativeElement.value;
-    this.segundoNombre = this.sNombreInput.nativeElement.value;
-    this.apellidoPaterno = this.aPaternoInput.nativeElement.value;
-    this.apellidoMaterno = this.aMaternoInput.nativeElement.value;
-    this.telefono = parseInt(this.telefonoInput.nativeElement.value, 10);
-    this.email = this.emailInput.nativeElement.value;
-    this.contrasena = this.contrasenaInput.nativeElement.value;
+    this.submitted = true;
 
-    if(this.user != null)
-    {
-      this.user.primerNombre = this.primerNombre;
-      this.user.segundoNombre = this.segundoNombre;
-      this.user.apellidoPaterno = this.apellidoPaterno;
-      this.user.apellidoMaterno = this.apellidoMaterno;
-      this.user.telefono = this.telefono;
-      this.user.email = this.email;
-      this.user.password = this.contrasena;
+    Object.values(this.profileForm.controls).forEach(control => {
+      control.markAsTouched();
+    });
 
-      this.updateUser(this.user);
-      console.log(this.user);
+    console.log("HERE");
+    if(this.profileForm.valid) {
+      console.log("ACTUALIZAR");
+      this.user = this.usuario ? this.usuario.valor1 : null;
+      this.primerNombre = this.pNombreInput.nativeElement.value;
+      this.segundoNombre = this.sNombreInput.nativeElement.value;
+      this.apellidoPaterno = this.aPaternoInput.nativeElement.value;
+      this.apellidoMaterno = this.aMaternoInput.nativeElement.value;
+      this.telefono = parseInt(this.telefonoInput.nativeElement.value, 10);
+      this.email = this.emailInput.nativeElement.value;
+      this.contrasena = this.contrasenaInput.nativeElement.value;
+
+      if(this.user != null)
+      {
+        this.user.primerNombre = this.primerNombre;
+        this.user.segundoNombre = this.segundoNombre;
+        this.user.apellidoPaterno = this.apellidoPaterno;
+        this.user.apellidoMaterno = this.apellidoMaterno;
+        this.user.telefono = this.telefono;
+        this.user.email = this.email;
+        this.user.password = this.contrasena;
+
+        this.updateUser(this.user);
+        console.log(this.user);
+      }
     }
   }
 
