@@ -9,6 +9,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AdminProgramasComponent } from './pages/admin-programas/admin-programas.component';
 import { AgregarMateriaComponent } from './pages/agregar-materia/agregar-materia.component';
 import { CrearProgramaComponent } from './pages/crear-programa/crear-programa.component';
+import { MateriasEstudianteComponent } from './pages/materias-estudiante/materias-estudiante.component';
+import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estudiantes.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -20,6 +22,8 @@ const routes: Routes = [
   {path: 'adminProgramas', component : AdminProgramasComponent},
   {path: 'createProgram', component : CrearProgramaComponent},
   {path: 'createMateria', component : AgregarMateriaComponent},
+  { path: 'materiasEstudiante', component: MateriasEstudianteComponent},
+  { path: 'casosEstudiante', component: CasosEstudiantesComponent}
 ];
 
 @NgModule({

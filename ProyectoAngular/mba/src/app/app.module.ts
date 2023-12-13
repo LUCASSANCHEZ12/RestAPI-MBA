@@ -30,6 +30,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 import { CustomSnackbarComponent } from './pages/custom-snackbar/custom-snackbar.component';
+import { MateriasEstudianteComponent } from './pages/materias-estudiante/materias-estudiante.component';
+import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estudiantes.component';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { CustomSnackbarComponent } from './pages/custom-snackbar/custom-snackbar
     CrudUserComponent,
     UserAddEditComponent,
     CustomSnackbarComponent,
+    MateriasEstudianteComponent,
+    CasosEstudiantesComponent,
   ],
   imports: [
     BrowserModule,
