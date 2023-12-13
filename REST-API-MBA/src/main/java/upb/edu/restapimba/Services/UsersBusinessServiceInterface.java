@@ -39,4 +39,7 @@ public interface UsersBusinessServiceInterface
     //DELETE
     public UserModel deleteOneUser(long id);
 
+    //GET
+    public String getUsuarioProgramado(long id);
+
 }

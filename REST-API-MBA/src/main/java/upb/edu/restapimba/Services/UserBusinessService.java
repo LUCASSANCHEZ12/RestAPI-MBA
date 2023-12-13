@@ -68,4 +68,9 @@ public class UserBusinessService implements UsersBusinessServiceInterface
         return usersDao.deleteOneUser(id);
     }
 
+    @Override
+    public String getUsuarioProgramado(long id) {
+        return usersDao.getUsuarioProgramado(id);
+    }
+
 }

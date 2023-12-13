@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 
 import upb.edu.restapimba.Models.CargoMapper;
 import upb.edu.restapimba.Models.CargoModel;
+import upb.edu.restapimba.Models.MateriaMapper;
+import upb.edu.restapimba.Models.MateriaModel;
 import upb.edu.restapimba.Models.UserModel;
 import upb.edu.restapimba.Models.UsersMapper;
 
@@ -133,6 +135,31 @@ public class UsersDataService implements UsersDataAccessInterface{
         jdbcTemplate.execute(query);
         return user;
 
+    }
+
+    @Override
+    public String getUsuarioProgramado(long id) {
+        UserModel usuario = getByCode(id);
+        String query = "";
+        switch (usuario.getCargoId()) {
+            case 2:
+                query = String.format("SELECT m.* FROM materia m JOIN usuarios u ON m.codigoDocente = u.codigoUsuario WHERE u.codigoUsuario = %d;", usuario.getCodigoUsuario());
+                MateriaModel materia = jdbcTemplate.query(query, new MateriaMapper()).get(0);
+                if (materia == null){
+                    return "";
+                } else {
+                    return materia.getCodigoMateria();
+                }
+            case 3:
+                if(usuario.getCodigoPrograma() == null){
+                    return "";
+                } else {
+                    return usuario.getCodigoPrograma();
+                }
+        
+            default:
+                return  "";
+        }
     }
     
 }

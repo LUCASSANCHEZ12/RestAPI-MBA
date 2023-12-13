@@ -18,6 +18,7 @@ import upb.edu.restapimba.Models.UserModel;
 import upb.edu.restapimba.Services.CargoBusinessServiceInterface;
 import upb.edu.restapimba.Services.UsersBusinessServiceInterface;
 
+
 @RestController
 @RequestMapping("/MBA/user")
 public class UserController 
@@ -63,6 +64,17 @@ public class UserController
             return null;
         }
     }
+
+    @GetMapping("/getUsuario/asingado/{code}")
+    public String getUsuarioProgramado(@PathVariable(name="code") long code) {
+        try {
+            return serviceUser.getUsuarioProgramado(code);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+    
 
     @PostMapping("/create")
     public UserModel createUser(@RequestBody UserModel userModel)
