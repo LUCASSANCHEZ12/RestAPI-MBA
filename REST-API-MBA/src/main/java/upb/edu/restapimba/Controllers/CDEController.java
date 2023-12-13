@@ -75,7 +75,7 @@ public class CDEController {
     }
 
     @PostMapping("/create/cde")
-    public boolean postMethodName(@RequestBody CDEModel cde) {
+    public boolean postCDE(@RequestBody CDEModel cde) {
         try {
             return cdeService.createCasoEstudio(cde);
         } catch (Exception e) {
@@ -85,7 +85,7 @@ public class CDEController {
     }
 
     @PostMapping("/create/solucion")
-    public boolean postMethodName(@RequestBody SolucionCDEModel entity, @RequestBody List<UserModel> users) {
+    public boolean postSolucion(@RequestBody SolucionCDEModel entity, @RequestBody List<UserModel> users) {
         try {
             return cdeService.createSolucionCasoEstudio(entity, users);
         } catch (Exception e) {
