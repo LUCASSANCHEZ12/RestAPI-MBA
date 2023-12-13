@@ -126,7 +126,20 @@ public class MateriaDataService implements MateriaDataAccessInterface{
 
     @Override
     public MateriaModel updateMateria(MateriaModel materia) {
-        String query = String.format(
+        if(materia.getcodigoDocente() == 0){
+            String query = String.format(
+            "UPDATE materia SET nombreMateria='%s',descripcion='%s',semestre='%s',fechaInicio='%s',fechaFinal='%s' WHERE codigoMateria='%s';",
+            materia.getNombre(),
+            materia.getDescripcion(),
+            materia.getSemestre(),
+            materia.getFechaInicio(),
+            materia.getFechaFinal(),
+            materia.getCodigoMateria()
+            );
+            jdbcTemplate.execute(query);
+            return materia;
+        } else {
+            String query = String.format(
             "UPDATE materia SET nombreMateria='%s',descripcion='%s',codigoDocente=%d,semestre='%s',fechaInicio='%s',fechaFinal='%s' WHERE codigoMateria='%s';",
             materia.getNombre(),
             materia.getDescripcion(),
@@ -135,9 +148,11 @@ public class MateriaDataService implements MateriaDataAccessInterface{
             materia.getFechaInicio(),
             materia.getFechaFinal(),
             materia.getCodigoMateria()
-        );
-        jdbcTemplate.execute(query);
-        return materia;
+            );
+            jdbcTemplate.execute(query);
+            return materia;
+        }
+        
     }
 
     @Override
