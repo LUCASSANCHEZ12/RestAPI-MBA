@@ -33,7 +33,6 @@ import { CustomSnackbarComponent } from './pages/custom-snackbar/custom-snackbar
 import { MateriasEstudianteComponent } from './pages/materias-estudiante/materias-estudiante.component';
 import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estudiantes.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +49,7 @@ import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estud
     UserAddEditComponent,
     CustomSnackbarComponent,
     MateriasEstudianteComponent,
-    CasosEstudiantesComponent,
+    CasosEstudiantesComponent
   ],
   imports: [
     BrowserModule,
