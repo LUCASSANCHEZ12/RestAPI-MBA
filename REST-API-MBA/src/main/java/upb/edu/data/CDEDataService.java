@@ -82,7 +82,7 @@ public class CDEDataService implements CDEDataAccessInterface{
         String query = String.format(
             """
                 UPDATE solucionCasoDeEstudio 
-                SET calificacion=%d 
+                SET calificacion=%.2f 
                 WHERE codigoSolucion=%d;
             """,
             calificacion,
