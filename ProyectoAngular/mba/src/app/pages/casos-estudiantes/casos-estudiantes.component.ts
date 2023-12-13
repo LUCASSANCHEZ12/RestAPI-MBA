@@ -1,15 +1,9 @@
 import { StudyCasesService } from '../../services/study-cases.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
-import { UserTuple } from '../../interfaces/userTuple';
-import { User } from '../../interfaces/user';
-import { MatDialog } from '@angular/material/dialog';
-import { UserAddEditComponent } from '../user-add-edit/user-add-edit.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { SubjectService } from '../../services/subject.service';
 
 @Component({
   selector: 'app-casos-estudiantes',
@@ -50,7 +44,11 @@ export class CasosEstudiantesComponent {
     });
   }
 
-  callGetStudyCasesWhenReady(): void {
+  ngOnInit(): void{
+    this.getStudycases(this.materiaId);
+  }
+
+  /*callGetStudyCasesWhenReady(): void {
     const checkMateriaId = () => {
       return new Promise<void>((resolve) => {
         if (this.materiaId !== undefined) {
@@ -66,7 +64,7 @@ export class CasosEstudiantesComponent {
     checkMateriaId().then(() => {
       this.getStudycases(this.materiaId);
     });
-  }
+  }*/
 
   getStudycases(materiaId: string){
     this.studyCaseService.getStudyCases(materiaId).subscribe({

@@ -14,6 +14,7 @@ export class StudyCasesService {
 
   getStudyCases(idMateria: string): Observable<StudyCase[]>{
     const path = `${this.api}/materia/getall/cde/${idMateria}`;
+    console.log('URL solicitada:', path);
     console.log(path);
     try{
       const response = this.http.get<StudyCase[]>(path);
