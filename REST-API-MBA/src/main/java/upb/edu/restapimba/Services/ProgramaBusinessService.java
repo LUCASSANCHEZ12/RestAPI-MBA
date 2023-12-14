@@ -64,5 +64,10 @@ public class ProgramaBusinessService implements ProgramaBusinessServiceInterface
         // TODO Auto-generated method stub
         return programaDAO.verMaterias(programa);
     }
+
+    @Override
+    public ProgramaModel updatePrograma(ProgramaModel programa) {
+        return programaDAO.updatePrograma(programa);
+    }
     
 }

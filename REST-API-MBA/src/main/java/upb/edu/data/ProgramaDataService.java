@@ -106,8 +106,14 @@ public class ProgramaDataService implements ProgramaDataAccessInterface{
 
     @Override
     public List<MateriaModel> verMaterias(String programa) {
-        // TODO Auto-generated method stub
         String query = String.format("SELECT m.* FROM programa p JOIN programaMateria pm ON p.codigoPrograma = pm.codigoPrograma JOIN materia m ON pm.codigoMateria = m.codigoMateria WHERE p.codigoPrograma = '%s'",programa);
         return jdbcTemplate.query(query, new MateriaMapper());
+    }
+
+    @Override
+    public ProgramaModel updatePrograma(ProgramaModel programa) {
+        String query = String.format("UPDATE programa SET nombre='%s',descripcion='%s' WHERE codigoPrograma='%s'", programa.getNombre(),programa.getDescripcion(),programa.getCodigoPrograma());
+        jdbcTemplate.execute(query);
+        return getByID(programa.getCodigoPrograma());
     }
 }

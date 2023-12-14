@@ -152,6 +152,16 @@ public class ProgramaController {
         }
     }
 
+    @PutMapping("/update")
+    public ProgramaModel putMethodName(@RequestBody ProgramaModel programa) {
+        try {
+            return serviceProgram.updatePrograma(programa);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }    
+    }
+
     @PutMapping("/user/asign/{code}/{program}")
     public UserModel asignarProgram(@PathVariable(name="code") long code,@PathVariable(name="program") String program)
     {
