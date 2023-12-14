@@ -11,6 +11,9 @@ import { AgregarMateriaComponent } from './pages/agregar-materia/agregar-materia
 import { CrearProgramaComponent } from './pages/crear-programa/crear-programa.component';
 import { CrearCasosEstudioComponent } from './pages/crear-editar-casos-estudio/crear-casos-estudio.component';
 import { VerCasosEstudioComponent } from './pages/ver-casos-estudio/ver-casos-estudio.component';
+import { MateriasEstudianteComponent } from './pages/materias-estudiante/materias-estudiante.component';
+import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estudiantes.component';
+import { SolucionCasoEstudianteComponent } from './pages/solucion-caso-estudiante/solucion-caso-estudiante.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -19,11 +22,14 @@ const routes: Routes = [
   { path: 'homeTeacher', component: HomeTeacherComponent },
   { path: 'crudUser', component: CrudUserComponent},
   { path: 'profile', component: ProfileComponent},
-  {path: 'adminProgramas', component : AdminProgramasComponent},
-  {path: 'createProgram', component : CrearProgramaComponent},
-  {path: 'createMateria', component : AgregarMateriaComponent},
-  {path: 'crearCasosEstudio', component : CrearCasosEstudioComponent},
-  {path: 'verCasosEstudio', component: VerCasosEstudioComponent},
+  { path: 'adminProgramas', component : AdminProgramasComponent},
+  { path: 'createProgram', component : CrearProgramaComponent},
+  { path: 'createMateria', component : AgregarMateriaComponent},
+  { path: 'crearCasosEstudio', component : CrearCasosEstudioComponent},
+  { path: 'verCasosEstudio', component: VerCasosEstudioComponent},
+  { path: 'materiasEstudiante', component: MateriasEstudianteComponent},
+  { path: 'casosEstudiante', component: CasosEstudiantesComponent},
+  { path: 'solucionCasoEstudiante', component: SolucionCasoEstudianteComponent},
 ];
 
 @NgModule({
