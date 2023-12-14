@@ -36,7 +36,7 @@ export class CrearCasosEstudioComponent {
       if(this.data){
         this._AdminService.updateCase(this.caseForm.value).subscribe({
           next: (val: any) => {
-            this._coreService.openCustomSnackBar('Usuario actualizado correctamente!')
+            this._coreService.openCustomSnackBar('Caso actualizado correctamente!')
             this._dialogRef.close(true);
           },
           error: (err: any) => {
@@ -46,7 +46,7 @@ export class CrearCasosEstudioComponent {
       }else{
         this._AdminService.addCase(this.caseForm.value).subscribe({
           next: (val: any) => {
-            this._coreService.openCustomSnackBar('Usuario creado correctamente!')
+            this._coreService.openCustomSnackBar('Caso creado correctamente!')
             this._dialogRef.close(true);
           },
           error: (err: any) => {
