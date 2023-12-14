@@ -14,6 +14,7 @@ import { VerCasosEstudioComponent } from './pages/ver-casos-estudio/ver-casos-es
 import { MateriasEstudianteComponent } from './pages/materias-estudiante/materias-estudiante.component';
 import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estudiantes.component';
 import { SolucionCasoEstudianteComponent } from './pages/solucion-caso-estudiante/solucion-caso-estudiante.component';
+import { MateriasDocenteComponent } from './pages/materias-docente/materias-docente.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'materiasEstudiante', component: MateriasEstudianteComponent},
   { path: 'casosEstudiante', component: CasosEstudiantesComponent},
   { path: 'solucionCasoEstudiante', component: SolucionCasoEstudianteComponent},
+  { path: 'materiasDocente', component: MateriasDocenteComponent}
 ];
 
 @NgModule({

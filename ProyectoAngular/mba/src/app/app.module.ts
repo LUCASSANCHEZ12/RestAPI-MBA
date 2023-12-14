@@ -35,6 +35,7 @@ import { VerCasosEstudioComponent } from './pages/ver-casos-estudio/ver-casos-es
 import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estudiantes.component';
 import { MateriasEstudianteComponent } from './pages/materias-estudiante/materias-estudiante.component';
 import { SolucionCasoEstudianteComponent } from './pages/solucion-caso-estudiante/solucion-caso-estudiante.component';
+import { MateriasDocenteComponent } from './pages/materias-docente/materias-docente.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { SolucionCasoEstudianteComponent } from './pages/solucion-caso-estudiant
     VerCasosEstudioComponent,
     CasosEstudiantesComponent,
     MateriasEstudianteComponent,
-    SolucionCasoEstudianteComponent
+    SolucionCasoEstudianteComponent,
+    MateriasDocenteComponent
   ],
   imports: [
     BrowserModule,
