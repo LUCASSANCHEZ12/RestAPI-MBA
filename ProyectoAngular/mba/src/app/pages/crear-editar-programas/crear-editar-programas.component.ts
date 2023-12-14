@@ -23,7 +23,7 @@ export class CrearEditarProgramasComponent {
     private _coreService: CoreService,)
     {
       this.caseForm = this._fb.group({
-        codigoMateria:'',
+        codigoPrograma:'',
         nombre: '',
         descripcion: '',
       });

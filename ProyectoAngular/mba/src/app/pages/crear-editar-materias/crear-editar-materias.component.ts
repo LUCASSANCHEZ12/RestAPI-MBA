@@ -44,7 +44,7 @@ export class CrearEditarMateriasComponent {
           error: (err: any) => {
             console.error(err);
           },
-        })
+        })  
       }else{
         this._AdminService.createMateria(this.caseForm.value).subscribe({
           next: (val: any) => {
