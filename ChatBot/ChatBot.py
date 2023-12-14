@@ -11,7 +11,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",  # used to run with react server
+        "*",  # used to run with react server
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -19,7 +19,7 @@ app.add_middleware(
 )
 
 client = AsyncOpenAI(
-    api_key="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",
+    api_key="your_key",
 )
 assistant_id = "asst_SjcKl1ZxR5FXhwoFDuo1HQMG"
 run_finished_states = ["completed", "failed", "cancelled", "expired", "requires_action"]
