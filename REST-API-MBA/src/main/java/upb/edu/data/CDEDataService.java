@@ -212,4 +212,11 @@ public class CDEDataService implements CDEDataAccessInterface{
             return false;
         }
     }
+
+    @Override
+    public CDEModel updateCDE(CDEModel caso) {
+        String query = String.format("UPDATE casoDeEstudio SET nombre='%s',descripcion='%s' WHERE codigoCasoDeEstudio=%d", caso.getNombre(),caso.getDescripcion(),caso.getCodigoCasoEstudio());
+        jdbcTemplate.execute(query);
+        return getCasoEstudio(caso.getCodigoCasoEstudio());
+    }
 }

@@ -82,6 +82,15 @@ public class CDEController {
             return false;
         }
     }
+    @PutMapping("/update/")
+    public CDEModel putCalificacion(@RequestBody CDEModel cde) {
+        try {
+            return cdeService.updateCDE(cde);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 
     @PostMapping("/create/cde")
     public boolean postCDE(@RequestBody CDEModel cde) {

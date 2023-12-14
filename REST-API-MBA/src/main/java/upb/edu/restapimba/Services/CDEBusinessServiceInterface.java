@@ -32,6 +32,9 @@ public interface CDEBusinessServiceInterface {
     //PUT
     public boolean updateCalificacion(float calificacion, long codigoSolucion);
 
+    //PUT
+    public CDEModel updateCDE(CDEModel caso);
+
     //POST
     public boolean createCasoEstudio(CDEModel caso);
 

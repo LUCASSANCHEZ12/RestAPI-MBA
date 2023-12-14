@@ -77,6 +77,11 @@ public class CDEBusinessService implements CDEBusinessServiceInterface{
     public boolean deleteCDE(long caso) {
         return cdeDAO.deleteCDE(caso);
     }
+
+    @Override
+    public CDEModel updateCDE(CDEModel caso) {
+        return cdeDAO.updateCDE(caso);
+    }
     
     
 }
