@@ -11,6 +11,8 @@ import upb.edu.restapimba.Models.SolucionCDEModel;
 import upb.edu.restapimba.Models.Tuple;
 import upb.edu.restapimba.Models.UserModel;
 import upb.edu.restapimba.Services.CDEBusinessServiceInterface;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -109,6 +111,11 @@ public class CDEController {
             System.out.println(e.getMessage());
             return null;
         }
+    }
+
+    @DeleteMapping("/delete/{caso}")
+    public boolean deleteCDE(@PathVariable(name="caso") long caso){
+        return cdeService.deleteCDE(caso);
     }
     
 }

@@ -72,5 +72,11 @@ public class CDEBusinessService implements CDEBusinessServiceInterface{
     public List<CDEModel> getallCDE() {
         return cdeDAO.getallCDE();
     }
+
+    @Override
+    public boolean deleteCDE(long caso) {
+        return cdeDAO.deleteCDE(caso);
+    }
+    
     
 }

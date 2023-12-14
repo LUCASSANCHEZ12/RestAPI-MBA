@@ -200,4 +200,16 @@ public class CDEDataService implements CDEDataAccessInterface{
         String query = "SELECT * FROM casoDeEstudio";   
         return jdbcTemplate.query(query,new CDEMapper());
     }
+
+    @Override
+    public boolean deleteCDE(long caso) {
+        try {
+            String query = String.format("DELETE FROM casoDeEstudio WHERE codigoCasoDeEstudio=%d", caso);
+            jdbcTemplate.execute(query);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
 }
