@@ -17,9 +17,9 @@ export class CasosEstudiantesComponent {
 
   displayedColumns: string[] = [
     'CodigoCasoEstudio', 
-    'CodigoMateria', 
     'Nombre', 
     'Descripcion',
+    'Action',
   ];
 
   dataSource!: MatTableDataSource<any>;
@@ -93,7 +93,7 @@ export class CasosEstudiantesComponent {
     this.router.navigate(['/materiasEstudiante'], { queryParams: { id: this.userId } });
   }
 
-  goSolutionStudyCase(idMateria: string){
-    this.router.navigate(['/casosEstudiante'], { queryParams: { id: this.userId, materia: idMateria } });
+  goSolutionStudyCase(idStudyCase: string){
+    this.router.navigate(['/solucionCasoEstudiante'], { queryParams: { id: this.userId, studyCase:  idStudyCase} });
   }
 }

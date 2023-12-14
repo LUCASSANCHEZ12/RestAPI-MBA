@@ -32,6 +32,7 @@ import { DatePipe } from '@angular/common';
 import { CustomSnackbarComponent } from './pages/custom-snackbar/custom-snackbar.component';
 import { MateriasEstudianteComponent } from './pages/materias-estudiante/materias-estudiante.component';
 import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estudiantes.component';
+import { SolucionCasoEstudianteComponent } from './pages/solucion-caso-estudiante/solucion-caso-estudiante.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estud
     UserAddEditComponent,
     CustomSnackbarComponent,
     MateriasEstudianteComponent,
-    CasosEstudiantesComponent
+    CasosEstudiantesComponent,
+    SolucionCasoEstudianteComponent
   ],
   imports: [
     BrowserModule,

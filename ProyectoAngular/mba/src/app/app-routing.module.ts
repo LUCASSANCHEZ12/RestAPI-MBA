@@ -11,6 +11,7 @@ import { AgregarMateriaComponent } from './pages/agregar-materia/agregar-materia
 import { CrearProgramaComponent } from './pages/crear-programa/crear-programa.component';
 import { MateriasEstudianteComponent } from './pages/materias-estudiante/materias-estudiante.component';
 import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estudiantes.component';
+import { SolucionCasoEstudianteComponent } from './pages/solucion-caso-estudiante/solucion-caso-estudiante.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'createProgram', component : CrearProgramaComponent},
   {path: 'createMateria', component : AgregarMateriaComponent},
   { path: 'materiasEstudiante', component: MateriasEstudianteComponent},
-  { path: 'casosEstudiante', component: CasosEstudiantesComponent}
+  { path: 'casosEstudiante', component: CasosEstudiantesComponent},
+  { path: 'solucionCasoEstudiante', component: SolucionCasoEstudianteComponent}
 ];
 
 @NgModule({

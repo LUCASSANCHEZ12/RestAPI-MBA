@@ -72,3 +72,13 @@
     background-color: #00508c;
     color: #fff;
   }
+
+  .description{
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 30px;
+  }
+
+  .IconSize{
+    width: 50%;
+  }
