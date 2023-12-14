@@ -67,5 +67,10 @@ public class CDEBusinessService implements CDEBusinessServiceInterface{
     public SolucionCDEModel getSolucion(long solucion){
         return cdeDAO.getSolucion(solucion);
     }
+
+    @Override
+    public List<CDEModel> getallCDE() {
+        return cdeDAO.getallCDE();
+    }
     
 }

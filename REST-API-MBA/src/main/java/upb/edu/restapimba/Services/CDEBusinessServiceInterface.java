@@ -15,6 +15,9 @@ public interface CDEBusinessServiceInterface {
     public void init();
 
     //GET
+    public List<CDEModel> getallCDE();
+
+    //GET
     public SolucionCDEModel getSolucion(long solucion);
     
     //GET

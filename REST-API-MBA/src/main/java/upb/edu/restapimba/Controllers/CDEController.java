@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
 @RestController
 @RequestMapping("/MBA/cde")
 public class CDEController {
@@ -24,6 +25,11 @@ public class CDEController {
     @Autowired
     CDEBusinessServiceInterface cdeService;
 
+    @GetMapping("/getall")
+    public List<CDEModel> getMethodName() {
+        return cdeService.getallCDE();
+    }
+    
     
     @GetMapping("/get/solucion/{code}")
     public SolucionCDEModel getSolucion(@PathVariable(name="code") Long code) {

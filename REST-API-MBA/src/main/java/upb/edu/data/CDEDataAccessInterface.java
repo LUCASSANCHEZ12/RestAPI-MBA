@@ -15,6 +15,9 @@ public interface CDEDataAccessInterface {
     public void init();
 
     //GET
+    public List<CDEModel> getallCDE();
+
+    //GET
     public SolucionCDEModel getUltimaSolucion();
 
     //GET

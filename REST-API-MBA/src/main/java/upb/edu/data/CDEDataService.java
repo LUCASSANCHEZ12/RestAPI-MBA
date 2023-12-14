@@ -194,4 +194,10 @@ public class CDEDataService implements CDEDataAccessInterface{
         );
         return jdbcTemplate.query(query,new UsersMapper());
     }
+
+    @Override
+    public List<CDEModel> getallCDE() {
+        String query = "SELECT * FROM casoDeEstudio";   
+        return jdbcTemplate.query(query,new CDEMapper());
+    }
 }
