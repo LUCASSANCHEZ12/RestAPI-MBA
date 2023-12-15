@@ -47,6 +47,12 @@ public interface CDEDataAccessInterface {
     //GET
     public List<UserModel> getUsuariosSolucion(long codigoSolucion);
 
+    //GET
+    public SolucionCDEModel getSolucionMateriaUsuario(long usuario,long caso);
+
     //DELETE
     public boolean deleteCDE(long caso);
+
+    //DELETE
+    public boolean deleteSolucionCDE(long solucion);
 }

@@ -219,4 +219,24 @@ public class CDEDataService implements CDEDataAccessInterface{
         jdbcTemplate.execute(query);
         return getCasoEstudio(caso.getCodigoCasoEstudio());
     }
+
+    @Override
+    public SolucionCDEModel getSolucionMateriaUsuario(long usuario, long caso) {
+        String query = String.format("SELECT FROM solucionCasoDeEstudio sc JOIN usuarioSolucion us ON sc.codigoSolucion = us.codigoSolucion JOIN usuarios u ON us.codigoUsuario = u.codigoUsuario WHERE sc.codigoCasoDeEstudio = %d AND us.codigoUsuario = %d;", caso,usuario);
+        return jdbcTemplate.query(query, new SolucionCDEMapper()).get(0);
+    }
+
+    @Override
+    public boolean deleteSolucionCDE(long solucion) {
+        try {
+            String query = String.format("DELETE FROM solucionCasoDeEstudio WHERE codigoSolucion=%d",solucion);
+            jdbcTemplate.execute(query);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+    
+    
 }
