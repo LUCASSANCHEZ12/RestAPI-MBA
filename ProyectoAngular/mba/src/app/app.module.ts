@@ -36,7 +36,7 @@ import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estud
 import { MateriasEstudianteComponent } from './pages/materias-estudiante/materias-estudiante.component';
 import { SolucionCasoEstudianteComponent } from './pages/solucion-caso-estudiante/solucion-caso-estudiante.component';
 import { MateriasDocenteComponent } from './pages/materias-docente/materias-docente.component';
-
+import { CasosDocentesComponent } from './pages/casos-docentes/casos-docentes.component'
 
 @NgModule({
   declarations: [
@@ -58,7 +58,8 @@ import { MateriasDocenteComponent } from './pages/materias-docente/materias-doce
     CasosEstudiantesComponent,
     MateriasEstudianteComponent,
     SolucionCasoEstudianteComponent,
-    MateriasDocenteComponent
+    MateriasDocenteComponent,
+    CasosDocentesComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +79,7 @@ import { MateriasDocenteComponent } from './pages/materias-docente/materias-doce
     MatSelectModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
   ],
   providers: [
     provideClientHydration(),

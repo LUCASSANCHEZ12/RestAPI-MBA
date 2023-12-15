@@ -27,7 +27,7 @@
           
           <ng-container matColumnDef="Descripcion">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
-            <td  class="description" *matCellDef="let row"> {{row.descripcion}}  <br> </td>
+            <td mat-cell *matCellDef="let row" class="description"> {{row.descripcion}} <br> </td>
           </ng-container>
           
           <ng-container matColumnDef="Action">

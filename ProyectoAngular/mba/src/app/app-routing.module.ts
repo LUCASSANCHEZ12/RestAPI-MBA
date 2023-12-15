@@ -15,6 +15,7 @@ import { MateriasEstudianteComponent } from './pages/materias-estudiante/materia
 import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estudiantes.component';
 import { SolucionCasoEstudianteComponent } from './pages/solucion-caso-estudiante/solucion-caso-estudiante.component';
 import { MateriasDocenteComponent } from './pages/materias-docente/materias-docente.component';
+import { CasosDocentesComponent } from './pages/casos-docentes/casos-docentes.component'
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -31,7 +32,9 @@ const routes: Routes = [
   { path: 'materiasEstudiante', component: MateriasEstudianteComponent},
   { path: 'casosEstudiante', component: CasosEstudiantesComponent},
   { path: 'solucionCasoEstudiante', component: SolucionCasoEstudianteComponent},
-  { path: 'materiasDocente', component: MateriasDocenteComponent}
+  { path: 'materiasDocente', component: MateriasDocenteComponent},
+  { path: 'casosDocente', component: CasosDocentesComponent}
+
 ];
 
 @NgModule({
