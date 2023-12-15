@@ -222,7 +222,7 @@ public class CDEDataService implements CDEDataAccessInterface{
 
     @Override
     public SolucionCDEModel getSolucionMateriaUsuario(long usuario, long caso) {
-        String query = String.format("SELECT FROM solucionCasoDeEstudio sc JOIN usuarioSolucion us ON sc.codigoSolucion = us.codigoSolucion JOIN usuarios u ON us.codigoUsuario = u.codigoUsuario WHERE sc.codigoCasoDeEstudio = %d AND us.codigoUsuario = %d;", caso,usuario);
+        String query = String.format("SELECT * FROM solucionCasoDeEstudio sc JOIN usuarioSolucion us ON sc.codigoSolucion = us.codigoSolucion JOIN usuarios u ON us.codigoUsuario = u.codigoUsuario WHERE sc.codigoCasoDeEstudio = %d AND us.codigoUsuario = %d;", caso,usuario);
         return jdbcTemplate.query(query, new SolucionCDEMapper()).get(0);
     }
 
