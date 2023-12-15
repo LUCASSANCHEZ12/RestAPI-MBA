@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController
@@ -82,6 +84,22 @@ public class CDEController {
             return false;
         }
     }
+
+    @GetMapping("/get/solucionUsuario/{usuario}/{cde}")
+    public SolucionCDEModel getSolucionUsuario(@PathVariable(name="usuario") long usuario,@PathVariable(name="cde") long cde) {
+        try {
+            return cdeService.getSolucionMateriaUsuario(usuario, cde);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    @DeleteMapping("/solucion/delete/{solucion}")
+    public boolean deleteSOlucion(@PathVariable(name="solucion") long solucion){
+        return cdeService.deleteSolucionCDE(solucion);
+    }    
+
     @PutMapping("/update")
     public CDEModel putCalificacion(@RequestBody CDEModel cde) {
         try {

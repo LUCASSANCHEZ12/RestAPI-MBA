@@ -46,4 +46,10 @@ public interface CDEBusinessServiceInterface {
 
     //DELETE
     public boolean deleteCDE(long caso);
+
+    //DELETE
+    public boolean deleteSolucionCDE(long solucion);
+
+    //GET
+    public SolucionCDEModel getSolucionMateriaUsuario(long usuario,long caso);
 }

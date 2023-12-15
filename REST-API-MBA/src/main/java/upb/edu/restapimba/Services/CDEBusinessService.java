@@ -82,6 +82,16 @@ public class CDEBusinessService implements CDEBusinessServiceInterface{
     public CDEModel updateCDE(CDEModel caso) {
         return cdeDAO.updateCDE(caso);
     }
+
+    @Override
+    public boolean deleteSolucionCDE(long solucion) {
+        return cdeDAO.deleteSolucionCDE(solucion);
+    }
+
+    @Override
+    public SolucionCDEModel getSolucionMateriaUsuario(long usuario, long caso) {
+        return cdeDAO.getSolucionMateriaUsuario(usuario, caso);
+    }
     
     
 }
