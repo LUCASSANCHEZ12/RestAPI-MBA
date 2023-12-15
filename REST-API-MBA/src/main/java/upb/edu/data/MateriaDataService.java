@@ -99,7 +99,7 @@ public class MateriaDataService implements MateriaDataAccessInterface{
     @Override
     public List<MateriaModel> verMateriasDocente(long CodigoUsuario) {
         String q = String.format("""
-            SELECT * FROM materias WHERE codigoDocente=%d;
+            SELECT * FROM materia WHERE codigoDocente=%d;
         """, CodigoUsuario);
         List<MateriaModel> materias = jdbcTemplate.query(q, new MateriaMapper());
         return materias;
