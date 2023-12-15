@@ -82,7 +82,7 @@ public class CDEController {
             return false;
         }
     }
-    @PutMapping("/update/")
+    @PutMapping("/update")
     public CDEModel putCalificacion(@RequestBody CDEModel cde) {
         try {
             return cdeService.updateCDE(cde);
