@@ -3,7 +3,7 @@ import { AdminProgramasService } from '../../services/admin-programas.service';
 import { Materia } from '../../interfaces/materia';
 import { AdminProgramas } from '../../interfaces/program';
 import { Callback } from '../../interfaces/callback';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-programa',
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './crear-programa.component.css'
 })
 export class CrearProgramaComponent {
+  userId: string = "";
   public codigo: string; 
   public nombre: string;
   public descripcion: string;
@@ -30,7 +31,10 @@ export class CrearProgramaComponent {
     descripcion: '',
   };
   
-  constructor(private programService: AdminProgramasService, private router: Router){
+  constructor(private programService: AdminProgramasService, private router: Router, private route: ActivatedRoute){
+    this.route.queryParams.subscribe(params => {
+      this.userId = params['id'];
+  });
     this.codigo = '';
     this.nombre = '';
     this.descripcion = '';
@@ -58,7 +62,7 @@ export class CrearProgramaComponent {
   }
 
   back(){
-    this.router.navigate(['/adminProgramas'], { queryParams: { } });
+    this.router.navigate(['/adminProgramas'], { queryParams: { id: this.userId } });
   }
 
   toggleSelection(i: number) {
