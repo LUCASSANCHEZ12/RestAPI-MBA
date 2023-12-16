@@ -211,10 +211,10 @@ public class ProgramaController {
             }
     }
 
-    @GetMapping("/materia/getall/users/{code}")
-    public List<UserModel> getUsuariosMateria(@PathVariable(name="code") String materia) {
+    @GetMapping("/materia/getall/users/{materia}/{code}")
+    public List<UserModel> getUsuariosMateria(@PathVariable(name="materia") String materia, @PathVariable(name="code") long code) {
         try {
-            return serviceMateria.getUsuariosMateria(materia);
+            return serviceMateria.getUsuariosMateria(materia, code);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;

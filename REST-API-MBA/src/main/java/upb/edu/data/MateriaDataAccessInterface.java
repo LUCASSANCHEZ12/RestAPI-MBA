@@ -43,6 +43,6 @@ public interface MateriaDataAccessInterface {
     public MateriaModel updateMateria(MateriaModel materia);
 
     //GET
-    public List<UserModel> getUsuariosMateria(String Materia);
+    public List<UserModel> getUsuariosMateria(String materia, Long codigoUsuarioExcluir);
 
 }

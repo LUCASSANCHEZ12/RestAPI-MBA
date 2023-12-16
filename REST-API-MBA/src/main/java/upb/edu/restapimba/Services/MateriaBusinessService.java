@@ -76,8 +76,8 @@ public class MateriaBusinessService implements MateriaBusinessServiceInterface{
     }
 
     @Override
-    public List<UserModel> getUsuariosMateria(String Materia) {
-        return materiaDAO.getUsuariosMateria(Materia);
+    public List<UserModel> getUsuariosMateria(String Materia, Long codigoUsuarioExcluir) {
+        return materiaDAO.getUsuariosMateria(Materia, codigoUsuarioExcluir);
     }
     
 }

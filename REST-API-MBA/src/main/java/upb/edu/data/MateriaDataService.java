@@ -176,14 +176,16 @@ public class MateriaDataService implements MateriaDataAccessInterface{
     }
 
     @Override
-    public List<UserModel> getUsuariosMateria(String materia) {
+    public List<UserModel> getUsuariosMateria(String materia, Long codigoUsuarioExcluir) {
         String query = String.format("SELECT u.* " +
-                             "FROM usuarios u " +
-                             "JOIN programaMateria pm ON u.codigoPrograma = pm.codigoPrograma " +
-                             "JOIN materia m ON pm.codigoMateria = m.codigoMateria " +
-                             "WHERE m.codigoMateria = '%s'", materia);
+                            "FROM usuarios u " +
+                            "JOIN programaMateria pm ON u.codigoPrograma = pm.codigoPrograma " +
+                            "JOIN materia m ON pm.codigoMateria = m.codigoMateria " +
+                            "WHERE m.codigoMateria = '%s' AND u.codigoUsuario != %d", 
+                            materia, codigoUsuarioExcluir);
         
         List<UserModel> users = jdbcTemplate.query(query, new UsersMapper());
         return users;
     }
+
 }

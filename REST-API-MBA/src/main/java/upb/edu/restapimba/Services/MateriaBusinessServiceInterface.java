@@ -40,7 +40,7 @@ public interface MateriaBusinessServiceInterface {
     public MateriaModel getById(String code);
 
     //GET
-    public List<UserModel> getUsuariosMateria(String Materia);
+    public List<UserModel> getUsuariosMateria(String Materia, Long codigoUsuarioExcluir);
 
     //PUT
     public MateriaModel updateMateria(MateriaModel materia);
