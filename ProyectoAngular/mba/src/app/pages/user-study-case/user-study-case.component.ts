@@ -19,6 +19,11 @@ export class UserStudyCaseComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _coreService: CoreService,){
       this.userForm = this._fb.group({});
+      console.log("CODIGO USUARIO-FORMULARIO");
+      console.log(data.userId); // Acceder al userId pasado
+      console.log("CODIGO CASO DE ESTUDIOS-FORMULARIO");
+      console.log(data.studyCaseId); // Acceder al studyCaseId pasado
+    
   }
 
   onFormSubmit() {
