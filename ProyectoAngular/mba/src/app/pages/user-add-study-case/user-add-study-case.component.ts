@@ -1,5 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { SubjectService } from '../../services/subject.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-user-add-study-case',
@@ -8,15 +10,39 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class UserAddStudyCaseComponent {
   idMat: string = "";
+  id: string = "";
+  users: User[] = [];
+  selectedUserIds: number[] = []; // Arreglo para almacenar los IDs de usuarios seleccionados
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,){
-    console.log("AGREGAR USUARIOS")
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private subjectsService: SubjectService,private dialogRef: MatDialogRef<UserAddStudyCaseComponent>){
     this.idMat = data.materiaId;
-      console.log("CODIGO MATERIA-FORMULARIO");
-      console.log(this.idMat); 
+    this.id = data.id;
+    this.getUsers(this.idMat, this.id);
+  }
+
+  getUsers(materiaId: string, ID: string){
+    this.subjectsService.getUsers(materiaId,ID).subscribe({
+      next: (users) => {
+        this.users = users;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 
   onFormSubmit() {
-    console.log("SUBMIT")
+    const selectedUsers = this.users.filter(user => this.selectedUserIds.includes(user.codigoUsuario));
+    console.log(selectedUsers); // Acción con usuarios seleccionados
+    console.log("SUBMIT");
+    this.dialogRef.close(selectedUsers);
+  }
+
+  toggleUserSelection(userId: number) {
+    if (this.selectedUserIds.includes(userId)) {
+      this.selectedUserIds = this.selectedUserIds.filter(id => id !== userId); // Desmarcar usuario
+    } else {
+      this.selectedUserIds.push(userId); // Marcar usuario
+    }
   }
 }

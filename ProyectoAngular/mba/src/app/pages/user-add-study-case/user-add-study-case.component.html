@@ -3,16 +3,16 @@
 </div>
 <form (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content class="content">
-        <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label>Compañeros</mat-label>
-                <input matInput type="text" placeholder="Ej. Roberto" name="firstName">
-            </mat-form-field>
+        <div class="row" *ngFor="let user of users">
+            <mat-checkbox 
+                [checked]="selectedUserIds.includes(user.codigoUsuario)"
+                (change)="toggleUserSelection(user.codigoUsuario)">
+                {{ user.primerNombre }} {{ user.apellidoPaterno }} {{ user.apellidoMaterno }}
+            </mat-checkbox>
         </div>
     </div>
     <div mat-dialog-actions class="action">
         <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
-        <button mat-raised-button color="primary" type="submit" [ngStyle]="{'background-color': '#05165b', 'color': 'white'}" >{{data ? 'Actualizar': 'Guardar' }}</button>
-
+        <button mat-raised-button color="primary" type="submit" [ngStyle]="{'background-color': '#05165b', 'color': 'white'}" >Agregar</button>
     </div>
 </form>

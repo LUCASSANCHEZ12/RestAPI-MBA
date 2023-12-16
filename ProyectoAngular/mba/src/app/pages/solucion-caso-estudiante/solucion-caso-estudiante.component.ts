@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SolutionService } from '../../services/solution.service';
 import { SolucionCasoEstudio } from '../../interfaces/solucionCasoEstudio';
 import { UserAddStudyCaseComponent } from '../user-add-study-case/user-add-study-case.component';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-solucion-caso-estudiante',
@@ -57,6 +58,13 @@ export class SolucionCasoEstudianteComponent {
       const dialogRef = this._dialog.open(UserAddStudyCaseComponent, {
         data: {
           materiaId: this.materiaId,
+          id: this.userId
+        }
+      });
+      dialogRef.afterClosed().subscribe((selectedUsers: User[]) => {
+        if (selectedUsers) {
+          console.log("RESPUESTA")
+          console.log(selectedUsers);
         }
       });
     }
