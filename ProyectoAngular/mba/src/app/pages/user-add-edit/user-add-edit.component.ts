@@ -32,12 +32,12 @@ export class UserAddEditComponent implements OnInit{
     this.userForm = this._fb.group({
       cargoId: [null, Validators.required],
       password: '',
-      segundoNombre: ['', Validators.pattern('^[a-zA-Z]+$')],
+      segundoNombre: ['', Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚ]+$')],
       codigoUsuario: null,
-      primerNombre: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-      apellidoPaterno: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      primerNombre: ['', [Validators.required, Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚ]+$')]],
+      apellidoPaterno: ['', [Validators.required, Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚ]+$')]],
       codigoPrograma: '',
-      apellidoMaterno: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      apellidoMaterno: ['', [Validators.required, Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚ]+$')]],
       email: ['', [Validators.required, Validators.email]],
       telefono: [null, [Validators.required, Validators.pattern('^[0-9]{8}$')]],
     });

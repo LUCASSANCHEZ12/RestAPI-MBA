@@ -16,6 +16,8 @@ import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estud
 import { SolucionCasoEstudianteComponent } from './pages/solucion-caso-estudiante/solucion-caso-estudiante.component';
 import { MateriasDocenteComponent } from './pages/materias-docente/materias-docente.component';
 import { CasosDocentesComponent } from './pages/casos-docentes/casos-docentes.component'
+import { SolucionCasoDocenteComponent } from './pages/solucion-caso-docente/solucion-caso-docente.component';
+import { CalificarSolucionComponent } from './pages/calificar-solucion/calificar-solucion.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -33,7 +35,9 @@ const routes: Routes = [
   { path: 'casosEstudiante', component: CasosEstudiantesComponent},
   { path: 'solucionCasoEstudiante', component: SolucionCasoEstudianteComponent},
   { path: 'materiasDocente', component: MateriasDocenteComponent},
-  { path: 'casosDocente', component: CasosDocentesComponent}
+  { path: 'casosDocente', component: CasosDocentesComponent},
+  { path: 'solucionCasoDocente', component: SolucionCasoDocenteComponent},
+  { path: 'calificarSolucion', component: CalificarSolucionComponent}
 
 ];
 

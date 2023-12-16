@@ -76,7 +76,7 @@ export class CasosDocentesComponent {
   }
 
   goSolutionStudyCase(idStudyCase: string){
-    this.router.navigate(['/solucionCasoDocente'], { queryParams: { id: this.userId, studyCase:  idStudyCase} });
+    this.router.navigate(['/solucionCasoDocente'], { queryParams: { id: this.userId, studyCase:  idStudyCase, materia: this.materiaId} });
   }
 }
 
