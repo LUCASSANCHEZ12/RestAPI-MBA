@@ -5,6 +5,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,8 @@ import upb.edu.restapimba.Models.MateriaMapper;
 import upb.edu.restapimba.Models.MateriaModel;
 import upb.edu.restapimba.Models.ProgramaModel;
 import upb.edu.restapimba.Models.Tuple;
+import upb.edu.restapimba.Models.UserModel;
+import upb.edu.restapimba.Models.UsersMapper;
 
 @Repository
 public class MateriaDataService implements MateriaDataAccessInterface{
@@ -170,5 +173,17 @@ public class MateriaDataService implements MateriaDataAccessInterface{
         );
         jdbcTemplate.execute(query);
         return materia;
+    }
+
+    @Override
+    public List<UserModel> getUsuariosMateria(String materia) {
+        String query = String.format("SELECT u.* " +
+                             "FROM usuarios u " +
+                             "JOIN programaMateria pm ON u.codigoPrograma = pm.codigoPrograma " +
+                             "JOIN materia m ON pm.codigoMateria = m.codigoMateria " +
+                             "WHERE m.codigoMateria = '%s'", materia);
+        
+        List<UserModel> users = jdbcTemplate.query(query, new UsersMapper());
+        return users;
     }
 }

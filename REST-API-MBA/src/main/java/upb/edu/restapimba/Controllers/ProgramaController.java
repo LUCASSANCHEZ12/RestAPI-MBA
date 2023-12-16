@@ -210,5 +210,15 @@ public class ProgramaController {
                 return null;
             }
     }
+
+    @GetMapping("/materia/getall/users/{code}")
+    public List<UserModel> getUsuariosMateria(@PathVariable(name="code") String materia) {
+        try {
+            return serviceMateria.getUsuariosMateria(materia);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
     
 }

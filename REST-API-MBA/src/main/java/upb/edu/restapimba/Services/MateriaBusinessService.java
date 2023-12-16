@@ -8,6 +8,7 @@ import upb.edu.data.MateriaDataAccessInterface;
 import upb.edu.restapimba.Models.MateriaModel;
 import upb.edu.restapimba.Models.ProgramaModel;
 import upb.edu.restapimba.Models.Tuple;
+import upb.edu.restapimba.Models.UserModel;
 
 public class MateriaBusinessService implements MateriaBusinessServiceInterface{
 
@@ -72,6 +73,11 @@ public class MateriaBusinessService implements MateriaBusinessServiceInterface{
     @Override
     public MateriaModel eliminarMateria(String codigo) {
         return materiaDAO.eliminarMateria(codigo);
+    }
+
+    @Override
+    public List<UserModel> getUsuariosMateria(String Materia) {
+        return materiaDAO.getUsuariosMateria(Materia);
     }
     
 }

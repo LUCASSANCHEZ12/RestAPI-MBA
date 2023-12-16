@@ -5,6 +5,7 @@ import java.util.List;
 import upb.edu.restapimba.Models.MateriaModel;
 import upb.edu.restapimba.Models.ProgramaModel;
 import upb.edu.restapimba.Models.Tuple;
+import upb.edu.restapimba.Models.UserModel;
 
 public interface MateriaDataAccessInterface {
     
@@ -40,4 +41,8 @@ public interface MateriaDataAccessInterface {
 
     //PUT
     public MateriaModel updateMateria(MateriaModel materia);
+
+    //GET
+    public List<UserModel> getUsuariosMateria(String Materia);
+
 }
