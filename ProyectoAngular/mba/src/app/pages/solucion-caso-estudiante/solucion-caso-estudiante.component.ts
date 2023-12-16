@@ -8,6 +8,7 @@ import { UserAddStudyCaseComponent } from '../user-add-study-case/user-add-study
 import { User } from '../../interfaces/user';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SolutionTuple } from '../../interfaces/solution';
+import { CoreService } from '../../services/core/core.service';
 
 @Component({
   selector: 'app-solucion-caso-estudiante',
@@ -34,7 +35,7 @@ export class SolucionCasoEstudianteComponent {
 
   public solutionTuple: SolutionTuple | null = null;
 
-  constructor(private _fb: FormBuilder, private _dialog: MatDialog, private route: ActivatedRoute, private solutionService: SolutionService){
+  constructor(private _fb: FormBuilder, private _dialog: MatDialog, private route: ActivatedRoute, private solutionService: SolutionService, private _coreService: CoreService){
     this.route.queryParams.subscribe(params => {
       this.userId = params['id'];
       this.studyCaseId = params['studyCase'];
@@ -123,6 +124,7 @@ export class SolucionCasoEstudianteComponent {
     this.solutionService.createSolution(this.solutionTuple).subscribe((response) => {
       console.log("Respuesta del servidor crear solucion:");
       console.log(response);
+      this._coreService.openCustomSnackBar("Solución subida correctamente!");
       this.textBoxesBloqueados = true;
     });
   }

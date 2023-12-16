@@ -1,4 +1,5 @@
 .custom-snackbar{
+    display: flex;
     align-items: center;
     font-size: 14px;
     box-shadow: none;
@@ -9,6 +10,7 @@
 }
 
 .icon {
+    display: flex;
     color: white;
     font-size: 14px; /* Corregido: utiliza 'font-size' en lugar de 'size' */
     padding: 20px;
