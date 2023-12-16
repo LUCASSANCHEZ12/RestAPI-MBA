@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { SolucionCasoEstudio } from '../interfaces/solucionCasoEstudio';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
+import { SolutionTuple } from '../interfaces/solution';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,21 @@ export class SolutionService {
     console.log(path);
     try{
       const response = this.http.get<User[]>(path);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      throw error;
+    }
+  }
+
+  createSolution(solutionData: SolutionTuple): Observable<boolean> {
+    const path = this.api + '/create/solucion';
+    console.log('URL solicitada:', path);
+    console.log('Datos a enviar:', solutionData);
+
+    try {
+      const response = this.http.post<boolean>(path, solutionData);
       console.log(response);
       return response;
     } catch (error) {
