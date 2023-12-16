@@ -13,48 +13,48 @@
     <form class="example-form">
         <mat-form-field class="example-full-width">
             <mat-label>Antecedentes</mat-label>
-            <textarea matInput [(ngModel)]="antecedentes" name="antecedentes" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== ''">{{ antecedentes }}</textarea>
+            <textarea matInput [(ngModel)]="antecedentes" name="antecedentes" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ antecedentes }}</textarea>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
             <mat-label>Diagnóstico</mat-label>
-            <textarea matInput [(ngModel)]="diagnostico" name="diagnostico" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== ''">{{ diagnostico }}</textarea>
+            <textarea matInput [(ngModel)]="diagnostico" name="diagnostico" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ diagnostico }}</textarea>
         </mat-form-field>
 
 
         <mat-form-field class="example-full-width">
             <mat-label>Actores y Objetivos</mat-label>
-            <textarea matInput [(ngModel)]="actoresObjetivos" name="actoresObjetivos" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== ''">{{ actoresObjetivos }}</textarea>
+            <textarea matInput [(ngModel)]="actoresObjetivos" name="actoresObjetivos" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ actoresObjetivos }}</textarea>
         </mat-form-field>
 
 
         <mat-form-field class="example-full-width">
             <mat-label>Problema Central</mat-label>
-            <textarea matInput [(ngModel)]="problemaCentral" name="problemaCentral" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== ''">{{ problemaCentral }}</textarea>
+            <textarea matInput [(ngModel)]="problemaCentral" name="problemaCentral" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ problemaCentral }}</textarea>
         </mat-form-field>
 
 
         <mat-form-field class="example-full-width">
             <mat-label>Alternativas</mat-label>
-            <textarea matInput [(ngModel)]="alternativas" name="alternativas" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== ''">{{ alternativas }}</textarea>
+            <textarea matInput [(ngModel)]="alternativas" name="alternativas" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ alternativas }}</textarea>
         </mat-form-field>
 
 
         <mat-form-field class="example-full-width">
             <mat-label>Pros</mat-label>
-            <textarea matInput [(ngModel)]="pros" name="pros" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== ''">{{ pros }}</textarea>
+            <textarea matInput [(ngModel)]="pros" name="pros" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ pros }}</textarea>
         </mat-form-field>
 
 
         <mat-form-field class="example-full-width">
             <mat-label>Contras</mat-label>
-            <textarea matInput [(ngModel)]="contras" name="contras" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== ''">{{ contras }}</textarea>
+            <textarea matInput [(ngModel)]="contras" name="contras" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ contras }}</textarea>
         </mat-form-field>
 
 
         <mat-form-field class="example-full-width">
             <mat-label>Plan de Acción</mat-label>
-            <textarea matInput [(ngModel)]="planAccion" name="planAccion" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== ''">{{ planAccion }}</textarea>
+            <textarea matInput [(ngModel)]="planAccion" name="planAccion" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ planAccion }}</textarea>
         </mat-form-field>
     </form>
 

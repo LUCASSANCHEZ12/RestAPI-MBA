@@ -30,6 +30,7 @@ export class SolucionCasoEstudianteComponent {
   planAccion: string = "";
 
   usuariosInvolucrados: User[] = [];
+  textBoxesBloqueados: boolean = false;
 
   public solutionTuple: SolutionTuple | null = null;
 
@@ -122,6 +123,7 @@ export class SolucionCasoEstudianteComponent {
     this.solutionService.createSolution(this.solutionTuple).subscribe((response) => {
       console.log("Respuesta del servidor crear solucion:");
       console.log(response);
+      this.textBoxesBloqueados = true;
     });
   }
 }
