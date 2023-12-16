@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { UserStudyCaseComponent } from '../user-study-case/user-study-case.component';
 
 @Component({
   selector: 'app-solucion-caso-estudiante',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class SolucionCasoEstudianteComponent {
 
+  constructor(private _dialog: MatDialog){
+  }
+
+  openAddEditUserForm() {
+    const dialogRef = this._dialog.open(UserStudyCaseComponent);
+  }
 }

@@ -38,7 +38,6 @@ const routes: Routes = [
   { path: 'casosDocente', component: CasosDocentesComponent},
   { path: 'solucionCasoDocente', component: SolucionCasoDocenteComponent},
   { path: 'calificarSolucion', component: CalificarSolucionComponent}
-
 ];
 
 @NgModule({
