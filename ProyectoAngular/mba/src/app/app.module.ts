@@ -35,7 +35,14 @@ import { VerCasosEstudioComponent } from './pages/ver-casos-estudio/ver-casos-es
 import { AdminMateriasComponent } from './pages/admin-materias/admin-materias.component';
 import { CrearEditarMateriasComponent } from './pages/crear-editar-materias/crear-editar-materias.component';
 import { CrearEditarProgramasComponent } from './pages/crear-editar-programas/crear-editar-programas.component';
-
+import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estudiantes.component';
+import { MateriasEstudianteComponent } from './pages/materias-estudiante/materias-estudiante.component';
+import { SolucionCasoEstudianteComponent } from './pages/solucion-caso-estudiante/solucion-caso-estudiante.component';
+import { MateriasDocenteComponent } from './pages/materias-docente/materias-docente.component';
+import { CasosDocentesComponent } from './pages/casos-docentes/casos-docentes.component';
+import { SolucionCasoDocenteComponent } from './pages/solucion-caso-docente/solucion-caso-docente.component';
+import { CalificarSolucionComponent } from './pages/calificar-solucion/calificar-solucion.component';
+import { UserStudyCaseComponent } from './pages/user-study-case/user-study-case.component'
 
 @NgModule({
   declarations: [
@@ -56,7 +63,15 @@ import { CrearEditarProgramasComponent } from './pages/crear-editar-programas/cr
     VerCasosEstudioComponent,
     AdminMateriasComponent,
     CrearEditarMateriasComponent,
-    CrearEditarProgramasComponent
+    CrearEditarProgramasComponent,
+    CasosEstudiantesComponent,
+    MateriasEstudianteComponent,
+    SolucionCasoEstudianteComponent,
+    MateriasDocenteComponent,
+    CasosDocentesComponent,
+    SolucionCasoDocenteComponent,
+    CalificarSolucionComponent,
+    UserStudyCaseComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +91,7 @@ import { CrearEditarProgramasComponent } from './pages/crear-editar-programas/cr
     MatSelectModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
   ],
   providers: [
     provideClientHydration(),

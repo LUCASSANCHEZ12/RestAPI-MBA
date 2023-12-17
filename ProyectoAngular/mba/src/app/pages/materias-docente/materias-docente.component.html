@@ -1,12 +1,8 @@
 <div class="newUser">
     <div class="lineYellow">
       <mat-toolbar class="title">    
-          <span>Administración de Casos de Estudio </span>
+          <span>Vista de materias</span>
           <span class="example-spacer"></span>
-          
-          <button (click)="oppenAddEditCasosEstudioForm()" class="addUser-btn">
-              Agregar Casos de Estudio
-          </button>
       </mat-toolbar>
     </div>
     
@@ -18,9 +14,9 @@
       <div class="table-container">
         <table mat-table [dataSource]="dataSource" matSort>
       
-          <ng-container matColumnDef="CodigoCaso">
+          <ng-container matColumnDef="CodigoMateria">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Código </th>
-            <td mat-cell *matCellDef="let row"> {{row.codigoCasoEstudio}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.codigoMateria}} </td>
           </ng-container>
       
           <ng-container matColumnDef="Nombre">
@@ -28,24 +24,26 @@
             <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
           </ng-container>
           
-          <ng-container matColumnDef="Descripcion">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </th>
-            <td mat-cell *matCellDef="let row"> {{row.descripcion}} </td>
+          <ng-container matColumnDef="Semestre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Semestre </th>
+            <td mat-cell *matCellDef="let row"> {{row.semestre}} </td>
           </ng-container>
   
-          <ng-container matColumnDef="CodigoMateria">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Codigo Materia </th>
-            <td mat-cell *matCellDef="let row"> {{row.codigoMateria}} </td>
+          <ng-container matColumnDef="FechaInicio">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de inicio </th>
+            <td mat-cell *matCellDef="let row"> {{row.fechaInicio}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="FechaFinal">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha final </th>
+            <td mat-cell *matCellDef="let row"> {{row.fechaFinal}} </td>
           </ng-container>
   
           <ng-container matColumnDef="Action">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Acción </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Ver casos de estudio </th>
             <td mat-cell *matCellDef="let row"> 
-                <button mat-icon-button color="primary" (click)="openEditCaseForm(row)">
-                    <mat-icon>edit</mat-icon>
-                </button>
-                <button mat-icon-button color="warn" (click)="deleteCase(row.codigoCasoDeEstudio)">
-                    <mat-icon>delete</mat-icon>
+                <button mat-icon-button color="primary" (click)="goStudyCase(row.codigoMateria)">
+                    <mat-icon>assignment</mat-icon>
                 </button>
             </td>
           </ng-container>
@@ -62,4 +60,3 @@
       </button>
     </div>
   </div>
-  

@@ -72,24 +72,3 @@
     background-color: #00508c;
     color: #fff;
   }
-  
-  .addUser-btn {
-    display: inline-block;
-    margin-top: 5px;
-    padding: 10px 25px;
-    background-color: var(--color-primary);
-    border: 1px solid #00508c;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 25px;
-    text-align: center;
-    transition: background-color 0.3s, color 0.3s;
-    width: auto;
-    font-size: 18px;
-  }
-  
-  .addUser-btn:hover {
-    background-color: #00508c;
-    color: #fff;
-  }
-  

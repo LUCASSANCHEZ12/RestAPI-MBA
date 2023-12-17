@@ -84,7 +84,7 @@ export class AdminProgramasService {
     }
   }
   addCase(data: CasoEstudio): Observable <CasoEstudio> {
-    const path = this.api + "/create";
+    const path = "http://24.144.89.34:8080/MBA/cde/create/cde";
     console.log(path);
     try {
       const response = this.http.post<CasoEstudio>(path,data);
@@ -108,7 +108,7 @@ export class AdminProgramasService {
     }
   }
   getAllCases(): Observable<CasoEstudio[]>{
-    const path = this.api + "/getall";
+    const path = "http://24.144.89.34:8080/MBA/cde/getall";
     console.log(path);
     try{
       const response = this.http.get<CasoEstudio[]>(path);

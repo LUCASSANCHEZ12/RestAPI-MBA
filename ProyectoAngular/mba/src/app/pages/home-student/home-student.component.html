@@ -38,7 +38,7 @@
 						</a>
 					</article>
 					<article class="options_item" id="materias">
-						<a href="subjectsStudent.html">
+						<a [routerLink]="['/materiasEstudiante']" [queryParams]="{ id: userId }">
 							<div class="options_img options_img_materia"></div>
 							<div class="options_hover">
 								<h2 class="options_title">Ver materias</h2>

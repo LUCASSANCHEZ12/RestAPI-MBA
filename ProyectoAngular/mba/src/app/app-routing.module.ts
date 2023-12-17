@@ -13,6 +13,13 @@ import { CrearCasosEstudioComponent } from './pages/crear-editar-casos-estudio/c
 import { VerCasosEstudioComponent } from './pages/ver-casos-estudio/ver-casos-estudio.component';
 import { AdminMateriasComponent } from './pages/admin-materias/admin-materias.component';
 import { CrearEditarMateriasComponent } from './pages/crear-editar-materias/crear-editar-materias.component';
+import { MateriasEstudianteComponent } from './pages/materias-estudiante/materias-estudiante.component';
+import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estudiantes.component';
+import { SolucionCasoEstudianteComponent } from './pages/solucion-caso-estudiante/solucion-caso-estudiante.component';
+import { MateriasDocenteComponent } from './pages/materias-docente/materias-docente.component';
+import { CasosDocentesComponent } from './pages/casos-docentes/casos-docentes.component'
+import { SolucionCasoDocenteComponent } from './pages/solucion-caso-docente/solucion-caso-docente.component';
+import { CalificarSolucionComponent } from './pages/calificar-solucion/calificar-solucion.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -21,13 +28,20 @@ const routes: Routes = [
   { path: 'homeTeacher', component: HomeTeacherComponent },
   { path: 'crudUser', component: CrudUserComponent},
   { path: 'profile', component: ProfileComponent},
-  {path: 'adminProgramas', component : AdminProgramasComponent},
-  {path: 'createProgram', component : CrearProgramaComponent},
-  {path: 'createMateria', component : AgregarMateriaComponent},
-  {path: 'crearCasosEstudio', component : CrearCasosEstudioComponent},
-  {path: 'verCasosEstudio', component: VerCasosEstudioComponent},
+  { path: 'adminProgramas', component : AdminProgramasComponent},
+  { path: 'createProgram', component : CrearProgramaComponent},
+  { path: 'createMateria', component : AgregarMateriaComponent},
+  { path: 'crearCasosEstudio', component : CrearCasosEstudioComponent},
+  { path: 'verCasosEstudio', component: VerCasosEstudioComponent},
+  { path: 'materiasEstudiante', component: MateriasEstudianteComponent},
+  { path: 'casosEstudiante', component: CasosEstudiantesComponent},
+  { path: 'solucionCasoEstudiante', component: SolucionCasoEstudianteComponent},
+  { path: 'materiasDocente', component: MateriasDocenteComponent},
+  { path: 'casosDocente', component: CasosDocentesComponent},
+  { path: 'solucionCasoDocente', component: SolucionCasoDocenteComponent},
+  { path: 'calificarSolucion', component: CalificarSolucionComponent},
   {path: 'adminMaterias', component: AdminMateriasComponent},
-  {path: 'crearMaterias', component: CrearEditarMateriasComponent},
+  {path: 'crearMaterias', component: CrearEditarMateriasComponent}
 ];
 
 @NgModule({

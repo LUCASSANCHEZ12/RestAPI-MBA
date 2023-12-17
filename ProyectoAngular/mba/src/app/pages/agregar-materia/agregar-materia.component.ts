@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Materia } from '../../interfaces/materia';
 import { AdminProgramasService } from '../../services/admin-programas.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -10,6 +10,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./agregar-materia.component.css']
 })
 export class AgregarMateriaComponent {
+  userId: string = "";
   public codigo: string;
   public nombre: string;
   public descripcion: string;
@@ -32,7 +33,10 @@ export class AgregarMateriaComponent {
   @ViewChild('descInput') descInput!: ElementRef<HTMLInputElement>;
   @ViewChild('semesterInput') semesterInput!: ElementRef<HTMLInputElement>;
 
-  constructor(private programService: AdminProgramasService, private router: Router, private datePipe: DatePipe) {
+  constructor(private programService: AdminProgramasService, private router: Router, private datePipe: DatePipe, private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      this.userId = params['id'];
+    });
     this.codigo = '';
     this.nombre = '';
     this.descripcion = '';
@@ -71,7 +75,7 @@ export class AgregarMateriaComponent {
   }
 
   back() {
-    this.router.navigate(['/adminProgramas'], { queryParams: {} });
+    this.router.navigate(['/adminProgramas'], { queryParams: { id: this.userId } });
   }
 
   getPost() {
