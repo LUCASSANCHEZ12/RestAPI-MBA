@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserStudyCaseComponent } from '../user-study-case/user-study-case.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SolutionService } from '../../services/solution.service';
 import { SolucionCasoEstudio } from '../../interfaces/solucionCasoEstudio';
 import { UserAddStudyCaseComponent } from '../user-add-study-case/user-add-study-case.component';
@@ -35,7 +35,7 @@ export class SolucionCasoEstudianteComponent {
 
   public solutionTuple: SolutionTuple | null = null;
 
-  constructor(private _fb: FormBuilder, private _dialog: MatDialog, private route: ActivatedRoute, private solutionService: SolutionService, private _coreService: CoreService){
+  constructor(private _fb: FormBuilder, private _dialog: MatDialog, private route: ActivatedRoute, private solutionService: SolutionService, private _coreService: CoreService, private router: Router){
     this.route.queryParams.subscribe(params => {
       this.userId = params['id'];
       this.studyCaseId = params['studyCase'];
@@ -97,6 +97,10 @@ export class SolucionCasoEstudianteComponent {
     }
   }
 
+  goBack(): void {
+    this.router.navigate(['/casosEstudiante'], { queryParams: { id: this.userId, materia: this.materiaId } });
+  }
+
   sendSolutionData() {
     console.log("ANTECEDENTES"+ this.antecedentes);
     console.log(this.usuariosInvolucrados);
@@ -128,4 +132,5 @@ export class SolucionCasoEstudianteComponent {
       this.textBoxesBloqueados = true;
     });
   }
+  
 }
