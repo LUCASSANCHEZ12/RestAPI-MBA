@@ -72,7 +72,7 @@ export class AdminProgramasService {
     }
   }
   updateCase(user: CasoEstudio): Observable<CasoEstudio> {
-    const path = this.api + "/update";
+    const path = " http://24.144.89.34:8080/MBA/cde/update";
     console.log(path);
     try {
       const response = this.http.put<CasoEstudio>(path,user);
@@ -95,8 +95,8 @@ export class AdminProgramasService {
       throw error;
     }
   }
-  deleteCase(id: string): Observable<CasoEstudio>{
-    const path = this.api + "/delete/" + id;
+  deleteCase(id: BigInt): Observable<CasoEstudio>{
+    const path =" http://24.144.89.34:8080/MBA/cde/delete/" + id;
     console.log(path);
     try{
       const response = this.http.delete<CasoEstudio>(path);

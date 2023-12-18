@@ -22,7 +22,7 @@ export class CrearCasosEstudioComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _coreService: CoreService,){
       this.caseForm = this._fb.group({
-        codigoCasoDeEstudio:'',
+        codigoCasoEstudio:'',
         nombre: '',
         descripcion: '',
         codigoMateria: '',
@@ -34,6 +34,8 @@ export class CrearCasosEstudioComponent {
   onFormSubmit(){
     if(this.caseForm.valid) {
       if(this.data){
+        console.log("ENTRANDO A UPDATE");
+        console.log(this.caseForm.value);
         this._AdminService.updateCase(this.caseForm.value).subscribe({
           next: (val: any) => {
             this._coreService.openCustomSnackBar('Caso actualizado correctamente!')

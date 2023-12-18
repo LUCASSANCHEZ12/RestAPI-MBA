@@ -1,6 +1,6 @@
 export interface CasoEstudio {
-    codigoCasoDeEstudio: string;
+    codigoCasoEstudio: BigInt;
+    codigoMateria: string;
     nombre: string;
     descripcion: string;
-    codigoMateria: string;
 }

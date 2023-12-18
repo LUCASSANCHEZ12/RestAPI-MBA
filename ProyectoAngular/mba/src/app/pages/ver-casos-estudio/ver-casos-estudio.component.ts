@@ -72,7 +72,7 @@ export class VerCasosEstudioComponent {
     })
   }
 
-  deleteCase(id: string) {
+  deleteCase(id: BigInt) {
     this._adminService.deleteCase(id).subscribe({
       next: (res) => {
         this._coreService.openCustomSnackBar("Caso eliminado correctamente!");
@@ -93,7 +93,6 @@ export class VerCasosEstudioComponent {
     const dialogRef = this._dialog.open(CrearCasosEstudioComponent, {
     data,
     });
-    
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
@@ -102,4 +101,5 @@ export class VerCasosEstudioComponent {
       },
     });
   }
+  
 }
