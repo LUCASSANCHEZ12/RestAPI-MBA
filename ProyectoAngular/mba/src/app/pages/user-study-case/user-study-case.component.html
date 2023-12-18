@@ -1,18 +1,13 @@
 <div mat-dialog-title>
-    <h1>Formulario de Usuarios</h1>
+    <h1>Ver compañeros</h1>
 </div>
-<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+<form (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content class="content">
         <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label>Compañeros</mat-label>
-                <input matInput type="text" placeholder="Ej. Roberto" name="firstName">
-            </mat-form-field>
+            <p *ngFor="let nombre of nombres">{{ nombre }}</p>
         </div>
     </div>
     <div mat-dialog-actions class="action">
-        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
-        <button mat-raised-button color="primary" type="submit" [ngStyle]="{'background-color': '#05165b', 'color': 'white'}" >{{data ? 'Actualizar': 'Guardar' }}</button>
-
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cerrar</button>
     </div>
 </form>

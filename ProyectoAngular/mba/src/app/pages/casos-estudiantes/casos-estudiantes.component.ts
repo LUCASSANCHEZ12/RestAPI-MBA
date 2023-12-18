@@ -76,6 +76,6 @@ export class CasosEstudiantesComponent {
   }
 
   goSolutionStudyCase(idStudyCase: string){
-    this.router.navigate(['/solucionCasoEstudiante'], { queryParams: { id: this.userId, studyCase:  idStudyCase} });
+    this.router.navigate(['/solucionCasoEstudiante'], { queryParams: { id: this.userId, studyCase:  idStudyCase, materia: this.materiaId} });
   }
 }
