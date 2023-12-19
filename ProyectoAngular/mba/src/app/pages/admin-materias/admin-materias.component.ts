@@ -70,12 +70,7 @@ export class AdminMateriasComponent {
   }
 
   deleteCase(id: string) {
-    this._adminService.deleteCase(id).subscribe({
-      next: (res) => {
-        this._coreService.openCustomSnackBar("Materia eliminada correctamente!");
-        this.getMateriasAll();
-      }
-    })
+
   }
 
   applyFilter(event: Event) {
