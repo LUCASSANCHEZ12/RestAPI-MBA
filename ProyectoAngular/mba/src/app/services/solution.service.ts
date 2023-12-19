@@ -56,4 +56,18 @@ export class SolutionService {
       throw error;
     }
   }
+
+  getSolutionByID(idSol: string): Observable<SolucionCasoEstudio>{
+    const path = this.api + "/get/solucion/" + idSol
+    console.log('URL solicitada:', path);
+    console.log(path);
+    try{
+      const response = this.http.get<SolucionCasoEstudio>(path);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      throw error;
+    }
+  }
 }

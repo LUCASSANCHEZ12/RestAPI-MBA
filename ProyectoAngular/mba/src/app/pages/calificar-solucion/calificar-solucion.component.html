@@ -1,14 +1,75 @@
 <div class="newUser">
-    <div class="lineYellow">
-      <mat-toolbar class="title">    
-          <span>Calificar Solución de Caso de Estudio</span>
-          <span class="example-spacer"></span>
-      </mat-toolbar>
-    </div>
+  <div class="lineYellow">
+    <mat-toolbar class="title">    
+        <span>Solución de Caso de Estudio </span>
+        <span class="example-spacer"></span>    
+    </mat-toolbar>
+  </div>
 
-    <div class="main-body">
+  <div class="main-body">
+      <form class="example-form">
+        <div *ngIf="nombres.length > 0">
+          <p>Integrantes:</p>
+          <p *ngFor="let nombre of nombres">{{ nombre }}</p>
+        </div>
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Antecedentes</mat-label>
+              <textarea matInput [(ngModel)]="antecedentes" name="antecedentes" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ antecedentes }}</textarea>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Diagnóstico</mat-label>
+              <textarea matInput [(ngModel)]="diagnostico" name="diagnostico" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ diagnostico }}</textarea>
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Actores y Objetivos</mat-label>
+              <textarea matInput [(ngModel)]="actoresObjetivos" name="actoresObjetivos" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ actoresObjetivos }}</textarea>
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Problema Central</mat-label>
+              <textarea matInput [(ngModel)]="problemaCentral" name="problemaCentral" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ problemaCentral }}</textarea>
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Alternativas</mat-label>
+              <textarea matInput [(ngModel)]="alternativas" name="alternativas" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ alternativas }}</textarea>
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Pros</mat-label>
+              <textarea matInput [(ngModel)]="pros" name="pros" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ pros }}</textarea>
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Contras</mat-label>
+              <textarea matInput [(ngModel)]="contras" name="contras" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ contras }}</textarea>
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Plan de Acción</mat-label>
+              <textarea matInput [(ngModel)]="planAccion" name="planAccion" [ngModelOptions]="{standalone: true}" [disabled]="solutionId !== '' || textBoxesBloqueados">{{ planAccion }}</textarea>
+          </mat-form-field>
+      </form>
+       
       <button (click)="goBack()" class="back-btn">
-        Volver
+          Volver
       </button>
-    </div>
+
+  </div>
+
+  <div class="rating-input">
+    <input type="number" [(ngModel)]="calificacion" name="calificacion" placeholder="Ingrese calificación">
+    <button (click)="sendCalification()" class="send-rating-btn">
+      Enviar Calificación
+    </button>
+  </div>
 </div>

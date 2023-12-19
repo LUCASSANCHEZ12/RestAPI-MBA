@@ -154,3 +154,8 @@
     background-color: #00508c;
     color: #fff;
   }
+
+  textarea:disabled {
+    color: #000000;
+    background-color: transparent;
+  }
