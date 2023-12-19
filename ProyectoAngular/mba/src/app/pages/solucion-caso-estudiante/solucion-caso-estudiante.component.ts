@@ -124,7 +124,6 @@ export class SolucionCasoEstudianteComponent {
 
     console.log(this.solutionTuple);
     
-
     this.solutionService.createSolution(this.solutionTuple).subscribe((response) => {
       console.log("Respuesta del servidor crear solucion:");
       console.log(response);
