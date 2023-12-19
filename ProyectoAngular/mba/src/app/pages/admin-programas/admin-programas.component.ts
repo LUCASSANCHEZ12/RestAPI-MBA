@@ -5,6 +5,8 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { AdminProgramasService } from '../../services/admin-programas.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ControlContainer } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { CrearEditarProgramasComponent } from '../crear-editar-programas/crear-editar-programas.component';
 
 @Component({
   selector: 'app-admin-programas',
@@ -16,7 +18,7 @@ export class AdminProgramasComponent implements AfterViewInit{
 
   userId: string = "";
 
-  constructor(private adminServirce: AdminProgramasService, private router: Router, private route: ActivatedRoute){
+  constructor(private adminServirce: AdminProgramasService, private router: Router, private route: ActivatedRoute, private _dialog: MatDialog,){
     this.dataSource = new MatTableDataSource<any>();
     this.route.queryParams.subscribe(params => {
       this.userId = params['id'];
@@ -48,6 +50,20 @@ export class AdminProgramasComponent implements AfterViewInit{
     })
   }
 
+  openEditCaseForm(data: any) {
+    const dialogRef = this._dialog.open(CrearEditarProgramasComponent, {
+    data,
+    });
+    
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getProgramsList();
+        }
+      },
+    });
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -63,7 +79,7 @@ export class AdminProgramasComponent implements AfterViewInit{
     this.router.navigate(['/createProgram'], { queryParams: { id: this.userId } });
   }
   crearMaterias(){
-    this.router.navigate(['/createMateria'], { queryParams: { id: this.userId } });
+    this.router.navigate(['/adminMaterias'], { queryParams: { id: this.userId } });
   }
   crearCasosEstudio(){
     this.router.navigate(['/verCasosEstudio'], { queryParams: {id: this.userId} });

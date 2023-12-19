@@ -32,6 +32,9 @@ import { DatePipe } from '@angular/common';
 import { CustomSnackbarComponent } from './pages/custom-snackbar/custom-snackbar.component';
 import { CrearCasosEstudioComponent } from './pages/crear-editar-casos-estudio/crear-casos-estudio.component';
 import { VerCasosEstudioComponent } from './pages/ver-casos-estudio/ver-casos-estudio.component';
+import { AdminMateriasComponent } from './pages/admin-materias/admin-materias.component';
+import { CrearEditarMateriasComponent } from './pages/crear-editar-materias/crear-editar-materias.component';
+import { CrearEditarProgramasComponent } from './pages/crear-editar-programas/crear-editar-programas.component';
 import { CasosEstudiantesComponent } from './pages/casos-estudiantes/casos-estudiantes.component';
 import { MateriasEstudianteComponent } from './pages/materias-estudiante/materias-estudiante.component';
 import { SolucionCasoEstudianteComponent } from './pages/solucion-caso-estudiante/solucion-caso-estudiante.component';
@@ -60,6 +63,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     CustomSnackbarComponent,
     CrearCasosEstudioComponent,
     VerCasosEstudioComponent,
+    AdminMateriasComponent,
+    CrearEditarMateriasComponent,
+    CrearEditarProgramasComponent,
     CasosEstudiantesComponent,
     MateriasEstudianteComponent,
     SolucionCasoEstudianteComponent,

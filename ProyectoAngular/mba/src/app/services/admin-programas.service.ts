@@ -33,6 +33,18 @@ export class AdminProgramasService {
       throw error;
     }
   }
+  updateProgram(data: any) : Observable<any>{
+    const path = this.api + "/update";
+    console.log(path);
+    try {
+      const response = this.http.put<AdminProgramas>(path,data);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      throw error;
+    }
+  }
 
   addMaterias(id: string, data: Materia []): Observable<any> {
     const path = this.api + "/materia/asign/" + id;
@@ -52,6 +64,18 @@ export class AdminProgramasService {
     console.log(path);
     try {
       const response = this.http.post<AdminProgramas>(path,data);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      throw error;
+    }
+  }
+  updateMateria(data: any) : Observable<any>{
+    const path = this.api + "/materia/update";
+    console.log(path);
+    try {
+      const response = this.http.put<AdminProgramas>(path,data);
       console.log(response);
       return response;
     } catch (error) {
