@@ -45,6 +45,7 @@ import { CalificarSolucionComponent } from './pages/calificar-solucion/calificar
 import { UserStudyCaseComponent } from './pages/user-study-case/user-study-case.component';
 import { UserAddStudyCaseComponent } from './pages/user-add-study-case/user-add-study-case.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ChatbotComponent } from './pages/chatbot/chatbot.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     CalificarSolucionComponent,
     UserStudyCaseComponent,
     UserAddStudyCaseComponent,
+    ChatbotComponent,
   ],
   imports: [
     BrowserModule,

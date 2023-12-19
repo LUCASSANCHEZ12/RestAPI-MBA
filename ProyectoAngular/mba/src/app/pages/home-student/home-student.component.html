@@ -30,7 +30,7 @@
 				<h2 class="options_subtitle">Opciones</h2>
 				<div class="options_grid">
 					<article class="options_item">
-						<a href="chatbot.html">
+						<a [routerLink]="['/chatbot']" [queryParams]="{ id: userId }">
 							<div class="options_img options_img_chatbot"></div>
 							<div class="options_hover">
 								<h2 class="options_title">Chatear con chatbot</h2>
