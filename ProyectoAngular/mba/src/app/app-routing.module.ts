@@ -20,6 +20,7 @@ import { MateriasDocenteComponent } from './pages/materias-docente/materias-doce
 import { CasosDocentesComponent } from './pages/casos-docentes/casos-docentes.component'
 import { SolucionCasoDocenteComponent } from './pages/solucion-caso-docente/solucion-caso-docente.component';
 import { CalificarSolucionComponent } from './pages/calificar-solucion/calificar-solucion.component';
+import { ChatbotComponent } from './pages/chatbot/chatbot.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -41,7 +42,8 @@ const routes: Routes = [
   { path: 'solucionCasoDocente', component: SolucionCasoDocenteComponent},
   { path: 'calificarSolucion', component: CalificarSolucionComponent},
   {path: 'adminMaterias', component: AdminMateriasComponent},
-  {path: 'crearMaterias', component: CrearEditarMateriasComponent}
+  {path: 'crearMaterias', component: CrearEditarMateriasComponent},
+  {path: 'chatbot', component: ChatbotComponent}
 ];
 
 @NgModule({
