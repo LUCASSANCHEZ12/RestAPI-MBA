@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../interfaces/user';
 import { SolutionService } from '../../services/solution.service';
 import { SolucionCasoEstudio } from '../../interfaces/solucionCasoEstudio';
+import { CoreService } from '../../services/core/core.service';
 
 @Component({
   selector: 'app-calificar-solucion',
@@ -31,7 +32,8 @@ export class CalificarSolucionComponent{
   
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
+    private _coreService: CoreService, 
     private solutionService: SolutionService,
     private router: Router){
     this.route.queryParams.subscribe(params => {
@@ -59,6 +61,7 @@ export class CalificarSolucionComponent{
         this.solutionId = solution.codigoSolucion.toString()
         console.log("ID de solución:")
         console.log(this.solutionId)
+        console.log(solution)
       }
     });
 
@@ -93,5 +96,14 @@ export class CalificarSolucionComponent{
   sendCalification()
   {
     console.log(this.calificacion)
+    this.solutionService.qualify(this.calificacion.toString(), this.solutionId).subscribe({
+      next: (user) => {
+        console.log(user)
+        this._coreService.openCustomSnackBar("Solución calificada correctamente!");
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 }
