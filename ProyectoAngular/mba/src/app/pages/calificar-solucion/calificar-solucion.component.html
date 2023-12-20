@@ -64,12 +64,14 @@
           Volver
       </button>
 
+      <div class="rating-input">
+        <input type="number" [(ngModel)]="calificacion" name="calificacion" placeholder="Ingrese calificación">
+        <button (click)="sendCalification()" class="send-rating-btn">
+          Enviar Calificación
+        </button>
+      </div>
+
   </div>
 
-  <div class="rating-input">
-    <input type="number" [(ngModel)]="calificacion" name="calificacion" placeholder="Ingrese calificación">
-    <button (click)="sendCalification()" class="send-rating-btn">
-      Enviar Calificación
-    </button>
-  </div>
+  
 </div>

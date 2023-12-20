@@ -154,3 +154,38 @@ table {
   background-color: #00508c;
   color: #fff;
 }
+
+.send-rating-btn {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 10px 25px;
+  background-color: var(--color-primary);
+  border: 1px solid #00508c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+  width: 200px;
+  position: relative;
+  top: 0px; /* Mover hacia abajo */
+  left: 2vw; /* Mover hacia la izquierda */
+  font-size: 18px;
+}
+
+.send-rating-btn:hover {
+  background-color: #00508c;
+  color: #fff;
+}
+
+.rating-input {
+  position: relative;
+  top: -77px; /* Mover hacia abajo */
+  left: 30vw; /* Mover hacia la izquierda */
+  font-size: 18px;
+}
+
+.rating-input input {
+  /* Agrega estilos adicionales según sea necesario */
+  margin-left: 10px; /* Espacio entre el input y el botón */
+}
