@@ -70,4 +70,18 @@ export class SolutionService {
       throw error;
     }
   }
+
+  qualify(calificacion: string, idSol: string): Observable<any>{
+    const path = this.api + "/update/solucion/" + calificacion + "/" + idSol
+    console.log('URL solicitada:', path);
+    console.log(path);
+    try{
+      const response = this.http.put<any>(path,null);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+      throw error;
+    }
+  }
 }
