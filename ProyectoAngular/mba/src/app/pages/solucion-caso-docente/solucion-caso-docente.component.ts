@@ -95,6 +95,6 @@ export class SolucionCasoDocenteComponent implements OnInit {
   }
 
   goScoreSolutionSolutionStudyCase(idSolution: string){    
-    this.router.navigate(['/calificarSolucion'], { queryParams: { id: this.userId, studyCase: this.studyCaseId, solution:  idSolution} });
+    this.router.navigate(['/calificarSolucion'], { queryParams: { id: this.userId, studyCase: this.studyCaseId, solution:  idSolution, materia: this.materiaId} });
   }
 }

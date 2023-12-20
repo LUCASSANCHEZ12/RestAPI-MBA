@@ -13,6 +13,7 @@ export class CalificarSolucionComponent{
   userId: string = "";
   studyCaseId: string = "";
   solutionId: string = "";
+  materiaId: string = "";  
 
   antecedentes: string = "";
   diagnostico: string = "";
@@ -27,6 +28,7 @@ export class CalificarSolucionComponent{
   usuariosInvolucrados: User[] = [];
   nombres: string[] = [];
   textBoxesBloqueados: boolean = false;
+  
 
   constructor(
     private route: ActivatedRoute, 
@@ -36,6 +38,7 @@ export class CalificarSolucionComponent{
       this.userId = params['id'];
       this.studyCaseId = params['studyCase'];
       this.solutionId = params['solution'];
+      this.materiaId = params['materia'];
     });
 
     this.solutionService.getSolutionByID(this.solutionId)
@@ -63,7 +66,7 @@ export class CalificarSolucionComponent{
   };
 
   goBack(): void {
-    this.router.navigate(['/solucionCasoDocente'], { queryParams: { id: this.userId, studyCase:  this.studyCaseId, solucion: this.solutionId} });
+    this.router.navigate(['/solucionCasoDocente'], { queryParams: { id: this.userId, studyCase:  this.studyCaseId, solucion: this.solutionId, materia: this.materiaId} });
   }
 
   sendScore(): void {
